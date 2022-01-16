@@ -1,0 +1,207 @@
+body{
+      /*background: #EEF2F7;*/
+      /*background-image: url('92f0walf835746185.57029469c3a92.gif');*/
+      background-image: url('/../wall-img.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: none;
+      background-attachment: fixed;
+    }
+
+
+    .sidenav{
+      display: block;
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      transition: 0.5s;
+      overflow-x: hidden;
+      padding-top: 60px;
+    }
+
+    .sidenav a{
+      padding: 7px 7px 7px 27px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover{
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn{
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    @media screen and (min-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+
+    a.menu-btn{
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
+    a.menu-btn:focus{
+      content: '';
+      width: 20%;
+      height: 100%;
+      background: #0a0a09;
+      border: 1px solid #0297ad;
+    }
+
+    a.navbar-brand{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    span.header{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Dancinc Script', cursive;
+      text-align: middle;
+      letter-spacing: 3px;
+      font-style: bold;
+    }
+
+    a.back-btn{
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 10px;
+    }
+
+    li.nav-item a{
+      margin: 0px 15px;
+    }
+
+    div.card-header{
+      text-align: center;
+    }
+
+    div.card{
+      width: 20rem;
+      height: 808px;
+      z-index:  -1;
+      position: absolute;
+      margin: 10px 20px; 
+      right: 0px; 
+      top: 58px;
+      background: #111;
+      border: 1px solid grey;
+    }
+
+    div.card.shadow-lg.p-3.mb-5.bg-white.rounded{
+      width: 30rem; height: 38rem; position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); border: 1px solid grey; border-radius: 8px; padding: 10px;
+    }
+
+    div.input1{
+      display: flex;
+      justify-content: center;
+      padding: 0px, 10px; 
+      margin-bottom: 37px;
+    }
+
+    input.form-control1{
+      width: 75%; height: 38px; border-radius: 5px; border: 1px solid lightgray; letter-spacing: 2px; padding: 10px;
+    }
+
+    div.link- a, label{
+      display: block;
+      text-align: center;
+      padding: 0px 10px;
+      letter-spacing: 2px;
+      color: black;
+    }
+
+    footer{
+      width: 100%;
+      display: block;
+      height: fit-content;
+      /*text-shadow: 5px 3px 10px #141414;*/
+      background: #141414;
+      color: snow;
+    }
+
+    div.footer-div
+    {
+      /*background: white;*/
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    div.footer-div.icons-div{
+      flex: 1;
+      padding: 0px;
+    }
+
+    div.footer-div-icons{
+      flex-direction: column;
+      padding: 0px;
+    }
+
+    div.footer-div-span-head{
+      flex: 2.5;
+      padding: 75px 75px;
+    }
+
+    div.footer-div-span-head dt{
+      padding: 15px 0px;
+    }
+
+    div.footer-div-span-sub{
+      flex: 2.5;
+      text-align: center;
+      padding: 75px 75px;
+    }
+    div.footer-div-span-sub dt{
+      padding: 15px 0px;
+    }
+
+    div.footer-div-span{
+      flex: 1;
+      padding: 75px 75px 0px 75px;
+    }
+
+    div.footer-div-span.icons-div, .footer-div-span.icons-head{
+      flex: 1;
+      text-align: center;
+    }
+
+    div.footer-div-img{
+      flex: 1;
+      text-align: center;
+      padding: 25px 25px;
+    }
+    
+    div.footer-div-span a{
+      text-decoration: none;
+      color: snow;
+    }
+
+    div.footer-div-span h4{
+      padding-bottom: 15px;
+    } 
+
+    div.footer-div-span h6{
+      text-align: center;
+    }
+
+    div.footer-div-span dt{
+      padding: 10px 0px;
+    }

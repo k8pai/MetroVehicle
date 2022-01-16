@@ -1,0 +1,330 @@
+/*//common css styles for metro vehicles!*/
+/*//designed by k8pai*/
+
+	body{
+      background-image: url('img/wall-img2.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .sidenav{
+      display: block;
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #04a0b9;
+      transition: 0.5s;
+      overflow-x: hidden;
+    }
+
+    .sidenav a{
+      padding: 10px 7px 7px 27px;
+      text-decoration: none;
+      text-shadow: 2px 3px 4px #818181;
+      font-size: 25px;
+      color: #222;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover{
+      color: #f1f1f1;
+    }
+
+    .closebtn-div{
+      height: 60px;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 20px;
+    }
+
+    .sidenav .closebtn{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-size: 40px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+      .content-containers {flex-direction: column;}
+    }
+
+    @media screen and (max-width: 450px){
+      .content-containers {flex-direction: column;}
+    }
+
+    nav.navbar{
+      display: flex;
+      justify-content: space-between;
+      align-content: baseline;
+      font-family: 'monospace;', cursive;
+      box-shadow: 0px 7px 10px #141414;
+      height: 60px;
+      padding: 25px;
+      border-radius: 0px 0px 5px 5px;
+      background: #21211f;
+    }
+
+    nav a{
+      cursor: pointer;
+    }
+
+    li.nav-item{
+      padding: 0px 10px; 
+      margin: 0px 25px;
+      display: flex;
+      justify-items: left;
+      font-family: 'Dancing Script', cursive;
+      font-size: 20px;
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+
+    li.nav-item a{
+      margin: 0px 15px;
+    }
+
+    div.section{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    div.container{
+      width: fit-content;
+      display: flex;
+      margin: auto;
+      margin-bottom: 100px;
+    }
+
+    .container.mt-210{
+      margin-top: 210px;
+    }
+    .container.mt-100{
+      margin-top: 150px;
+    }
+
+    div.container{
+      width: fit-content;
+      display: flex;
+      margin: auto;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    div.content-containers{
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+    }
+
+    div.img-box{
+      flex: 1;
+      position: relative;
+      margin: auto;    }
+
+    div.text-box{
+      flex: 1;
+      margin: auto;
+      padding: 0px 80px;
+      letter-spacing: 2px;
+      word-spacing: 7px;
+      font-size: 20px;
+      font-family: monospace;
+    }
+
+    div.text-box h1{
+      padding: 10px;
+      font-size: 48px;
+      font-family: cursive sans-serif;
+    }
+    div.text-box p{
+      padding: 25px 30px; 
+
+    }
+
+
+    div.content-containers img{
+      border: 3px solid;
+      transition: 0.6s;
+    }
+
+    div.carousel-item{
+      overflow:  hidden;
+      max-height: 420px;
+      max-width: 650;
+      transition: visibility 0s 2s, opacity 2s ease out;
+    }
+
+    div.card-header{
+      text-align: center;
+      border: 1px solid #576765;
+      border-bottom: none;
+    }
+
+    div.card-body{
+      padding: 30px 15px;
+      border: 1px solid #576765;
+    }
+
+    button.btn{
+      display: flex;
+      margin: auto;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      border-color: whitesmoke;
+      color: whitesmoke;
+    }
+
+    div.input1{
+      padding: 20px 25px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    select.form-select, input.form-control{
+      border-radius: 7px;
+      width: 75%;
+      border: 1px solid #141414;
+    }
+
+    textarea.form-control.shadow-lg{
+      border-radius: 7px;
+      width: 80%;
+      border: 1px solid #141414;
+    }
+
+    input.form-control.btn.shadow-lg{
+			letter-spacing: 5px; 
+			transition: 0.4s; 
+			margin: 20px; 
+			width: fit-content; 
+			border-radius: 7px; 
+			border: 1px solid;
+    }
+
+    input.form-control.btn.shadow-lg:hover{
+      transition: 0.4s;
+      color: snow;
+      background-color: #04a0b9;
+      border: 1px solid #04a0b9;
+    }
+
+    div.form-check.form-check-inline.pointer.bg-light{
+      width: 150px;
+      padding: 7px 30px;
+      display: flex;
+      border: 1px solid;
+      border-radius: 8px;
+    }
+
+    label.label-radio-btn:hover{
+      cursor: pointer;
+    }
+
+    label.form-check-label{
+      margin: auto;
+    }
+
+    tr{
+      border-radius: 9px;
+    }
+
+    i.fas.fa-user-circle{
+      cursor: pointer;
+      font-size: 32px;
+    }
+    i.fas.fa-edit{
+      cursor: pointer;
+      font-size: 32px;
+    }
+
+    a.none-btn{
+      text-decoration: none;
+      color: whitesmoke;
+    }
+
+    footer{
+      width: 100%;
+      display: block;
+      height: fit-content;
+      /*text-shadow: 5px 3px 10px #141414;*/
+      background: #141414;
+      color: snow;
+    }
+
+    div.footer-div
+    {
+      /*background: white;*/
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    div.footer-div.icons-div{
+      flex: 1;
+      padding: 0px;
+    }
+
+    div.footer-div-icons{
+      flex-direction: column;
+      padding: 0px;
+    }
+
+    div.footer-div-span-head{
+      flex: 2.5;
+      padding: 75px 75px;
+    }
+
+    div.footer-div-span-head dt{
+      padding: 15px 0px;
+    }
+
+    div.footer-div-span-sub{
+      flex: 2.5;
+      text-align: center;
+      padding: 75px 75px;
+    }
+    div.footer-div-span-sub dt{
+      padding: 15px 0px;
+    }
+
+    div.footer-div-span{
+      flex: 1;
+      padding: 75px 75px 0px 75px;
+    }
+
+    div.footer-div-span.icons-div, .footer-div-span.icons-head{
+      flex: 1;
+      text-align: center;
+    }
+
+    div.footer-div-img{
+      flex: 1;
+      text-align: center;
+      padding: 25px 25px;
+    }
+    
+    div.footer-div-span a{
+      text-decoration: none;
+      color: snow;
+    }
+
+    div.footer-div-span h4{
+      padding-bottom: 15px;
+    } 
+
+    div.footer-div-span h6{
+      text-align: center;
+    }
+
+    div.footer-div-span dt{
+      padding: 10px 0px;
+    }

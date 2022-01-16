@@ -1,0 +1,159 @@
+/*//common css styles for metro vehicles!*/
+/*//designed by k8pai*/
+
+	body{
+      background-image: url('img/wall-img2.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .sidenav{
+      display: block;
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #04a0b9;
+      transition: 0.5s;
+      overflow-x: hidden;
+    }
+
+    .sidenav a{
+      padding: 10px 7px 7px 27px;
+      text-decoration: none;
+      text-shadow: 2px 3px 4px #818181;
+      font-size: 25px;
+      color: #222;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover{
+      color: #f1f1f1;
+    }
+
+    .closebtn-div{
+      height: 60px;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 20px;
+    }
+
+    .sidenav .closebtn{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-size: 40px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+
+    nav.navbar{
+      display: flex;
+      justify-content: space-between;
+      align-content: baseline;
+      font-family: 'monospace;', cursive;
+      box-shadow: 0px 7px 10px #141414;
+      height: 60px;
+      padding: 25px;
+      border-radius: 0px 0px 5px 5px;
+      background: #21211f;
+    }
+
+    nav a{
+      cursor: pointer;
+    }
+
+    li.nav-item{
+      padding: 0px 10px; 
+      margin: 0px 25px;
+      display: flex;
+      justify-items: left;
+      font-family: 'Dancing Script', cursive;
+      font-size: 20px;
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+
+    li.nav-item a{
+      margin: 0px 15px;
+    }
+
+    div.section{
+      min-height: 96vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    div.container{
+      width: fit-content;
+      display: flex;
+      margin: auto;
+      margin-top: 210px;
+      margin-bottom: 100px;
+    }
+
+    div.card-header{
+      text-align: center;
+      border: 1px solid #576765;
+      border-bottom: none;
+    }
+
+    div.card-body{
+      padding: 15px;
+      border: 1px solid #576765;
+    }
+
+    button.btn{
+      display: flex;
+      margin: auto;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      border-color: whitesmoke;
+      color: whitesmoke;
+    }
+
+    div.input1{
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    select.form-select, input.form-control{
+      border-radius: 7px;
+      width: 75%;
+      /*background-color: #cbf0e9;*/
+      border: 1px solid #141414;
+    }
+
+    input.form-control.btn.shadow-lg:hover{
+      transition: 0.4s;
+      background-color: #04a0b9;
+      border: 2px solid #04a0b9;
+    }
+
+    footer{
+      width: 100%;
+      text-shadow: 5px 3px 10px #141414;
+      /*background: #141414;*/
+      color: #141414;
+    }
+
+    footer div{
+      width: 100%;
+      padding: 45px 0px;
+    }
+
+    footer div span{
+      padding: 8px;
+      margin: 0px 20px;
+      display: flex;
+      justify-content: center;
+    }
