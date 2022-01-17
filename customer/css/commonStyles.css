@@ -28,14 +28,15 @@
       margin-top: 60px;
       height: 0;
       width: 100%;
-      position: absolute;
+      position: fixed;
       z-index: 1;
-      transition: 0.5s;
+      transition: 0.4s ease out;
       overflow-y: hidden;
     }
 
     .dropHeader-div{
       display: flex;
+      justify-content: space-evenly;
       align-items: center;
       width: 100%;
     }
@@ -115,6 +116,13 @@
       cursor: pointer;
     }
 
+    span.nav-divider{
+      height: 100%; 
+      width: 1px; 
+      border: 1px solid white; 
+      margin: 0px 20px;
+    }
+
     li.nav-item{
       padding: 10px 10px; 
       margin: 0px 25px;
@@ -126,6 +134,16 @@
       border-radius: 5px;
     }
 
+    div.header-right{
+      right: 20px;
+      display: flex;
+      align-content: center;
+    }
+    
+    div.header-right a{
+      padding-left: 20px;
+    }
+
     .menu-btn{
       cursor: pointer;
     }
@@ -133,8 +151,6 @@
     li.nav-item a{
       margin: 0px 15px;
     }
-
-
 
     div.section{
       margin-top: 200px;
@@ -192,15 +208,22 @@
     }
     div.text-box p{
       padding: 25px 30px; 
-
     }
 
     /*div.content-containers img{
       border: 3px solid;
       transition: 0.6s;
     }*/
-    
 
+    form.form-cards{
+      text-align: center; 
+      font-family: 'Dancing Script', cursive; 
+      letter-spacing: 3px;
+    }
+
+    .btn.btn-outline-dark{
+      letter-spacing: 5px;
+    }
 
     div.carousel-item{
       overflow:  hidden;
@@ -237,7 +260,7 @@
 
     select.form-select, input.form-control{
       border-radius: 7px;
-      width: 75%;
+      width: 80%;
       border: 1px solid #141414;
     }
 
@@ -279,6 +302,67 @@
       margin: auto;
     }
 
+    /*registration page part*/
+    a.header{
+      text-decoration: none;
+      color: snow;
+    }
+
+    div.link-{
+      text-align: center;
+      color: black;
+      margin: 30px;
+    }
+    div.section-div{
+      /*margin-top: 210px;*/
+      transition: 0.5s;
+      min-height: 100vh;
+    }
+    div.section-container-div{
+      overflow: auto;
+      margin: 20px 20px 0px 20px;
+    }
+    
+    div.reg-card.bg-transparent{
+      float: left;
+      width: 80%;
+      border: none;
+    }
+
+    div.reg-form-card{
+      width: 35rem; 
+      margin: auto; 
+      border: 1px solid grey; 
+      border-radius: 6px; 
+      padding: 10px; 
+      margin-top: 120px;
+    }
+    div.log-form-card{
+      width: 30rem;margin: auto; 
+      border: 1px solid grey; 
+      border-radius: 6px; 
+      padding: 10px; 
+      margin-top: 120px;
+    }
+
+    div.add-card.text-white.bg-dark.shadow-lg{
+      width: 20%;
+      float: left;
+      height: 1000px;
+      border-radius: 8px;
+    }
+    div.add-card.text-white.bg-dark div{
+      height: inherit;
+      border-radius: 8px;
+    }
+    /*specifics ends*/
+
+    div.link- a{
+      padding: 10px;
+      letter-spacing: 2px;
+      color: black;
+    }
+
     tr{
       border-radius: 9px;
     }
@@ -294,7 +378,7 @@
 
     a.none-btn{
       text-decoration: none;
-      color: whitesmoke;
+      color: snow;
     }
 
     div.head-pointer{
@@ -312,6 +396,7 @@
       background: #141414;
       color: snow;
       z-index: 2;
+      margin-top: 50px;
     }
 
     div.footer-div
@@ -435,6 +520,16 @@
   .dropHeader-div a{
     display: block;
   }
+
+  /*registration body part*/
+  div.reg-card.bg-transparent{ 
+    width: 100%; 
+    margin-bottom: 60px;
+  }
+  div.add-card.text-white.bg-dark.shadow-lg{ 
+    width: 100%; 
+    height: fit-content;
+  }
 }
 
 @media only screen and (max-width: 768px){
@@ -451,6 +546,15 @@
   }
   div.text-box-container{
     width: 100%;
+  }
+
+  /*registration header nav bar*/
+  div.dropHeader-div{
+    display: block;
+    text-align: center;
+  }
+  div.dropHeader-div a{
+    padding: 15px;
   }
 }
 @media only screen and (max-width: 620px)

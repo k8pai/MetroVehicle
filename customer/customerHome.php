@@ -78,7 +78,6 @@
                       <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">Stations and more 
                       <img id="img-div" src="icons8/icons8-sort-down-24.png">
                       </label>
-                      <!-- <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="icons8/icons8-name-tag-48"></button> -->
                       <a href="profile.php"><img src="icons8/icons8-user-48.png"></a>
                     </div>
                   </nav>

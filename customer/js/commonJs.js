@@ -23,7 +23,8 @@ function dropMenu() {
     {
       openNav();
     }
-    document.getElementById("dropMenu").style.height = "160px";
+    document.getElementById("dropMenu").style.height = "fit-content";
+    document.getElementById("section").style.marginTop = "160px";
     // document.getElementById("section").style.overflow-y = "hidden";
     drop++;
   }

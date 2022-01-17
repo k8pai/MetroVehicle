@@ -1,3 +1,6 @@
+<?php 
+  date_default_timezone_set('Asia/Kolkata');
+ ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,117 +18,7 @@
     <!-- Favicon icon -->
     <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
     <title>Home Page</title>
-    <style type="text/css">
-
-    body{
-      scroll-behavior: smooth;
-      background-image: url('wall-img2.png');      
-      /*background-image: url('sample-img3.jpg');*/
-      /*background-image: url('92f0f835746185.57029469c3a92.gif');*/
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-    .sidenav{
-      display: block;
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: #04a0b9;
-      transition: 0.5s;
-      overflow-x: hidden;
-    }
-
-    .sidenav a{
-      padding: 10px 7px 7px 27px;
-      text-decoration: none;
-      text-shadow: 2px 3px 4px #818181;
-      font-size: 25px;
-      color: #222;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidenav a:hover{
-      color: #f1f1f1;
-    }
-
-    .closebtn-div{
-      height: 70px;
-      display: flex;
-      justify-content: flex-end;
-      margin-right: 20px;
-    }
-
-    .sidenav .closebtn{
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      font-size: 40px;
-    }
-
-    @media screen and (max-height: 450px) {
-      .sidenav {padding-top: 15px;}
-      .sidenav a {font-size: 18px;}
-    }
-
-    nav.navbar{
-      display: flex;
-      justify-content: space-between;
-      align-content: baseline;
-      /*font-family: 'Dancinc Script', cursive;*/
-      height: 70px;
-      padding: 25px;
-      border-radius: 0px 0px 5px 5px;
-      background: #21211f;
-    }
-
-    nav a{
-      cursor: pointer;
-    }
-
-    div.container{
-      display: flex;
-      margin: auto;
-      justify-content: space-between;
-      margin-top: 500px;
-      color: whitesmoke;
-      border-color: whitesmoke;
-    }
-    
-    /*a{
-      text-decoration: none;
-      color: whitesmoke;
-      font-family: 'Dancing Script' cursive;
-    }*/
-
-    a button:hover{
-      color: lightseagreen;
-      transition: 0.4s;
-    }
-
-    button{
-      width: 250px;
-      height: 50px;
-      /*border-color: whitesmoke;*/
-      /*color: whitesmoke;*/
-    }
-
-    div.card{
-      margin:  10px 20px;
-    }
-
-    .card-text{
-      background:  transparent;
-    }
-
-    div.section{
-      transition: .6s;
-    }
-    </style>
+    <script src="js/registration.js"></script>
     <script>
       function goBack() {
         window.history.back();
@@ -150,30 +43,29 @@
 
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <div class="abc-1" style="height: 100%; width: 100%;">
-          <div class="abc-2"style="min-height: 100%; width: 100%; border: none;">
-                <div class="abc-3">
-                  <div id="mySidenav" class="sidenav shadow-lg">
-                    <div class="closebtn-div">
-                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    </div>
-                    <a href="index.php" >Home</a>
-                    <a href="viewticketRates.php">View Ticket Rates</a>
-                    <!-- <a href="viewStationsAndTiming.php">View Stations & Timings</a> -->
-                    <a href="invalid.php">Contact Us</a>
-                    <a href="invalid.php">Help</a>
-                    <a href="invalid.php">About Us</a>
-                  </div>
-                  <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-lg" style="margin: 0px 2px; border-bottom: 2px solid black;">
-                    <!-- <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_black_24dp.png"></a> -->
-                    <div class="header-sec">
-                    <span class="header" style=""><h3 style="vertical-align: center; margin-top: 7px;">Metro By Vehicles</h3></span>
-                      
-                    <a href="login.php"> Login </a>
-                    <a href="registration.php"> Sign Up</a>
-                    <a class="back-btn" onclick="goBack()"><img src="baseline_arrow_back_ios_black_24dp.png"></a>
-                    </div>
-                  </nav>
+  <div id="dropMenu" class="dropMenu bg-dark text-white">
+    <div class="dropHeader-div">
+      <a href="viewticketRates.php">View Ticket Rates</a>
+      <a href="invalid.php">Contact Us</a>
+      <a href="invalid.php">Help</a>
+      <a href="invalid.php">About Us</a>
+    </div>
+    <hr>
+  </div>
+  <nav class="navbar sticky-top text-white bg-dark">
+    <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">
+    <img src="baseline_menu_white_24dp.png">
+    </label>
+    <span class="nav-divider"></span>
+    <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
+    <span style="flex:1;"></span>
+    <div class="header-right">
+      <a class="none-btn" href="login.php"> Login </a>
+      <!-- <a class="link-" href="registration.php"> Sign Up</a> -->
+      <!-- <?php echo date('H:i:sa'); ?> -->
+      <a class="back-btn" onclick="goBack()"><img src="baseline_arrow_back_ios_white_24dp.png"></a>
+    </div>
+  </nav>
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
@@ -208,8 +100,8 @@
                 </div>
                 <a href="#footer">go down to footer</a>
                 <div class="container">
-                  <a href="registration.php"><button type="button" class="btn btn-outline-dark btn2">Sign Up</button></a>
-                  <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> Login </button>
+                  <!-- <a href="registration.php"><button type="button" class="btn btn-outline-dark btn2">Sign Up</button></a> -->
+                  <!-- <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> Login </button> -->
                   <!-- <a href="login.php"><button type="button" class="btn btn-outline-dark btn1">Login</button></a> -->
                 </div>
                 <div class="section" id="section" style="display: flex; justify-content: space-evenly; margin-top: 150px;">
@@ -324,13 +216,11 @@
           </div>
           <br>
           <hr>
-          <div class="footer-div">
+          <div id="footer" class="footer-div">
             <div class="footer-div-copy">
               <h6>&copy; 2021 Metro Vehicles ltd. All rights reserved</h6>
             </div>
           </div>
       </footer>        
-      </div>
-  </div>
 </body>
 </html>
