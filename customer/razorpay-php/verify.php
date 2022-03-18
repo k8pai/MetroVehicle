@@ -46,7 +46,11 @@ if ($success === true)
     $rate = $_SESSION['rate'];
     $fname = $_SESSION['fname'];
     $bookingId = $_SESSION['bookingId'];
-    $insquery="INSERT INTO `payment` (`bookingId`, `name`, `amount`, `paymentStatus`, `payment_id`) VALUES ('$bookingId', '$fname', '$rate', 'Successful', '$razorpay_payment_id');";
+    $selquery = "select * from reg where mail='".$_SESSION['cust']."'";
+    $res=$db->selectData($selquery);
+    $row=mysqli_fetch_array($res);
+    $regId = $row['regId'];
+    $insquery="INSERT INTO `payment` (`bookingId`, `regId`, `name`, `amount`, `paymentStatus`, `payment_id`) VALUES ('$bookingId', '$regId','$fname', '$rate', 'Successful', '$razorpay_payment_id');";
     $db->insertQuery($insquery);
 
     $updquery="update banda set paymentStatus='".$_SESSION['payment']."' where bookingId='".$_SESSION['bookingId']."'";

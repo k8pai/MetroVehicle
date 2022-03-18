@@ -104,221 +104,209 @@
     
     <script src="js/commonJs.js"></script>
   </head>
-    <body>
+  <body id="gototop">
 
    <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <div class="abc-1" style="height: 100%; width: 100%;">
-          <div class="abc-2"style="min-height: 100%; width: 100%; border: none;">
-              <div class="abc-3" style="background: transparent;">
-          <div id="mySidenav" class="sidenav bg-dark">
-                  <div class="closebtn-div">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                  </div>
-                  <a href="/customer/customerHome.php" >Home</a>
-                  <a href="/customer/ticketRates.php">Ticket Rates</a>
-                  <!-- <a href="stationsAndTiming.php">Stations & Timings</a> -->
-                  <a href="/customer/transportation.php">Transportation</a>
-                  <a href="/customer/ticketBooking.php">Booking</a>
-                  <a href="/customer/bookingdetails.php">Booking details</a>
-                  <a href="/customer/printTicket.php">E-Ticket</a>
-                  <a href="/customer/razorpay-php/pay.php">Payment</a>
-                  <a href="/customer/cancel.php">Cancel ticket</a>
-                  <a href="/customer/complaint.php">Complaint</a>
-                  <a href="/../logout.php">logout</a>
-                </div>
-                  <div id="dropMenu" class="dropMenu bg-dark text-light">
-                  <div class="dropHeader-div">
-                  <a href=""></a>
-                  <a href="/customer/ticketRates.php">Ticket Rates</a>
-                  <a href="/customer/transportation.php">Transportation</a>
-                  <a href="/customer/bookingdetails.php">Booking details</a>
-                  <a href="/customer/printTicket.php">E-Ticket</a>
-                  </div>
-                  <hr>
-                </div>
-                  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
-                    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
-                    <span style="height: 100%; width: 1px; border: 1px solid white; margin: 0px 20px;"></span>
-                    <span class="header" style="flex:1;"><h3>Metro By Vehicles</h3></span>
-                    <div class="header-right" style=" right: 20px;">
-                      <input type="checkbox" name="" id="drop-Menu" hidden>
-                      <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">Stations and more 
-                      <img id="img-div" src="icons8/icons8-sort-down-24.png">
-                      </label>
-                      <a href="customerHome.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
-                    </div>
-                  </nav>
-                </div>
-                <div class="section">
-                  <div class="container mt-210">
-                    <div class="content-container-card shadow-lg" style="height: fit-content; width: 450px; margin: auto; border-radius: 35px; background-image: url('wall-img2.png');overflow: hidden;">
-                        <h1 style=" margin: 0; text-align: center; width: 100%; padding: 20px; background: #cbf0e9;">MBV Ticket</h1>
-                        <div class="from-to-info" style="display: flex; justify-content: space-evenly; padding: 25px; margin: auto;">
-                            <table>
-                                <tr>
-                                    <th style="width: 100px;">
-                                        <div style="display: flex; flex-direction: column;">
-                                            <!-- <h2><?php echo $_SESSION['srcCode']; ?></h2> -->
-                                            <?php echo $_SESSION['pickLoc']; ?>                             
-                                        </div>
-                                    </th>
-                                    <th style="width: 100px;">
-                                        <img src="travel-guide.png" width="50px" height="50px" style="margin: 0px 3px;">
-                                    </th>
-                                    <th style="width: 100px;">
-                                        <div style="display: flex; flex-direction: column;">
-                                            <!-- <h2><?php echo $_SESSION['destCode']; ?></h2> -->
-                                            <?php echo $_SESSION['avlStation']; ?>                                    
-                                        </div>
-                                    </th>
-                                </tr>
-                            </table>
-                        </div>
-                        <br>
-                        <div style="display: flex; justify-content: space-around;">
-                            <div>
-                                <h4>Name of Customer : <?php echo " ".$_SESSION['fname']." ".$_SESSION['lname']; ?></h4>
-                                <h4>Number of passengers : <?php echo " ".$_SESSION['custcount']; ?></h4>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="ticket-info" style="display: flex; justify-content: space-evenly; text-align: center;">
-                            <div class="content-info">
-                                <h5>Ticket Info</h5>
-                                <p>Booked at  : <?php echo $_SESSION['start']; ?></p>
-                                <p>Valid till : <?php echo $_SESSION['expire']; ?></p>
-                            </div>
-                            <div class="content-info">
-                                <h5>Transport</h5>
-                                <p>Mode : <?php echo $_SESSION['transMode']; ?></p>
-                                <p>rate : <?php echo $_SESSION['rate']; ?></p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="ticket-info" style="display: flex; justify-content: space-evenly; text-align: center;">
-                            <div class="content-info">
-                                <h5>Booking Id</h5>
-                                <p>Id : <?php echo $_SESSION['bookingId']; ?></p>
-                            </div>
-                            <div class="content-info">
-                                <h5>OTP Info</h5>
-                                <p>OTP : <?php echo $_SESSION['randCode']; ?></p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="ticket-info" style="display: flex; justify-content: space-evenly; text-align: center;">
-                            <div class="content-info">
-                                <h5>Booking Details</h5>
-                                <p>Booking Status : <?php echo $_SESSION['bookingStatus']; ?></p>
-                                <p>Payment Status : <?php echo $_SESSION['paymentStatus']; ?></p>
-                            </div>
-                            <!-- <div class="content-info">
-                                <h5>Booking Status</h5>
-                                <p>Status : </p>
-                                <p><?php echo $_SESSION['bookingStatus']; ?></p>
-                            </div> -->
-                        </div>
-                        <br>
-                    </div>
-                  </div>
-                </div>
-              <div id="head-pointer" class="head-pointer">
-                <a href="#navbar"><img src="icons8/icons8-chevron-up-48"></a>
-              </div>
-              <footer>
-                <div class="footer-div">
-                  <div class="footer-div-img"><img src="icons8/icons8-mastercard-48"></div>
-                  <div class="footer-div-img"><img src="icons8/icons8-debit-card-48"></div>
-                  <div class="footer-div-img"><img src="icons8/icons8-discover-48"></div>
-                  <div class="footer-div-img"><img src="icons8/icons8-google-wallet-48"></div>
-                  <div class="footer-div-img"><img src="icons8/icons8-paytm-48"></div>
-                  <div class="footer-div-img"><img src="icons8/icons8-unionpay-48"></div>
-                  <div class="footer-div-img"><img src="icons8/icons8-visa-48"></div>
-                  <div class="footer-div-img"><img src="icons8/icons8-wallet-48"></div>
-                  <div class="footer-div-img"><img src="icons8/icons8-american-express-squared-48"></div>
-                  <div class="footer-div-img"><img src="icons8/icons8-stripe-48"></div>
-                </div>
-                <hr>
-                <div class="footer-div">
-                  <div class="footer-div-span-head">
-                    <h2> Metro By Vehicles </h2>
-                    <dt> Beauty, Charm, and Adventure. </dt>
-                    <dt> Here for the Future. </dt>
-                  </div>
-                  <div class="footer-div-span">
-                    <h4> Explore </h4>
-                    <dt><a href="index.php"> Home </a></dt>
-                    <dt><a href="about.php"> About </a></dt>
-                    <dt><a href="future.php"> Future </a></dt>
-                    <dt><a href="careers.php"> Careers </a></dt>
-                  </div>
-                  <div class="footer-div-span"> 
-                    <h4> Visit </h4> 
-                    <dl> Jawaharlal Nehru Stadium Metro Station, </dl>
-                    <dl>  4th Floor, Kaloor, Kochi, </dl>
-                    <dl> Kerala - 682017 </dl>
-                  </div>
-                  <div class="footer-div-span">
-                    <h4> Contact </h4> 
-                      <dl> Metrovehicles@gmail.com </dl>
-                      <dt> 0484-2846700 </dt>
-                      <dd> 9.30am -5.00pm </dd>
-                      <dt> 1800 425 0355 </dt>
-                      <dd> Toll Free </dd>
-                  </div>
-                  <div class="footer-div-span">
-                    <h4> What's NEXT </h4>
-                    <dt> Kochi Water Metro </dt>
-                    <dt> Coming Soon </dt>
-                  </div>
-                </div>
-                <div class="footer-div">
-                    <h4> Follow Us </h4>
-                  <div class="footer-div-icons">
-                    <div class="footer-div icons-div d1">
-                      <a href="https://www.facebook.com">
-                        <dt><img src="icons8/icons8-facebook-48"></dt>
-                        <dt><span> Facebook </span></dt>
-                      </a>
-                    </div>
-                    <div class="footer-div icons-div d1">
-                      <a href="https://www.instagram.com">
-                        <dt><img src="icons8/icons8-instagram-48"></dt>
-                        <dt><span> Instagram </span></dt>
-                      </a>
-                    </div>
-                    <div class="footer-div icons-div d2">
-                      <a href="https://www.linkedin.com">
-                        <dt><img src="icons8/icons8-linkedin-48"></dt>
-                        <dt><span> Linkedin </span></dt>
-                      </a>
-                    </div>
-                    <div class="footer-div icons-div d3">
-                      <a href="https://www.twitter.com">
-                        <dt><img src="icons8/icons8-twitter-48"></dt>
-                        <dt><span> Twitter </span></dt>
-                      </a>
-                    </div>
-                    <div class="footer-div icons-div d3">
-                      <a href="https://www.youtube.com">
-                        <dt><img src="icons8/icons8-youtube-48"></dt>
-                        <dt><span> Youtube </span></dt>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <hr>
-                <div class="footer-div">
-                  <div class="footer-div-copy">
-                    <h6>&copy; 2021 Metro Vehicles ltd. All rights reserved</h6>
-                  </div>
-                </div>
-              </footer>    
+  <div id="mySidenav" class="sidenav bg-dark text-light" style="height: 130vh;">
+    <div class="closebtn-div">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    </div>
+    <a href="/customer/customerHome.php" >Home</a>
+    <a href="/customer/ticketRates.php">Ticket Rates</a>
+    <!-- <a href="stationsAndTiming.php">Stations & Timings</a> -->
+    <!-- <a href="/customer/transportation.php">Transportation</a> -->
+    <a href="/customer/ticketBooking.php">Booking</a>
+    <a href="/customer/bookingdetails.php">Booking details</a>
+    <a href="/customer/printTicket.php">E-Ticket</a>
+    <!-- <a href="/customer/razorpay-php/pay.php">Payment</a> -->
+    <a href="/customer/cancel.php">Cancel ticket</a>
+    <a href="/customer/complaint.php">Complaint</a>
+    <!-- <a href="/../logout.php">logout</a> -->
+  </div>
+  <div id="dropMenu" class="dropMenu bg-dark text-light">
+    <div class="dropHeader-div">
+      <a href=""></a>
+      <a href="/customer/ticketRates.php">Ticket Rates</a>
+      <a href="/customer/transportation.php">Transportation</a>
+      <a href="/customer/bookingdetails.php">Booking details</a>
+      <a href="/customer/printTicket.php">E-Ticket</a>
+    </div>
+    <hr>
+  </div>
+  <nav id="navbar" class="navbar text-white bg-dark">
+    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
+    <span class="nav-divider"></span>
+    <span class="header"><h3>Metro By Vehicles</h3></span>
+    <span class="flex-class"></span>
+    <div class="header-right">
+      <input type="checkbox" name="" id="drop-Menu" hidden>
+      <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">Stations and more 
+      <img id="img-div" src="icons8/icons8-sort-down-24.png">
+      </label>
+      <a href="customerHome.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
+    </div>
+  </nav>
+  <div class="content">
+    <div class="container">
+      <div class="content-container-card shadow-lg" style="height: fit-content; width: 450px; margin: auto; border-radius: 35px; overflow: hidden;">
+          <h3 style=" margin: 0; text-align: center; width: 100%; padding: 20px; background: #cbf0e9;">MBV Ticket</h3><hr>
+          <div class="from-to-info" style="display: flex; justify-content: space-around; padding: 25px;">
+              <table>
+                  <tr>
+                      <th style="width: 100px; text-align: center;">
+                          <div style="display: flex; flex-direction: column;">
+                              <!-- <h2><?php echo $_SESSION['srcCode']; ?></h2> -->
+                              <?php echo $_SESSION['pickLoc']; ?>                             
+                          </div>
+                      </th>
+                      <th style="width: 100px; text-align: center;">
+                          <img src="icons8/icons8-navigate-48.png" width="50px" height="50px" style="margin: 0px 3px;">
+                      </th>
+                      <th style="width: 100px; text-align: center;">
+                          <div style="display: flex; flex-direction: column;">
+                              <!-- <h2><?php echo $_SESSION['destCode']; ?></h2> -->
+                              <?php echo $_SESSION['avlStation']; ?>                                    
+                          </div>
+                      </th>
+                  </tr>
+              </table>
           </div>
+          <br>
+          <div style="display: flex; justify-content: space-around;">
+              <div>
+                  <h4>Name of Customer : <?php echo " ".$_SESSION['fname']." ".$_SESSION['lname']; ?></h4>
+                  <h4>Number of passengers : <?php echo " ".$_SESSION['custcount']; ?></h4>
+              </div>
+          </div>
+          <br>
+          <div class="ticket-info" style="display: flex; justify-content: space-evenly; text-align: center;">
+              <div class="content-info">
+                  <h5>Ticket Info</h5>
+                  <p>Booked at  : <?php echo $_SESSION['start']; ?></p>
+                  <p>Valid till : <?php echo $_SESSION['expire']; ?></p>
+              </div>
+              <div class="content-info">
+                  <h5>Transport</h5>
+                  <p>Mode : <?php echo $_SESSION['transMode']; ?></p>
+                  <p>rate : <?php echo $_SESSION['rate']; ?></p>
+              </div>
+          </div>
+          <br>
+          <div class="ticket-info" style="display: flex; justify-content: space-evenly; text-align: center;">
+              <div class="content-info">
+                  <h5>Booking Id</h5>
+                  <p>Id : <?php echo $_SESSION['bookingId']; ?></p>
+              </div>
+              <div class="content-info">
+                  <h5>OTP Info</h5>
+                  <p>OTP : <?php echo $_SESSION['randCode']; ?></p>
+              </div>
+          </div>
+          <br>
+          <div class="ticket-info" style="display: flex; justify-content: space-evenly; text-align: center;">
+              <div class="content-info">
+                  <h5>Booking Details</h5>
+                  <p>Booking Status : <?php echo $_SESSION['bookingStatus']; ?></p>
+                  <p>Payment Status : <?php echo $_SESSION['paymentStatus']; ?></p>
+              </div>
+          </div>
+          <br>
       </div>
-    </body>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-div">
+      <div class="footer-div-img"><img src="icons8/icons8-mastercard-48"></div>
+      <div class="footer-div-img"><img src="icons8/icons8-debit-card-48"></div>
+      <div class="footer-div-img"><img src="icons8/icons8-discover-48"></div>
+      <div class="footer-div-img"><img src="icons8/icons8-google-wallet-48"></div>
+      <div class="footer-div-img"><img src="icons8/icons8-paytm-48"></div>
+      <div class="footer-div-img"><img src="icons8/icons8-unionpay-48"></div>
+      <div class="footer-div-img"><img src="icons8/icons8-visa-48"></div>
+      <div class="footer-div-img"><img src="icons8/icons8-wallet-48"></div>
+      <div class="footer-div-img"><img src="icons8/icons8-american-express-squared-48"></div>
+      <div class="footer-div-img"><img src="icons8/icons8-stripe-48"></div>
+    </div>
+    <hr>
+    <div class="footer-div">
+      <div class="footer-div-span-head">
+        <h2> Metro By Vehicles </h2>
+        <dt> Beauty, Charm, and Adventure. </dt>
+        <dt> Here for the Future. </dt>
+      </div>
+      <div class="footer-div-span">
+        <h4> Explore </h4>
+        <dt><a href="index.php"> Home </a></dt>
+        <dt><a href="about.php"> About </a></dt>
+        <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="careers.php"> Careers </a></dt>
+      </div>
+      <div class="footer-div-span"> 
+        <h4> Visit </h4> 
+        <dl> Jawaharlal Nehru Stadium Metro Station, </dl>
+        <dl>  4th Floor, Kaloor, Kochi, </dl>
+        <dl> Kerala - 682017 </dl>
+      </div>
+      <div class="footer-div-span">
+        <h4> Contact </h4> 
+          <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
+          <dt> 0484-2846700 </dt>
+          <dd> 9.30am -5.00pm </dd>
+          <dt> 1800 425 0355 </dt>
+          <dd> Toll Free </dd>
+      </div>
+      <div class="footer-div-span">
+        <h4> What's NEXT </h4>
+        <dt> Kochi Water Metro </dt>
+        <dt> Coming Soon </dt>
+      </div>
+    </div>
+    <div class="footer-div">
+        <h4> Follow Us </h4>
+      <div class="footer-div-icons">
+        <div class="footer-div icons-div d1">
+          <a href="https://www.facebook.com">
+            <dt><img src="icons8/icons8-facebook-48"></dt>
+            <dt><span> Facebook </span></dt>
+          </a>
+        </div>
+        <div class="footer-div icons-div d1">
+          <a href="https://www.instagram.com">
+            <dt><img src="icons8/icons8-instagram-48"></dt>
+            <dt><span> Instagram </span></dt>
+          </a>
+        </div>
+        <div class="footer-div icons-div d2">
+          <a href="https://www.linkedin.com">
+            <dt><img src="icons8/icons8-linkedin-48"></dt>
+            <dt><span> Linkedin </span></dt>
+          </a>
+        </div>
+        <div class="footer-div icons-div d3">
+          <a href="https://www.twitter.com">
+            <dt><img src="icons8/icons8-twitter-48"></dt>
+            <dt><span> Twitter </span></dt>
+          </a>
+        </div>
+        <div class="footer-div icons-div d3">
+          <a href="https://www.youtube.com">
+            <dt><img src="icons8/icons8-youtube-48"></dt>
+            <dt><span> Youtube </span></dt>
+          </a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="footer-div">
+      <div class="footer-div-copy">
+        <h6>&copy; 2021 Metro Vehicles ltd. All rights reserved</h6>
+        <span class="floating-footer-pointer"><a href="#gototop"><img src="icons8/icons8-chevron-up-48"></a></span>
+      </div>
+    </div>
+  </footer>    
+</body>
 </html>

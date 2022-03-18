@@ -19,6 +19,7 @@
 	$sql="select * from station where sName='$c'";
 	$sql1="select * from servavlloc where avlStation='$dest'";
 	$sql2="select * from ratecalc where pickLoc='$c' and avlStation='$dest'";
+	$sql3="select * from payment where "
 	$query=$db->selectData($sql);
 	$query1=$db->selectData($sql1);
 	$query2=$db->selectData($sql2);

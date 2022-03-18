@@ -20,7 +20,7 @@
 			$_SESSION['fname']=$reg1['fname'];
 			$_SESSION['lname']=$reg1['lname'];
 			$_SESSION['admin']=$row['uname'];
-			echo "<script>window.location='adminhome.php';</script>";
+			echo "<script>window.location='/admin/adminhome.php';</script>";
 		}
 		else if($utype=="staff")
 		{

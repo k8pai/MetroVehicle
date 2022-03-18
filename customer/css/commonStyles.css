@@ -1,7 +1,8 @@
 /*//common css styles for metro vehicles!*/
 /*//designed by k8pai*/
 
-	body{
+	html, body{
+    scroll-behavior: smooth;
       background-image: url('img/wall-img2.png');
       background-size: cover;
       background-repeat: no-repeat;
@@ -11,39 +12,42 @@
     .sidenav{
       display: block;
       /*margin-top: 60px;*/
-      height: 100%;
+      height: 500vh;
       width: 0px;
       position: absolute;
-      /*z-index: -1;*/
       top: 0;
       left: 0;
-      transition: 0.5s;
-      overflow-x: hidden;
+      z-index: 1;
+      transition: 500ms;
+      overflow: hidden;
     }
 
     .dropMenu{
       font-family: 'monospace;', cursive;
       padding: 0px 15px;
       border-radius: 0px 0px 5px 5px;
-      margin-top: 60px;
+      margin-top: 80px;
       height: 0;
       width: 100%;
-      position: fixed;
+      position: absolute;
       z-index: 1;
-      transition: 0.4s ease out;
-      overflow-y: hidden;
+      transition: 500ms;
+      overflow: hidden;
     }
 
     .dropHeader-div{
+      /*display: none;*/
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      transition: 500ms;
       width: 100%;
     }
 
-    .dropMenu a{
-      padding: 10px 20px 0px 20px;
+    .dropHeader-div a{
+      padding: 10px 20px;
       text-decoration: none;
+      letter-spacing: 5px;
       font-size: 25px;
       color: snow;
       transition: 0.3s;
@@ -58,9 +62,12 @@
       transform: rotate(180deg);
     }
 
-
     .dropMenu a:hover{
       opacity: 0.5;
+    }
+
+    .sidenav-div a{
+      display: block;
     }
 
     .sidenav a{
@@ -78,7 +85,7 @@
     }
 
     .closebtn-div{
-      height: 60px;
+      height: 100px;
       width: 100%;
       margin-right: 20px;
     }
@@ -103,12 +110,14 @@
     nav.navbar{
       /*align-items: center;/*
       justify-content: space-between;*/
-      font-family: 'monospace;', cursive;
-      height: 60px;
+      font-family: 'monospace', cursive;
+      height: 80px;
       border-bottom: 1px solid grey;
       border-radius: 6px;
       padding: 0px 15px;
+      z-index: 2;
       border-radius: 0px 0px 5px 5px;
+      transition: 0.5s;
       /*background: #21211f;*/
     }
 
@@ -116,11 +125,26 @@
       cursor: pointer;
     }
 
+    span.navbar-vert-line{
+      height: 100%; 
+      width: 1px; 
+      border: 1px solid white; 
+      margin: 0px 20px;
+    }
+
     span.nav-divider{
       height: 100%; 
       width: 1px; 
       border: 1px solid white; 
       margin: 0px 20px;
+    }
+
+    span.flex-class{
+      flex: 1;
+    }
+
+    .col-form-class{
+      padding: 0px 0px 10px 45px;
     }
 
     li.nav-item{
@@ -137,7 +161,7 @@
     div.header-right{
       right: 20px;
       display: flex;
-      align-content: center;
+      align-items: center;
     }
     
     div.header-right a{
@@ -170,20 +194,43 @@
       margin-top: 210px;
     }
     .container.mt-100{
-      margin-top: 150px;
+      margin-top: 100px;
     }
 
     div.container{
       width: fit-content;
       display: flex;
       margin: auto;
-      margin-top: 100px;
+      /*margin-top: 100px;*/
       margin-bottom: 100px;
+    }
+
+    div.content{
+      margin-top: 100px;
+      padding: 40px;
     }
 
     div.content-containers{
       overflow: auto;
       min-height: 100vh;
+    }
+
+    div.aln-vert{
+      display: flex;
+      margin-bottom: 80px;
+    }
+
+    div.content-containers-div{
+      width: 50%;
+    }
+
+    div.content-img{
+      width: 100%;
+      padding: 10px;
+    }
+
+    div.text-header{
+      font-size: 24px;
     }
 
     div.img-box{
@@ -194,7 +241,7 @@
     div.text-box{
       float: left;
       width: 50%;
-      padding: 0px 80px;
+      padding: 0px 20px 0px 80px;
       letter-spacing: 2px;
       word-spacing: 7px;
       font-size: 20px;
@@ -253,6 +300,8 @@
     }
 
     div.input1{
+      font-family: monospace;
+      letter-spacing: 5px;
       padding: 20px 25px;
       display: flex;
       justify-content: space-around;
@@ -302,6 +351,10 @@
       margin: auto;
     }
 
+    a.active-page{
+      opacity: .5;
+    }
+
     /*registration page part*/
     a.header{
       text-decoration: none;
@@ -309,6 +362,8 @@
     }
 
     div.link-{
+      font-family: monospace;
+      letter-spacing: 4px;
       text-align: center;
       color: black;
       margin: 30px;
@@ -332,14 +387,17 @@
     div.reg-form-card{
       width: 35rem; 
       margin: auto; 
-      border: 1px solid grey; 
+      /*border: 1px solid grey; */
       border-radius: 6px; 
       padding: 10px; 
-      margin-top: 120px;
+      /*margin-top: 120px;*/
     }
+
     div.log-form-card{
-      width: 30rem;margin: auto; 
-      border: 1px solid grey; 
+      width: 30rem;
+      margin: auto; 
+      font-family: monospace;
+      /*border: 1px solid grey; */
       border-radius: 6px; 
       padding: 10px; 
       margin-top: 120px;
@@ -356,6 +414,13 @@
       border-radius: 8px;
     }
     /*specifics ends*/
+    div.privacypolicy{
+      margin: 150px;
+    }
+
+    div.privacypolicy-div{
+      margin-bottom: 50px;
+    }
 
     div.link- a{
       padding: 10px;
@@ -388,15 +453,24 @@
       right: 20px;
       /*float: right;*/
       overflow: auto;
-      z-index: 2;
+      z-index: 1;
+    }
+
+    .floating-footer-pointer{
+      float: right;
+      position: absolute;
+      right: 30px;
+      bottom: 20px;
     }
 
     footer{
       /*text-shadow: 5px 3px 10px #141414;*/
+      transition: 0.5s;
       background: #141414;
+      position: relative;
       color: snow;
-      z-index: 2;
-      margin-top: 50px;
+      z-index: 999;
+      margin-top: 10px;
     }
 
     div.footer-div
@@ -480,6 +554,14 @@
       padding: 20px;
     }
 
+@media only screen and (max-width: 1500px){
+  div.aln-vert{
+    height: 100%;
+   }
+  div.content-containers-div{
+    width: 100%;
+  }
+}
 @media only screen and (max-width: 1200px)
 {
   div.footer-div-img{
@@ -544,16 +626,23 @@
   div.header-right{
     display: none;
   }
+
+  div.dropMenu{
+    display: none;
+  }
+
   div.text-box-container{
     width: 100%;
   }
 
   /*registration header nav bar*/
   div.dropHeader-div{
-    display: block;
+    display: display;
     text-align: center;
   }
+
   div.dropHeader-div a{
+    letter-spacing: 9px;
     padding: 15px;
   }
 }
@@ -566,4 +655,8 @@
   div.footer-div.icons-div.d2{
     width: 100%;
   }
+}
+
+@media print{
+  page-break-after: always;
 }

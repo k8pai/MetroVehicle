@@ -1,4 +1,4 @@
-var menu=0;
+      var menu=0;
       var drop=0;
       var fname = document.getElementById("fname");
       var lname = document.getElementById("lname");
@@ -70,15 +70,14 @@ var menu=0;
       function dropMenu() {
         if(drop==0)
         {
-
-          document.getElementById("dropMenu").style.height = "fit-content";
+          document.getElementById("dropMenu").style.height = "auto";
           document.getElementById("section").style.marginTop = "120px";
           drop++;
         }
         else if(drop==1)
         {
-          document.getElementById("dropMenu").style.height = "0px";
-          document.getElementById("section").style.marginTop = "0px";
+          document.getElementById("dropMenu").style.height = "0";
+          document.getElementById("section").style.marginTop = "0";
           drop--;
         }
       }

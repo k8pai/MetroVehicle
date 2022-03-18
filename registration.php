@@ -20,96 +20,98 @@
       background-image: url('wall-img.jpg');
     }
     </style>
-    <script src="js/registration.js"></script>
+    <script src="customer/js/commonJs.js"></script>
   </head>
-    <body id="body">
+    <body id="gototop">
 
    <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   
-  <div id="dropMenu" class="dropMenu bg-dark text-white">
-    <div class="dropHeader-div">
+  <div id="mySidenav" class="sidenav bg-dark text-white" style="height: 130vh;">
+    <div class="closebtn-div">
+      <a href=""></a>
+    </div>
+    <div class="sidenav-div">
       <a href="viewticketRates.php">View Ticket Rates</a>
       <a href="invalid.php">Contact Us</a>
       <a href="invalid.php">Help</a>
       <a href="invalid.php">About Us</a>
     </div>
-    <hr>
   </div>
-  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
-    <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">
+  <nav id="navbar" class="navbar text-white bg-dark">
+    <label class="menu-btn" for="Menu-open" onclick="openNav()">
     <img src="baseline_menu_white_24dp.png">
     </label>
     <span class="nav-divider"></span>
     <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
-    <span style="flex:1;"></span>
+    <span class="flex-class"></span>
     <div class="header-right">
       <a class="back-btn" onclick="goBack()"><img src="baseline_arrow_back_ios_white_24dp.png"></a>
     </div>
   </nav>
-<div id="section" class="section-div">
-  <div class="section-container-div">
-    <div class="reg-card bg-transparent">
-      <div class="reg-form-card">
-        <br><br><br>
-        <form class="form-cards" action="regaction.php" method="post">
-          <h1> Register Here! </h1><br><br>
-            <div class="input1">
-              <input type="text" class="form-control" placeholder="First name" aria-label="First name" id="fname" name="fname" pattern="[a-z A-z]+"
-              required autofocus>
-            </div>
-            <div class="input1">
-              <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" id="lname" name="lname" pattern="[a-z A-z]+" required>
-            </div>
-            <div class="input1">
-              <div class="form-check" name="flagval">
-                <input class="form-check-input" type="hidden" value="" id="flagval-all" name="flagval" checked>
-                <input class="form-check-input" type="radio" value="M" id="gen1" name="gen">
-                <label class="form-check-label" for="gen1">
-                  Male
-                </label>
+  <div id="section" class="section-div">
+    <div class="section-container-div">
+      <div class="reg-card bg-transparent">
+        <div class="reg-form-card">
+          <br><br><br>
+          <form class="form-cards" action="regaction.php" method="post">
+            <h1> Register Here! </h1><br><br>
+              <div class="input1">
+                <input type="text" class="form-control" placeholder="First name" aria-label="First name" id="fname" name="fname" pattern="[a-z A-z]+"
+                required autofocus>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="F" id="gen2" name="gen">
-                <label class="form-check-label" for="gen2">
-                  Female
-                </label>
+              <div class="input1">
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" id="lname" name="lname" pattern="[a-z A-z]+" required>
               </div>
-            </div>
-            <div class="input1">
-              <input type="text" class="form-control" placeholder="Phone Number" aria-label="Last name" name="ph" id="ph" pattern="[0-9]{10}" required>
-            </div>
-            <div class="input1">
-              <input type="text" class="form-control" placeholder="Email" aria-label="Last name" name="mail" id="mail" required>
-            </div>
-            <div class="input1">
-              <!-- <i class="far fa-eye" id="togglePassword" style=" cursor: pointer;"></i> -->
-              <input type="password" class="form-control" placeholder="Password" aria-label="Last name" name="pass" id="pass" required> 
-            </div>
-              <br><br><br>
-            <div class="input1">
-              <input type="submit" class="btn btn-outline-dark" name="btn" id="btn" value="sign Up">
-            </div>
-            <div class="link-">
-              <a href="login.php">login</a>
-              <a href="index.php">back to home</a>  
-            </div>  
-        </form>
-      </div>
-    </div> 
-    <div class="add-card text-white bg-dark shadow-lg">
-      <!-- <div class="card-header"></div> -->
-      <div class="card-body">
-        <h5 class="card-title">Menu</h5>
-        <p class="card-text"><a href="invalid.php">Careers</a></p>
-        <p class="card-text"><a href="invalid.php" aria-disabled="true">We Are Hiring!!!</a></p>
+              <div class="input1">
+                <div class="form-check" name="flagval">
+                  <input class="form-check-input" type="hidden" value="" id="flagval-all" name="flagval" checked>
+                  <input class="form-check-input" type="radio" value="M" id="gen1" name="gen">
+                  <label class="form-check-label" for="gen1">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" value="F" id="gen2" name="gen">
+                  <label class="form-check-label" for="gen2">
+                    Female
+                  </label>
+                </div>
+              </div>
+              <div class="input1">
+                <input type="text" class="form-control" placeholder="Phone Number" aria-label="Last name" name="ph" id="ph" pattern="[0-9]{10}" required>
+              </div>
+              <div class="input1">
+                <input type="text" class="form-control" placeholder="Email" aria-label="Last name" name="mail" id="mail" required>
+              </div>
+              <div class="input1">
+                <!-- <i class="far fa-eye" id="togglePassword" style=" cursor: pointer;"></i> -->
+                <input type="password" class="form-control" placeholder="Password" aria-label="Last name" name="pass" id="pass" required> 
+              </div>
+                <br><br><br>
+              <div class="input1">
+                <input type="submit" class="btn btn-outline-dark" name="btn" id="btn" value="sign Up">
+              </div>
+              <div class="link-">
+                <a href="login.php">login</a>
+                <a href="index.php">back to home</a>  
+              </div>  
+          </form>
+        </div>
+      </div> 
+      <div class="add-card text-white bg-dark shadow-lg">
+        <!-- <div class="card-header"></div> -->
+        <div class="card-body">
+          <h5 class="card-title">Menu</h5>
+          <p class="card-text"><a href="invalid.php">Careers</a></p>
+          <p class="card-text"><a href="invalid.php" aria-disabled="true">We Are Hiring!!!</a></p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<footer>
+  <footer>
     <div class="footer-div">
       <div class="footer-div-img"><img src="icons8/icons8-mastercard-48"></div>
       <div class="footer-div-img"><img src="icons8/icons8-debit-card-48"></div>
@@ -144,7 +146,7 @@
       </div>
       <div class="footer-div-span">
         <h4> Contact </h4> 
-          <dl> Metrovehicles@gmail.com </dl>
+          <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
           <dt> 0484-2846700 </dt>
           <dd> 9.30am -5.00pm </dd>
           <dt> 1800 425 0355 </dt>
@@ -196,8 +198,9 @@
     <div class="footer-div">
       <div class="footer-div-copy">
         <h6>&copy; 2021 Metro Vehicles ltd. All rights reserved</h6>
+        <span class="floating-footer-pointer"><a href="#gototop"><img src="customer/icons8/icons8-chevron-up-48"></a></span>
       </div>
     </div>
-</footer>
+  </footer>
 </body>
 </html>

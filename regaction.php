@@ -24,13 +24,13 @@
 		$sql="insert into reg(fname,lname,gen,ph,mail) values ('$fname','$lname','$gen','$ph','$mail')";
 		$db->insertQuery($sql);
 
-		$s="select max(rcode) as cid from reg";
+		$s="select max(regId) as cid from reg";
 	}
 
 	$rs=$db->selectData($s);
 	$row=mysqli_fetch_array($rs);
 	$cid=$row['cid'];
-	$ss="insert into login(uid,uname,upass,utype,status) values('$cid','$mail','$pass','cust','true')";
+	$ss="insert into login(loginId,uname,upass,utype,status) values('$cid','$mail','$pass','cust','true')";
 	$db->insertQuery($ss);
 	echo"<script>alert('SUCCESS');window.location='registration.php'</script>";
 ?>

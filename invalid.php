@@ -40,8 +40,9 @@
       <a onclick="goBack()"><img src="baseline_close_white_24dp.png"></a>
     </div>
     <div style="position:  absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);">
-      <p>We are still Working on this page.</p>
-      <p>Mail us Here  <a href="mailto:thek8pai@gmail.com"><img src="baseline_mail_outline_white_24dp.png"></a></p>
+      <p>Hold tight!</p>
+      <p>We are on our way....</p>
+      <!-- <p>Mail us Here  <a href="mailto:thek8pai@gmail.com"><img src="baseline_mail_outline_white_24dp.png"></a></p> -->
          
         
     </div>
