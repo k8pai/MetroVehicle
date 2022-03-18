@@ -29,7 +29,12 @@ var currentScrollPos = window.pageYOffset;
 //   document.getElementById("mySidenav").style.display = "none";
 // }
 
+window.onscroll = function() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
 function dropMenu() {
+
+    // window.scroll(0, 0);
   if(drop==0)
   {
     if(menu==1)

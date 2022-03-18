@@ -48,19 +48,30 @@
     </div>
     <div class="sidenav-div">
       <a href="viewticketRates.php">View Ticket Rates</a>
-      <a href="invalid.php">Contact Us</a>
-      <a href="invalid.php">Help</a>
-      <a href="invalid.php">About Us</a>
+      <a href="#next">What's Next</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#visit">Visit</a>
     </div>
   </div>
   <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <label class="menu-btn" id="Menu-open" onclick="openNav()">
+    <a href="#gototop"><img src="baseline_menu_white_24dp.png"></a>
+    </label>
+    <span class="nav-divider"></span>
+    <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
+    <span style="flex:1;"></span>
+    <div class="header-right">
+      <a href="index.php"><img src="customer/icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
+    </div>
+  </nav>
+  <!-- <nav id="navbar" class="navbar sticky-top text-white bg-dark">
     <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
     <span class="nav-divider"></span>
     <span class="header" style="flex:1;"><h3>Metro By Vehicles</h3></span>
     <div class="header-right" style=" right: 20px;">
       <a href="index.php"><img src="customer/icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
     </div>
-  </nav>
+  </nav> -->
   <div class="content-containers">
     <div class="aln-horz">
       <div class="sec">
@@ -214,20 +225,20 @@
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
-      <div class="footer-div-span">
+      <div id="" class="footer-div-span">
         <h4> Explore </h4>
         <dt><a href="index.php"> Home </a></dt>
         <dt><a href="about.php"> About </a></dt>
-        <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="privacypolicy.php"> Privacy policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
-      <div class="footer-div-span"> 
+      <div id="visit" class="footer-div-span"> 
         <h4> Visit </h4> 
         <dl> Jawaharlal Nehru Stadium Metro Station, </dl>
         <dl>  4th Floor, Kaloor, Kochi, </dl>
         <dl> Kerala - 682017 </dl>
       </div>
-      <div class="footer-div-span">
+      <div id="contact" class="footer-div-span">
         <h4> Contact </h4> 
           <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
           <dt> 0484-2846700 </dt>
@@ -235,7 +246,7 @@
           <dt> 1800 425 0355 </dt>
           <dd> Toll Free </dd>
       </div>
-      <div class="footer-div-span">
+      <div id="next" class="footer-div-span">
         <h4> What's NEXT </h4>
         <dt> Kochi Water Metro </dt>
         <dt> Coming Soon </dt>

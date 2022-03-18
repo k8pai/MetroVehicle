@@ -8,7 +8,9 @@
     <!-- Bootstrap CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
    
-   <link rel="stylesheet" type="text/css" href="/customer/css/commonStyles.css?v=<?php echo time(); ?>">
+   <link rel="stylesheet" type="text/css" href="css/commonStyles.css?v=<?php echo time(); ?>">
+   
+    <script src="js/commonJs.js"></script>
 
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
@@ -20,7 +22,6 @@
       background-image: url('wall-img.jpg');
     }
     </style>
-    <script src="customer/js/commonJs.js"></script>
   </head>
     <body id="gototop">
 
@@ -35,9 +36,9 @@
     </div>
     <div class="sidenav-div">
       <a href="viewticketRates.php">View Ticket Rates</a>
-      <a href="invalid.php">Contact Us</a>
-      <a href="invalid.php">Help</a>
-      <a href="invalid.php">About Us</a>
+      <a href="#next">What's Next</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#visit">Visit</a>
     </div>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
@@ -135,16 +136,16 @@
         <h4> Explore </h4>
         <dt><a href="index.php"> Home </a></dt>
         <dt><a href="about.php"> About </a></dt>
-        <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="privacypolicy.php"> Privacy policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
-      <div class="footer-div-span"> 
+      <div id="visit" class="footer-div-span"> 
         <h4> Visit </h4> 
         <dl> Jawaharlal Nehru Stadium Metro Station, </dl>
         <dl>  4th Floor, Kaloor, Kochi, </dl>
         <dl> Kerala - 682017 </dl>
       </div>
-      <div class="footer-div-span">
+      <div id="contact" class="footer-div-span">
         <h4> Contact </h4> 
           <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
           <dt> 0484-2846700 </dt>
@@ -152,7 +153,7 @@
           <dt> 1800 425 0355 </dt>
           <dd> Toll Free </dd>
       </div>
-      <div class="footer-div-span">
+      <div id="next" class="footer-div-span">
         <h4> What's NEXT </h4>
         <dt> Kochi Water Metro </dt>
         <dt> Coming Soon </dt>

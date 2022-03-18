@@ -58,24 +58,34 @@
     <div class="section-container-div">
       <div class="reg-card bg-transparent">
         <div class="log-form-card">
-          <form class="form-cards" action="logaction.php" method="post"><br>
-          <h1> Login </h1><br><br>
+          <form class="form-cards" action="resetPassAction.php" method="post"><br>
+          <h1> Reset Password </h1><br><br>
             <div class="input1">
-              <input type="text" class="form-control" placeholder="Registered Email" aria-label="First name" id="uname" name="uname" required autofocus>
-            </div>
-            <div class="input1">
-              <input type="password" class="form-control" placeholder="Password" aria-label="Last name" id="upass" name="upass" required>
-              <!-- <i class="far fa-eye" id="togglePassword" style=" cursor: pointer;"></i> -->
+              <!-- <form action="checkMail.php" method="post"> -->
+                <!-- <div class="input1"> -->
+                  <input type="text" class="form-control" placeholder="Registered Email" aria-label="First name" id="mail" name="mail" required autofocus><!-- 
+                  <span style="margin: 5px;"></span>
+                  <input type="submit" class="btn btn-outline-dark" name="btn" id="btn" value="check"> -->
+                <!-- </div> -->
+              <!-- </form> -->
             </div>
             <br>
             <div class="input1">
-              <input type="submit" class="btn btn-outline-dark" name="btn" id="btn" value="Login">
+              <input type="password" class="form-control" placeholder="New Password" aria-label="First name" id="pass" name="pass" required autofocus>
+            </div>
+            <br>
+            <div class="input1">
+              <input type="password" class="form-control" placeholder="Re-enter New Password" aria-label="First name" id="repass" name="repass" required autofocus>
+            </div>
+            <div class="input1">
+              <input type="submit" class="btn btn-outline-dark" name="btn" id="btn" value="Confirm">
             </div> 
             <div class="link-">
+              <label>Already a user?</label>
+              <a href="Login.php">Login</a>  
+              <br> 
               <label>Not yet registered?</label>
-              <a href="registration.php">Sign Up</a>  
-              <br>
-              <a href="resetPass.php">Forgot Password</a>  
+              <a href="registration.php">Sign Up</a> 
             </div>
           </form>
         </div>
