@@ -125,7 +125,7 @@
       <div class="sec">
         <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content;">
           <div class="card-header">Ticket Rates</div>
-          <div class="card-body" style="height: 80vh; overflow-y: auto;">
+          <div class="card-body" style="height: fit-content; max-height: 80vh; overflow-y: auto;">
             <table class="table table-borderless"  style="color: #141414; text-align: center;">
               <thead>
                 <tr class="data shadow-lg" style="font-family: 'Dancing Script', cursive; font-size: 24px;">

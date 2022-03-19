@@ -19,8 +19,9 @@
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
-    <title>Transport Updation</title>
+    <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
+
+    <title>Booking Details</title>
     
     <script src="js/commonJs.js"></script>
   </head>
@@ -34,25 +35,21 @@
     <div class="closebtn-div">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
-    <a href="/customer/customerHome.php" >Home</a>
-    <a href="/customer/ticketRates.php">Ticket Rates</a>
-    <!-- <a href="stationsAndTiming.php">Stations & Timings</a> -->
-    <!-- <a href="/customer/transportation.php">Transportation</a> -->
-    <a href="/customer/ticketBooking.php">Booking</a>
-    <a class="active-page" href="/customer/bookingdetails.php">Booking details</a>
-    <a href="/customer/printTicket.php">E-Ticket</a>
-    <!-- <a href="/customer/razorpay-php/pay.php">Payment</a> -->
-    <a href="/customer/cancel.php">Cancel ticket</a>
-    <a href="/customer/complaint.php">Complaint</a>
-    <!-- <a href="/../logout.php">logout</a> -->
+    <a href="customerHome.php" >Home</a>
+    <a href="ticketRates.php">Ticket Rates</a>
+    <a href="ticketBooking.php">Booking</a>
+    <a class="active-page" href="bookingdetails.php">Booking details</a>
+    <a href="printTicket.php">E-Ticket</a>
+    <a href="cancel.php">Cancel ticket</a>
+    <a href="complaint.php">Complaint</a>
   </div>
   <div id="dropMenu" class="dropMenu bg-dark text-light">
     <div class="dropHeader-div">
       <a href=""></a>
-      <a href="/customer/ticketRates.php">Ticket Rates</a>
-      <a href="/customer/transportation.php">Transportation</a>
-      <a href="/customer/bookingdetails.php">Booking details</a>
-      <a href="/customer/printTicket.php">E-Ticket</a>
+      <a href="ticketRates.php">Ticket Rates</a>
+      <a href="transportation.php">Transportation</a>
+      <a href="privacypolicy.php"> Privacy Policy </a>
+      <a href="printTicket.php">E-Ticket</a>
     </div>
     <hr>
   </div>
@@ -67,11 +64,14 @@
       <img id="img-div" src="icons8/icons8-sort-down-24.png">
       </label>
       <a href="customerHome.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
+      <div class="dec-none">
+        <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+      </div>
     </div>
   </nav>
   <div class="section">
-    <div class="container mt-100">
-      <div class="card text-dark bg-transparent shadow-lg" style="width: fit-content;">
+    <div class="container ">
+      <div class="card text-dark bg-transparent shadow-lg" style="width: fit-content; max-height: 80vh; height: fit-content;">
         <div class="card-header"> Available mode of transports.</div>
         <div class="card-body">
           <table class="table table-borderless" style="width: fit-content;">
@@ -115,7 +115,7 @@
       </div>
     </div>
   </div>
-  <footer>
+  <footer class="footer">
     <div class="footer-div">
       <div class="footer-div-img"><img src="icons8/icons8-mastercard-48"></div>
       <div class="footer-div-img"><img src="icons8/icons8-debit-card-48"></div>
@@ -131,7 +131,14 @@
     <hr>
     <div class="footer-div">
       <div class="footer-div-span-head">
-        <h2> Metro By Vehicles </h2>
+        <div class="footer-div-span-head-sub" style="display: flex;">
+          <div style="margin-right: 20px;">
+            <h2 style="color: #6cbcc4;"> Metro </h2>
+            <h2 style="color: #abdbe3;"> Vehicles </h2>
+          </div>
+          <img src="img/icons8-subway-100">
+        </div>
+   <!-- <img src="img/icons8-subway-100">      -->
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
@@ -140,6 +147,7 @@
         <dt><a href="index.php"> Home </a></dt>
         <dt><a href="about.php"> About </a></dt>
         <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="privacypolicy.php"> Privacy Policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
       <div class="footer-div-span"> 
@@ -150,7 +158,7 @@
       </div>
       <div class="footer-div-span">
         <h4> Contact </h4> 
-          <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
+          <dl><a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a>  </dl>
           <dt> 0484-2846700 </dt>
           <dd> 9.30am -5.00pm </dd>
           <dt> 1800 425 0355 </dt>

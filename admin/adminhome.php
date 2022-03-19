@@ -98,14 +98,13 @@
                   <label for="fname" class="col-form-label"> : </label>
                 </div>
               </td>
-              </td>
               <td>
               <div class="input1">
                 <input type="text" class="form-control" id="fname" name="fname" pattern="[a-z A-z]+" value="<?php echo $fname; ?>" style="width: 200%;" readonly required>
               </div>
               </td>
             </tr>
-            <tr><td colspan="3"><br><br</td></tr>
+            <tr><td colspan="3"><br></td></tr>
             <tr>
               <td>
               <div>
@@ -116,14 +115,13 @@
                   <label for="lname" class="col-form-label"> : </label>
                 </div>
               </td>
-              </td>
               <td>
               <div class="input1" style="float: right;">
                 <input type="text" class="form-control" id="lname" name="lname" pattern="[a-z A-z]+" value="<?php echo $lname; ?>" style="width: 200%;" readonly required>
               </div>
               </td>
             </tr>
-            <tr><td colspan="3"><br><br</td></tr>
+            <tr><td colspan="3"><br></td></tr>
             <tr>
               <td>
               <div>
@@ -134,14 +132,13 @@
                   <label for="phone" class="col-form-label"> : </label>
                 </div>
               </td>
-              </td>
               <td>
               <div class="input1" style="float: right;">
                 <input type="text" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" value="<?php echo $phone; ?>" style="width: 200%;" readonly required>
               </div>
               </td>
             </tr>
-            <tr><td colpan="3"><br><br</td></tr>
+            <tr><td colpan="3"><br></td></tr>
             <tr>
               <td>
               <div>
@@ -151,7 +148,6 @@
                 <div class="input1">
                   <label for="mail" class="col-form-label"> : </label>
                 </div>
-              </td>
               </td>
               <td>
               <div class="input1" style="float: right;">

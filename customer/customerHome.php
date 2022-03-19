@@ -18,14 +18,14 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
    
    <link rel="stylesheet" type="text/css" href="css/commonStyles.css?v=<?php echo time(); ?>">
-   <link rel="stylesheet" type="text/css" href="css/profile.css?v=<?php echo time(); ?>">
 
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
    <link href="css/all.css" rel="stylesheet"> <!-- load all styles -->
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
+    <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
+
     <title>Home page</title>
     
     <script src="js/commonJs.js"></script>
@@ -41,13 +41,13 @@
       <a href=""></a>
     </div>
     <div class="sidenav-div">
-      <a class="active-page" href="/customer/customerHome.php" >Home</a>
-      <a href="/customer/ticketRates.php">Ticket Rates</a>
-      <a href="/customer/ticketBooking.php">Booking</a>
-      <a href="/customer/bookingdetails.php">Booking details</a>
-      <a href="/customer/printTicket.php">E-Ticket</a>
-      <a href="/customer/cancel.php">Cancel ticket</a>
-      <a href="/customer/complaint.php">Complaint</a>
+      <a class="active-page" href="customerHome.php" >Home</a>
+      <a href="ticketRates.php">Ticket Rates</a>
+      <a href="ticketBooking.php">Booking</a>
+      <a href="bookingdetails.php">Booking details</a>
+      <a href="printTicket.php">E-Ticket</a>
+      <a href="cancel.php">Cancel ticket</a>
+      <a href="complaint.php">Complaint</a>
     </div>
   </div>
   <div id="dropMenu" class="dropMenu bg-dark text-light">
@@ -55,11 +55,8 @@
       <a href=""></a>
       <a href="ticketRates.php">Ticket Rates</a>
       <a href="transportation.php">Transportation</a>
-      <a href="bookingdetails.php">Booking details</a>
-      <!-- <a href="printTicket.php">E-Ticket</a> -->
-      <a href="../logout.php" style="font-size: 32px;"><img src="icons8/icons8-logout-48.png"></a>
+      <a href="privacypolicy.php"> Privacy Policy </a>
     </div>
-    <!-- <hr> -->
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
     <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
@@ -73,6 +70,9 @@
       </label>
       <!-- <a href="profile.php"><img src="icons8/icons8-user-48.png"></a> -->
       <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="icons8/icons8-name-tag-48"></button>
+      <div class="dec-none">
+        <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+      </div>
     </div>
   </nav>
   <?php 
@@ -90,38 +90,87 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <div class="input1">
-            <h5 class="modal-title" id="exampleModalLabel"> Profile Details </h5>
+          <div class="h" style="letter-spacing: 5px; font-family: monospace; margin-left: 45px; font-weight: bolder;">
+            <h3 class="modal-title" id="exampleModalLabel"> Profile Details </h3>
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="focreadonly()"></button>
         </div>
         <div class="modal-body">
           <form name="modal-form" action="profileAction.php" method="post">
             <input type="hidden" class="form-control" id="rno" name="rno" value="<?php echo $rno; ?>" readonly>
-            <div class="mb-5" style="margin-top: 20px; display: inline-flex;">
-              <label for="fname" class="col-form-label">First name :</label>
-              <div class="input1">
-                <input type="text" class="form-control" id="fname" name="fname" pattern="[a-z A-z]+" value="<?php echo $fname; ?>" readonly required>
+            <table align="center">
+            <tr>
+              <td>
+              <div >
+                <label for="fname" class="col-form-label">First name </label>
               </div>
-            </div>
-            <div class="mb-5">
-              <label for="lname" class="col-form-label">Last name :</label>
+              </td>
+              <td>
+                <div class="input1">
+                  <label for="fname" class="col-form-label"> : </label>
+                </div>
+              </td>
+              <td>
               <div class="input1">
-                <input type="text" class="form-control" id="lname" name="lname" pattern="[a-z A-z]+" value="<?php echo $lname; ?>" readonly required>
+                <input type="text" class="form-control" id="fname" name="fname" pattern="[a-z A-z]+" value="<?php echo $fname; ?>" style="width: 200%;" readonly required>
               </div>
-            </div>
-            <div class="mb-5">
-              <label for="phone" class="col-form-label">Phone number :</label>
-              <div class="input1">
-                <input type="text" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" value="<?php echo $phone; ?>" readonly required>
+              </td>
+            </tr>
+            <tr><td colspan="3"><br><br></td></tr>
+            <tr>
+              <td>
+              <div>
+                <label for="lname" class="col-form-label">Last name </label>
               </div>
-            </div>
-            <div class="mb-5">
-              <label for="mail" class="col-form-label">mail</label>
-              <div class="input1">
-                <input type="text" class="form-control" id="mail" name="mail" value="<?php echo $mail; ?>" readonly required>
+              </td>
+              <td>
+                <div class="input1">
+                  <label for="lname" class="col-form-label"> : </label>
+                </div>
+              </td>
+              <td>
+              <div class="input1" style="float: right;">
+                <input type="text" class="form-control" id="lname" name="lname" pattern="[a-z A-z]+" value="<?php echo $lname; ?>" style="width: 200%;" readonly required>
               </div>
-            </div>
+              </td>
+            </tr>
+            <tr><td colspan="3"><br><br></td></tr>
+            <tr>
+              <td>
+              <div>
+                <label for="phone" class="col-form-label">Phone no </label>
+              </div>
+              </td>
+              <td>
+                <div class="input1">
+                  <label for="phone" class="col-form-label"> : </label>
+                </div>
+              </td>
+              <td>
+              <div class="input1" style="float: right;">
+                <input type="text" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" value="<?php echo $phone; ?>" style="width: 200%;" readonly required>
+              </div>
+              </td>
+            </tr>
+            <tr><td colpan="3"><br><br></td></tr>
+            <tr>
+              <td>
+              <div>
+                <label for="mail" class="col-form-label">mail </label>
+              </div>
+              </td>
+              <td>
+                <div class="input1">
+                  <label for="mail" class="col-form-label"> : </label>
+                </div>
+              </td>
+              <td>
+              <div class="input1" style="float: right;">
+                <input type="text" class="form-control" id="mail" name="mail" value="<?php echo $mail; ?>" style="width: 200%;" readonly required>
+              </div>
+              </td>
+            </tr>
+            </table>
             <div class="input1">
               <input type="button" class="form-control btn shadow-lg" onclick="focedit()" value=" Edit ">
               <input type="submit" class="form-control btn shadow-lg" value=" Save " id="save-btn" disabled>
@@ -148,36 +197,39 @@
     <div id="stations" class="content-containers">
       <div class="img-box">
         <div class="img-box-container">
-          <img src="img/metro5.jpg">
+          <img src="img/kochi-metro-train.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
       <div class="text-box"> 
         <div class="text-box-container">
           <h2> Rates and More </h2>
+          <p><dt>Our objective is to make Kochi the first city in the country where the entire public transport system: the metro, the buses, the boats, the autorickshaws and the taxies work together as a seamless integrated system; with a common timetable, common ticketing and centralised 'command and control'.</dt></p>
         </div>
       </div>
     </div>
     <div id="Offering" class="content-containers">
       <div class="img-box">
         <div class="img-box-container">
-          <img src="img/metro5.jpg">
+          <img src="img/metro5.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
       <div class="text-box"> 
         <div class="text-box-container">
           <h2> What we Offer </h2>
+          <p><dt>Our objective is to make Kochi the first city in the country where the entire public transport system: the metro, the buses, the boats, the autorickshaws and the taxies work together as a seamless integrated system; with a common timetable, common ticketing and centralised 'command and control'.</dt></p>
         </div>
       </div>
     </div>
     <div id="contact" class="content-containers">
       <div class="img-box">
         <div class="img-box-container">
-          <img src="img/staff.jpg">
+          <img src="img/staff.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
       <div class="text-box">
         <div class="text-box-container">
           <h2> Join Us </h2>
+          <p><dt>Our objective is to make Kochi the first city in the country where the entire public transport system: the metro, the buses, the boats, the autorickshaws and the taxies work together as a seamless integrated system; with a common timetable, common ticketing and centralised 'command and control'.</dt></p>
         </div>
       </div>
     </div>
@@ -198,7 +250,14 @@
     <hr>
     <div class="footer-div">
       <div class="footer-div-span-head">
-        <h2> Metro By Vehicles </h2>
+        <div class="footer-div-span-head-sub" style="display: flex;">
+          <div style="margin-right: 20px;">
+            <h2 style="color: #6cbcc4;"> Metro </h2>
+            <h2 style="color: #abdbe3;"> Vehicles </h2>
+          </div>
+          <img src="img/icons8-subway-100">
+        </div>
+   <!-- <img src="img/icons8-subway-100">      -->
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
@@ -207,6 +266,7 @@
         <dt><a href="index.php"> Home </a></dt>
         <dt><a href="about.php"> About </a></dt>
         <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="privacypolicy.php"> Privacy Policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
       <div class="footer-div-span"> 
@@ -217,7 +277,7 @@
       </div>
       <div class="footer-div-span">
         <h4> Contact </h4> 
-          <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a>  </dl>
+          <dl><a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a>  </dl>
           <dt> 0484-2846700 </dt>
           <dd> 9.30am -5.00pm </dd>
           <dt> 1800 425 0355 </dt>

@@ -23,68 +23,88 @@
     <title>Privacy Policy</title>
     
   </head>
-    <body>
+    <body id="gototop">
 
    <!-- Optional JavaScript; choose one of the two! -->
 
-      <!-- Option 1: Bootstrap Bundle with Popper -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <div id="dropMenu" class="dropMenu bg-dark text-white">
-    <div class="dropHeader-div">
-      <a href="viewticketRates.php">View Ticket Rates</a>
-      <a href="invalid.php">Contact Us</a>
-      <a href="invalid.php">Help</a>
-      <a href="invalid.php">About Us</a>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <div id="mySidenav" class="sidenav bg-dark text-light" style="height: 300vh;">
+    <div class="closebtn-div">
+      <a href=""></a>
     </div>
-    <hr>
+    <div class="sidenav-div">
+      <a class="active-page" href="customerHome.php" >Home</a>
+      <a href="ticketRates.php">Ticket Rates</a>
+      <a href="ticketBooking.php">Booking</a>
+      <a href="bookingdetails.php">Booking details</a>
+      <a href="printTicket.php">E-Ticket</a>
+      <a href="cancel.php">Cancel ticket</a>
+      <a href="complaint.php">Complaint</a>
+    </div>
   </div>
-  <nav class="navbar sticky-top text-white bg-dark">
-    <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">
-    <img src="baseline_menu_white_24dp.png">
-    </label>
+  <div id="dropMenu" class="dropMenu bg-dark text-light">
+    <div id="dropHeader-div" class="dropHeader-div">
+      <a href=""></a>
+      <a href="ticketRates.php">Ticket Rates</a>
+      <a href="transportation.php">Transportation</a>
+      <a href="privacypolicy.php"> Privacy Policy </a>
+      <!-- <a href="../logout.php" style="font-siz
+        e: 32px;"><img src="icons8/icons8-logout-48.png"></a> -->
+    </div>
+  </div>
+  <nav id="navbar" class="navbar text-white bg-dark">
+    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
     <span class="nav-divider"></span>
-    <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
-    <span style="flex:1;"></span>
+    <span class="header"><h3>Metro By Vehicles</h3></span>
+    <span class="flex-class"></span>
     <div class="header-right">
-      <a class="none-btn" href="login.php"> Login </a>
-      <!-- <a class="link-" href="registration.php"> Sign Up</a> -->
-      <!-- <?php echo date('H:i:sa'); ?> -->
-      <a class="back-btn" onclick="goBack()"><img src="baseline_arrow_back_ios_white_24dp.png"></a>
+      <input type="checkbox" name="" id="drop-Menu" hidden>
+      <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">Stations and more 
+      <img id="img-div" src="icons8/icons8-sort-down-24.png">
+      </label>
+      <!-- <a href="profile.php"><img src="icons8/icons8-user-48.png"></a> -->
+      <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="icons8/icons8-name-tag-48"></button>
+      <div class="dec-none">
+        <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+      </div>
     </div>
   </nav>
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="focreadonly()"></button>
-                        </div>
-                        <div class="modal-body">
-                          <form action="logaction.php" method="post"><br>
-                            <h1 style="display: flex; justify-content: center; font-family: 'Dancing Script', cursive; letter-spacing: 3px;"> Login </h1>
-                            <br><br>
-                              <div class="input1">
-                                <input type="text" class="form-control shadow-lg" placeholder="Registered Email" aria-label="First name" id="uname" name="uname" required autofocus>
-                              </div>
-                              <div class="input1">
-                                <input type="password" class="form-control shadow-lg" placeholder="Password" aria-label="Last name" id="upass" name="upass" required>
-                                <!-- <i class="far fa-eye" id="togglePassword" style=" cursor: pointer;"></i> -->
-                              </div>
-                              <br>
-                              <div class="input1">
-                                <input type="submit" class="form-control btn shadow-lg" name="btn" id="btn" value="Login" style="letter-spacing: 5px;">
-                              </div> 
-                            <div class="link text-dark" style="text-align: center;">
-                              <label>Not yet registered?</label>
-                              <a href="registration.php">Sign Up!</a>  
-                              </div>
-                            </form>
-                        </div>-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                <h1>Privacy Policy for metro vehicles</h1>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="focreadonly()"></button>
+        </div>
+        <div class="modal-body">
+          <form action="logaction.php" method="post"><br>
+            <h1 style="display: flex; justify-content: center; font-family: 'Dancing Script', cursive; letter-spacing: 3px;"> Login </h1>
+            <br><br>
+              <div class="input1">
+                <input type="text" class="form-control shadow-lg" placeholder="Registered Email" aria-label="First name" id="uname" name="uname" required autofocus>
+              </div>
+              <div class="input1">
+                <input type="password" class="form-control shadow-lg" placeholder="Password" aria-label="Last name" id="upass" name="upass" required>
+                <!-- <i class="far fa-eye" id="togglePassword" style=" cursor: pointer;"></i> -->
+              </div>
+              <br>
+              <div class="input1">
+                <input type="submit" class="form-control btn shadow-lg" name="btn" id="btn" value="Login" style="letter-spacing: 5px;">
+              </div> 
+            <div class="link text-dark" style="text-align: center;">
+              <label>Not yet registered?</label>
+              <a href="registration.php">Sign Up!</a>  
+              </div>
+            </form>
+        </div>-
+      </div>
+    </div>
+  </div>
+
+
+    <div class="section">
+  <div class="content-containers">
+  <h1>Privacy Policy for metro vehicles</h1>
 
 <p>At metro vehicles, accessible from www.metrovehicles.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by metro vehicles and how we use it.</p>
 
@@ -161,6 +181,9 @@
 <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
 
 <p>metro vehicles does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+    </div>
+  </div>
+  <br><br><br><br>
 <footer class="footer">
     <div class="footer-div">
       <div class="footer-div-img"><img src="icons8/icons8-mastercard-48"></div>
@@ -192,7 +215,8 @@
         <h4> Explore </h4>
         <dt><a href="index.php"> Home </a></dt>
         <dt><a href="about.php"> About </a></dt>
-        <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="future.php"> Future </a></dt>        
+        <dt><a href="privacypolicy.php"> Privacy Policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
       <div class="footer-div-span"> 

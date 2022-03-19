@@ -11,11 +11,12 @@ $dest=$_SESSION['avlStation'];
 $trmo=$_SESSION['transMode'];
 
 
-  echo $_SESSION['start'];
-  echo $_SESSION['expire'];
-  echo $_SESSION['pickLoc'];
-  echo $_SESSION['transMode'];
-  echo $_SESSION['bookingId'];
+  // echo $_SESSION['rate'];
+  // echo $_SESSION['start'];
+  // echo $_SESSION['expire'];
+  // echo $_SESSION['pickLoc'];
+  // echo $_SESSION['transMode'];
+  // echo $_SESSION['bookingId'];
 
 $selquery="select * from login inner join reg on login.uname = reg.mail where login.uname='".$_SESSION['cust']."'";
 $query=$db->selectData($selquery);

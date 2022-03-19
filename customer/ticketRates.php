@@ -1,9 +1,20 @@
 <?php 
   session_start();
+  include('dbcon.php');
+  $db=new dbcon();
   if(!isset($_SESSION['cust'])){
     header('location: login.php');
   }
-  $_SESSION['srcName']="Aluva";
+  $srcName="null";
+  $destName="null";
+  if(isset($_POST['src'])){
+    $srcName=$_POST['src'];
+  }
+  $_SESSION['srcName']=$srcName;
+  if(isset($_POST['dest'])){
+    $destName=$_POST['dest'];
+  }
+  $_SESSION['destName']=$destName;
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,7 +33,8 @@
    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
+    <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
+
     <title>Ticket Rates</title>
 
     <script src="js/commonJs.js"></script>
@@ -38,25 +50,22 @@
     <div class="closebtn-div">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
-    <a href="/customer/customerHome.php" >Home</a>
-    <a class="active-page" href="/customer/ticketRates.php">Ticket Rates</a>
-    <!-- <a href="customer/stationsAndTiming.php">Stations & Timings</a> -->
-    <!-- <a href="/customer/transportation.php">Transportation</a> -->
-    <a href="/customer/ticketBooking.php">Booking</a>
-    <a href="/customer/bookingdetails.php">Booking details</a>
-    <a href="/customer/printTicket.php">E-Ticket</a>
-    <!-- <a href="/customer/razorpay-php/pay.php">Payment</a> -->
-    <a href="/customer/cancel.php">Cancel ticket</a>
-    <a href="/customer/complaint.php">Complaint</a>
-    <!-- <a href="/../logout.php">logout</a> -->
+    <a href="customerHome.php" >Home</a>
+    <a class="active-page" href="ticketRates.php">Ticket Rates</a>
+    <a href="ticketBooking.php">Booking</a>
+    <a href="bookingdetails.php">Booking details</a>
+    <a href="printTicket.php">E-Ticket</a>
+    <a href="cancel.php">Cancel ticket</a>
+    <a href="complaint.php">Complaint</a>
+    <a href="../logout.php">logout</a>
   </div>
   <div id="dropMenu" class="dropMenu bg-dark text-light">
     <div class="dropHeader-div">
       <a href=""></a>
-      <a href="/customer/ticketRates.php">Ticket Rates</a>
-      <a href="/customer/transportation.php">Transportation</a>
-      <a href="/customer/bookingdetails.php">Booking details</a>
-      <a href="/customer/printTicket.php">E-Ticket</a>
+      <a href="ticketRates.php">Ticket Rates</a>
+      <a href="transportation.php">Transportation</a>
+      <a href="privacypolicy.php"> Privacy Policy </a>
+      <a href="printTicket.php">E-Ticket</a>
     </div>
     <hr>
   </div>
@@ -71,60 +80,144 @@
       <img id="img-div" src="icons8/icons8-sort-down-24.png">
       </label>
       <a href="customerHome.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
+      <div class="dec-none">
+        <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+      </div>
     </div>
   </nav>    
-  <div class="section">
-    <div class="content-containers card-div">
-      <div class="card text-dark bg-transparent mb-3 shadow-lg">
-        <div class="card-header shadow-lg">Ticket Rates</div>
-        <div class="card-body" style="width: 550px;">
-          <form action="ticketRatesaction.php" method="post">
-            <div class="input1" style="margin-top: 30px;">
-              <select class="form-select shadow-lg" aria-label="Default select example" name="src" autofocus>
-                <option value=" " selected disabled required>select arrival station</option>
-                <?php
-                include('dbcon.php');
-                $db=new dbcon();
+  <div class="content-containers">
+    <div class="aln-horz">
+      <div class="sec">
+        <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: 550px;">
+          <div class="card-header shadow-lg">Ticket Rates</div>
+          <div class="card-body">
+            <form action="" method="post">
+              <div class="input1" style="margin-top: 30px;">
+                <select class="form-select shadow-lg" aria-label="Default select example" name="src" autofocus>
+                  <option value=" " selected disabled required>select arrival station</option>
+                  <?php
 
-                $s="select * from station";
-                $rs=$db->selectData($s);
-                while($row=mysqli_fetch_array($rs)) 
-                {
-                ?>
-                <option value="<?php echo $row['sName']; ?>"><?php echo $row['sName']; ?></option>
+                  $s="select * from station";
+                  $rs=$db->selectData($s);
+                  while($row=mysqli_fetch_array($rs)) 
+                  {
+                  ?>
+                  <option value="<?php echo $row['sName']; ?>"><?php echo $row['sName']; ?></option>
 
-                <?php echo $row['sName'];
-                }
-                ?>
-              </select>
-            </div><br>
-            <div class="input1">
-              <select class="form-select shadow-lg" aria-label="Default select example" name="dest">
-                <option value=" " selected disabled required>select destination station</option>
-                <?php
+                  <?php echo $row['sName'];
+                  }
+                  ?>
+                </select>
+              </div><br>
+              <div class="input1">
+                <select class="form-select shadow-lg" aria-label="Default select example" name="dest">
+                  <option value=" " selected disabled required>select destination station</option>
+                  <?php
 
-                $s="select * from station";
-                $rs=$db->selectData($s);
-                while($row=mysqli_fetch_array($rs)) 
-                {
-                ?>
-                <option value="<?php echo $row['sName']; ?>"><?php echo $row['sName']; ?></option>
+                  $s="select * from station";
+                  $rs=$db->selectData($s);
+                  while($row=mysqli_fetch_array($rs)) 
+                  {
+                  ?>
+                  <option value="<?php echo $row['sName']; ?>"><?php echo $row['sName']; ?></option>
 
-                <?php echo $row['sName'];
-                }
-                ?>
-              </select>
-            </div>
-            <div class="input1">
-              <input type="submit" class="form-control btn shadow-lg" value="view details">
-            </div>
-          </form>
-          <!-- Modal -->
+                  <?php echo $row['sName'];
+                  }
+                  ?>
+                </select>
+              </div>
+              <div class="input1">
+                <input type="submit" class="form-control btn shadow-lg" value="view details">
+              </div>
+            </form>
+            <!-- Modal -->
+          </div>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="card text-dark bg-transparent shadow-lg rounded" style="width: 550px;">
+          <div class="card-header">Ticket Rates</div>
+          <div class="card-body" style="height: fit-content; max-height: 80vh; overflow-y: auto;">
+            <table class="table table-borderless"  style="text-align: center;">
+              <thead>
+                <tr class="data shadow-lg" style="font-family: 'Dancing Script', cursive; font-size: 24px;">
+                  <th scope="col"> From Station </th>
+                  <th scope="col"> To Station </th>
+                  <th scope="col"> Rates </th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+                  <?php
+                  $s="select * from mrate";
+                  $s1="select * from mrate where srcName='$srcName' order by srcCode ASC";
+                  $s2="select * from mrate where srcName='$srcName' and destName='$destName'";
+                  $s3="select * from mrate where destName='$destName' order by destCode ASC";
+                  $s4="select * from mrate where srcName='$destName' and destName='$srcName'";
+
+                  $result=$db->selectData($s);
+                  $result1=$db->selectData($s1);
+                  $result2=$db->selectData($s2);
+                  $result3=$db->selectData($s3);
+                  $result4=$db->selectData($s4);
+                  if(mysqli_num_rows($result2) > 0){
+                    while($row=mysqli_fetch_array($result2))
+                    {          
+                    ?>
+                      <tr class="data shadow-lg">
+                      <td><?php echo $row['srcName']; ?></td>
+                      <td><?php echo $row['destName']; ?></td>
+                      <td><?php echo $row['rate']; ?></td>
+                      </tr>
+                    <?php } }
+                  else if(mysqli_num_rows($result4) > 0){
+                    while($row=mysqli_fetch_array($result4))
+                    {          
+                    ?>
+                      <tr class="data shadow-lg">
+                      <td><?php echo $row['destName']; ?></td>
+                      <td><?php echo $row['srcName']; ?></td>
+                      <td><?php echo $row['rate']; ?></td>
+                      </tr>
+                    <?php } }
+                  else if ($srcName != 'null' and $destName = 'null'){
+                    while($row=mysqli_fetch_array($result1))
+                    {
+                    ?>
+                      <tr class="data shadow-lg">
+                      <td><?php echo $row['srcName']; ?></td>
+                      <td><?php echo $row['destName']; ?></td>
+                      <td><?php echo $row['rate']; ?></td>
+                      </tr>
+                    <?php } }
+                  else if ($destName != 'null' and $srcName = 'null'){
+                    while($row=mysqli_fetch_array($result3))
+                    {
+                    ?>
+                      <tr class="data shadow-lg">
+                      <td><?php echo $row['srcName']; ?></td>
+                      <td><?php echo $row['destName']; ?></td>
+                      <td><?php echo $row['rate']; ?></td>
+                      </tr>
+                    <?php } }
+                  else if ($srcName = "null" and $destName = "null") {
+                    while($row=mysqli_fetch_array($result))
+                    {          
+                    ?>
+                      <tr class="data shadow-lg">
+                      <td><?php echo $row['srcName']; ?></td>
+                      <td><?php echo $row['destName']; ?></td>
+                      <td><?php echo $row['rate']; ?></td>
+                      </tr>
+                    <?php } }
+                  ?>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <footer>
+  <footer class="footer">
     <div class="footer-div">
       <div class="footer-div-img"><img src="icons8/icons8-mastercard-48"></div>
       <div class="footer-div-img"><img src="icons8/icons8-debit-card-48"></div>
@@ -140,7 +233,14 @@
     <hr>
     <div class="footer-div">
       <div class="footer-div-span-head">
-        <h2> Metro By Vehicles </h2>
+        <div class="footer-div-span-head-sub" style="display: flex;">
+          <div style="margin-right: 20px;">
+            <h2 style="color: #6cbcc4;"> Metro </h2>
+            <h2 style="color: #abdbe3;"> Vehicles </h2>
+          </div>
+          <img src="img/icons8-subway-100">
+        </div>
+   <!-- <img src="img/icons8-subway-100">      -->
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
@@ -149,6 +249,7 @@
         <dt><a href="index.php"> Home </a></dt>
         <dt><a href="about.php"> About </a></dt>
         <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="privacypolicy.php"> Privacy Policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
       <div class="footer-div-span"> 
@@ -159,7 +260,7 @@
       </div>
       <div class="footer-div-span">
         <h4> Contact </h4> 
-          <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
+          <dl><a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a>  </dl>
           <dt> 0484-2846700 </dt>
           <dd> 9.30am -5.00pm </dd>
           <dt> 1800 425 0355 </dt>
@@ -217,5 +318,3 @@
   </footer>
 </body>
 </html>
-
-

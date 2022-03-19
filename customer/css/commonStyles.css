@@ -1,7 +1,7 @@
 /*//common css styles for metro vehicles!*/
 /*//designed by k8pai*/
 
-	html, body{
+  html, body{
     scroll-behavior: smooth;
       background-image: url('img/wall-img2.png');
       background-size: cover;
@@ -51,6 +51,13 @@
       font-size: 25px;
       color: snow;
       transition: 0.3s;
+    }
+
+    .h{
+       letter-spacing: 5px; 
+       font-family: monospace; 
+       margin-left: 45px; 
+       font-weight: bolder;
     }
 
     #drop-Menu ~ label img {
@@ -201,18 +208,30 @@
       width: fit-content;
       display: flex;
       margin: auto;
+      justify-content: center;
       /*margin-top: 100px;*/
       margin-bottom: 100px;
     }
 
     div.content{
       margin-top: 100px;
+      width: 100%;
       padding: 40px;
     }
 
     div.content-containers{
+      margin: auto;
       overflow: auto;
       min-height: 100vh;
+    }
+
+    .admin-card-class{
+      margin: 50px;
+    }
+
+    .mb-5{
+      display: inline-flex;
+      margin: 30px;
     }
 
     div.aln-vert{
@@ -222,6 +241,14 @@
 
     div.content-containers-div{
       width: 50%;
+    }
+
+    div.container-div{
+      margin-top: 160px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     div.content-img{
@@ -246,6 +273,17 @@
       word-spacing: 7px;
       font-size: 20px;
       font-family: monospace;
+    }
+
+    div.aln-horz{
+      display: flex; 
+      justify-content: center; 
+      margin-left: 110px;
+      margin-top: 210px; 
+    }
+
+    div.sec{
+      margin: 20px;
     }
 
     div.text-box h1{
@@ -320,12 +358,12 @@
     }
 
     input.form-control.btn.shadow-lg{
-			letter-spacing: 5px; 
-			transition: 0.4s; 
-			margin: 20px; 
-			width: fit-content; 
-			border-radius: 7px; 
-			border: 1px solid;
+      letter-spacing: 5px; 
+      transition: 0.4s; 
+      margin: 20px; 
+      width: fit-content; 
+      border-radius: 7px; 
+      border: 1px solid;
     }
 
     input.form-control.btn.shadow-lg:hover{
@@ -355,6 +393,15 @@
       opacity: .5;
     }
 
+    div.dec-none{
+      margin-left: 0px;
+    }
+
+    div.dec-none a{
+      text-decoration: none;
+      color: whitesmoke;
+    }
+
     /*registration page part*/
     a.header{
       text-decoration: none;
@@ -368,6 +415,7 @@
       color: black;
       margin: 30px;
     }
+
     div.section-div{
       /*margin-top: 210px;*/
       transition: 0.5s;
@@ -509,7 +557,7 @@
       float: left;
       width: 18%;
       height: 450px;
-      padding: 75px 75px 0px 75px;
+      padding: 75px 50px 0px 50px;
     }
     
     div.footer-div-span a{
@@ -554,12 +602,27 @@
       padding: 20px;
     }
 
+    div.img-class-32 img{
+      font-size: 12px;
+    }
+
 @media only screen and (max-width: 1500px){
   div.aln-vert{
     height: 100%;
    }
   div.content-containers-div{
     width: 100%;
+  }
+
+  div.aln-horz{
+    display: block;
+  }
+
+  div.sec{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-content: center;
   }
 }
 @media only screen and (max-width: 1200px)
@@ -571,6 +634,13 @@
     text-align: center;
     width: 100%;
     height: 350px;
+    transition: 0.5s;
+  }
+  div.footer-div-span-head-sub{
+    /*text-align: center;*/
+    justify-content: center;
+    width: 100%;
+    /*height: 350px;*/
     transition: 0.5s;
   }
   div.footer-div-span{
@@ -586,6 +656,7 @@
     margin-top: 50px;
     width: 90%;
   }
+
   div.img-box-container{
     margin: auto;
     margin-top: 50px;
@@ -601,6 +672,13 @@
 @media only screen and (max-width: 990px){
   .dropHeader-div a{
     display: block;
+  }
+
+  div.left-box-container{
+    margin: auto;
+    justify-content: space-around;
+    margin-top: 50px;
+    width: 100%;
   }
 
   /*registration body part*/
