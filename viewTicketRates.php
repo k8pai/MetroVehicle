@@ -27,13 +27,16 @@
     <!-- Bootstrap CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+   <link rel="stylesheet" type="text/css" href="css/commonStyles.css?v=<?php echo time(); ?>">
+    
+   <script src="js/commonJs.js"></script>
+
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
-    <title>Ticket Rates</title>
-   <link rel="stylesheet" type="text/css" href="css/commonStyles.css?v=<?php echo time(); ?>">
-    <script src="js/commonJs.js"></script>
+    <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
+
+    <title>Ticket Rates | MBV</title>
   </head>
   <body id="gototop">
 
@@ -55,13 +58,13 @@
   </div>
   <nav id="navbar" class="navbar sticky-top text-white bg-dark">
     <label class="menu-btn" id="Menu-open" onclick="openNav()">
-    <a href="#gototop"><img src="baseline_menu_white_24dp.png"></a>
+    <a href="#gototop"><img src="1x/baseline_menu_white_24dp.png"></a>
     </label>
     <span class="nav-divider"></span>
     <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
     <span style="flex:1;"></span>
     <div class="header-right">
-      <a href="index.php"><img src="customer/icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
+      <a href="index.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
     </div>
   </nav>
   <!-- <nav id="navbar" class="navbar sticky-top text-white bg-dark">
@@ -221,7 +224,13 @@
     <hr>
     <div class="footer-div">
       <div class="footer-div-span-head">
-        <h2> Metro By Vehicles </h2>
+        <div class="footer-div-span-head-sub" style="display: flex;">
+          <div style="margin-right: 20px;">
+            <h2 style="color: #6cbcc4;"> Metro </h2>
+            <h2 style="color: #abdbe3;"> Vehicles </h2>
+          </div>
+          <img src="img/icons8-subway-100">
+        </div>
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>

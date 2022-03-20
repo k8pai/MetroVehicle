@@ -14,14 +14,17 @@
 
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-    <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
-    <title>MBV Registration</title>
     <style type="text/css">
-    body{
-      background-image: url('wall-img.jpg');
-    }
+      body{
+        background-image: url('wall-img.jpg');
+      }
     </style>
+
+    <!-- Favicon icon -->
+    <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
+
+    <title>Registration Page | MBV</title>
+    
   </head>
     <body id="gototop">
 
@@ -43,13 +46,13 @@
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
     <label class="menu-btn" for="Menu-open" onclick="openNav()">
-    <img src="baseline_menu_white_24dp.png">
+    <img src="1x/baseline_menu_white_24dp.png">
     </label>
     <span class="nav-divider"></span>
     <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
     <span class="flex-class"></span>
     <div class="header-right">
-      <a class="back-btn" onclick="goBack()"><img src="baseline_arrow_back_ios_white_24dp.png"></a>
+      <a class="back-btn" onclick="goBack()"><img src="1x/baseline_arrow_back_ios_white_24dp.png"></a>
     </div>
   </nav>
   <div id="section" class="section-div">
@@ -128,7 +131,13 @@
     <hr>
     <div class="footer-div">
       <div class="footer-div-span-head">
-        <h2> Metro By Vehicles </h2>
+        <div class="footer-div-span-head-sub" style="display: flex;">
+          <div style="margin-right: 20px;">
+            <h2 style="color: #6cbcc4;"> Metro </h2>
+            <h2 style="color: #abdbe3;"> Vehicles </h2>
+          </div>
+          <img src="img/icons8-subway-100">
+        </div>
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>

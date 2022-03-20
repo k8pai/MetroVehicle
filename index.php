@@ -10,15 +10,18 @@
 
     <!-- Bootstrap CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-   
+
    <link rel="stylesheet" type="text/css" href="css/commonStyles.css?v=<?php echo time(); ?>">
+    
+   <script src="js/commonJs.js"></script>
 
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
-    <title>Home Page</title>
-    <script src="js/commonJs.js"></script>
+    <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
+
+    <title>Metro Vehicles</title>
+
   </head>
     <body id="gototop">
 
@@ -37,13 +40,13 @@
   </div>
   <nav id="navbar" class="navbar sticky-top text-white bg-dark">
     <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">
-    <a href="#gototop"><img src="baseline_menu_white_24dp.png"></a>
+    <a href="#gototop"><img src="1x/baseline_menu_white_24dp.png"></a>
     </label>
     <span class="nav-divider"></span>
     <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
     <span style="flex:1;"></span>
     <div class="header-right">
-      <a class="none-btn" href="login.php"> Login <img src="customer/icons8/icons8-login-30.png"></a>
+      <a class="none-btn" href="login.php"> Login <img src="icons8/icons8-login-30.png"></a>
       <!-- <a class="link-" href="registration.php"> Sign Up</a> -->
       <!-- <?php echo date('H:i:sa'); ?> -->
       <!-- <a class="back-btn" onclick="goBack()"><img src="baseline_arrow_back_ios_white_24dp.png"></a> -->
@@ -122,7 +125,13 @@
     <hr>
     <div class="footer-div">
       <div class="footer-div-span-head">
-        <h2> Metro By Vehicles </h2>
+        <div class="footer-div-span-head-sub" style="display: flex;">
+          <div style="margin-right: 20px;">
+            <h2 style="color: #6cbcc4;"> Metro </h2>
+            <h2 style="color: #abdbe3;"> Vehicles </h2>
+          </div>
+          <img src="img/icons8-subway-100">
+        </div>
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
@@ -133,7 +142,7 @@
         <dt><a href="privacypolicy.php"> Privacy policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
-      <div id="Visit" class="footer-div-span"> 
+      <div id="visit" class="footer-div-span"> 
         <h4> Visit </h4> 
         <dl> Jawaharlal Nehru Stadium Metro Station, </dl>
         <dl>  4th Floor, Kaloor, Kochi, </dl>

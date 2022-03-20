@@ -50,7 +50,7 @@
     </div>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
+    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>

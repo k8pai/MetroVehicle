@@ -4,9 +4,6 @@
   $db=new dbcon();
   date_default_timezone_set('Asia/Kolkata');
 
-  // $startTime=$_SESSION['start'];
-  // $expireTime=$_SESSION['expire'];
-
   $expire="";
   if(isset($_SESSION['expire']))
   {
@@ -52,37 +49,15 @@
     $_SESSION['paymentStatus']=$row['paymentStatus'];
   }
 
-
-
   if(!isset($_SESSION['expire'])){
     echo "<script>alert('You have not reached yet?. book again!');window.location='ticketBooking.php';</script>";
   }
-  // if(!isset($_SESSION['expire']) && isset($_SESSION['ticket'])){
-  //   echo "<script>alert('You have not reached yet?. book again!');window.location='ticketBooking.php';</script>";
-  // }
 
   if(!isset($_SESSION['expire']) and ($_SESSION['bookingStatus'] !== 'transport assigned' OR $_SESSION['bookingStatus'] !== 'Cancelled')){
     $updquery="update bookinghistory set bookingStatus='Cancelled' where bookingId='".$_SESSION['bookingId']."'";
     $db->insertQuery($updquery);
   }
 
-  // if($_SESSION['ticket']=='true'){
-  //   echo "<script>alert('Enjoy your ride!!!');window.location='customerHome.php';</script>";
-  //   $_SESSION['ticket']="false";
-  // }
-  // else
-  // {
-  //   if(!isset($_SESSION['expire'])){
-  //   echo "<script>alert('Check your booking details in the booking details portal.');window.location='bookingdetails.php'</script>";
-  //   }
-  // }
-
-  // $ticketStatus="waiting";
-  // echo $_SESSION['ticket'];
-  // if($_SESSION['ticket']=='true')
-  // {
-  //   $ticketStatus="confirmed";
-  // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -134,7 +109,7 @@
     <hr>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
+    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>

@@ -73,9 +73,9 @@ function focedit()
 }
 
 function focreadonly(){
-  document.getElementById("fname").addAttribute("readonly");
-  document.getElementById("lname").addAttribute("readonly");
-  document.getElementById("phone").addAttribute("readonly");
-  document.getElementById("mail").addAttribute("readonly");
-  document.getElementById("save-btn").addAttribute("disabled");
+  document.getElementById("fname").setAttribute('readonly', true);
+  document.getElementById("lname").setAttribute('readonly', true);
+  document.getElementById("phone").setAttribute('readonly', true);
+  document.getElementById("mail").setAttribute('readonly', true);
+  document.getElementById("save-btn").setAttribute('disabled', true);
 }

@@ -5,7 +5,6 @@
   if(!isset($_SESSION['cust'])){
     header('location: login.php');
   }
-  date_default_timezone_set('Asia/Kolkata');
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,7 +29,7 @@
 
     <title>Home page | MBV</title>
   </head>
-    <body id="gototop" onscroll="scrollfun()">
+    <body id="gototop">
 
    <!-- Optional JavaScript; choose one of the two! -->
 
@@ -60,7 +59,7 @@
     <hr>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
+    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -69,7 +68,6 @@
       <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">Stations and more 
       <img id="img-div" src="icons8/icons8-sort-down-24.png">
       </label>
-      <!-- <a href="profile.php"><img src="icons8/icons8-user-48.png"></a> -->
       <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="icons8/icons8-name-tag-48"></button>
       <div class="dec-none">
         <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
@@ -97,7 +95,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="focreadonly()"></button>
         </div>
         <div class="modal-body">
-          <form name="modal-form" action="profileAction.php" method="post">
+          <form name="modal-form" action="actionPages/profileAction.php" method="post">
             <input type="hidden" class="form-control" id="rno" name="rno" value="<?php echo $rno; ?>" readonly>
             <table align="center">
             <tr>
@@ -258,7 +256,6 @@
           </div>
           <img src="img/icons8-subway-100">
         </div>
-   <!-- <img src="img/icons8-subway-100">      -->
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
@@ -270,21 +267,21 @@
         <dt><a href="privacypolicy.php"> Privacy Policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
-      <div class="footer-div-span"> 
+      <div id="visit" class="footer-div-span"> 
         <h4> Visit </h4> 
         <dl> Jawaharlal Nehru Stadium Metro Station, </dl>
         <dl>  4th Floor, Kaloor, Kochi, </dl>
         <dl> Kerala - 682017 </dl>
       </div>
-      <div class="footer-div-span">
+      <div id="contact" class="footer-div-span">
         <h4> Contact </h4> 
-          <dl><a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a>  </dl>
+          <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
           <dt> 0484-2846700 </dt>
           <dd> 9.30am -5.00pm </dd>
           <dt> 1800 425 0355 </dt>
           <dd> Toll Free </dd>
       </div>
-      <div class="footer-div-span">
+      <div id="next" class="footer-div-span">
         <h4> What's NEXT </h4>
         <dt> Kochi Water Metro </dt>
         <dt> Coming Soon </dt>

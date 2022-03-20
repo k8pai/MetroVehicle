@@ -23,8 +23,9 @@
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
-    <title>Transport Updation</title>
+    <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
+
+    <title>Bookings | MBV</title>
   </head>
     <body id="gototop">
 
@@ -41,94 +42,22 @@
       <a href="staffhome.php">Home</a>
       <a href="vreg.php">User Details</a>
       <a href="ticketBooking.php">Booking</a>
-      <a href="mop.php">Payment management</a>
-      <a href="../logout.php">logout</a>
+      <a href="mop.php">Payments</a>
+      <a href="vcomp.php">Complaint</a>
+      <!-- <a href="../logout.php">logout</a> -->
     </div>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
+    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
     <div class="header-right">
-      <!-- <a href="profile.php"><img src="icons8/icons8-user-48.png"></a> -->
       <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="icons8/icons8-name-tag-48"></button>
     </div>
   </nav>
   <div class="content-containers">
     <div class="aln-horz">
-      <div class="sec">
-        <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content;">
-          <div class="card-header"> Bookings</div>
-          <div class="card-body">
-            <table class="table table-borderless shadow-lg">
-              <thead>
-                <tr style="font-family: 'Dancing Script', cursive; font-size: 24px;">
-                  <!-- <th scope="col"> BACODE </th> -->
-                  <th scope="col"> BOOKING ID </th>
-                  <!-- <th scope="col"> ASTATION </th> -->
-                  <th scope="col"> DESTINATION </th>
-                  <th scope="col"> TICKET RATE </th>
-                  <!-- <th scope="col"> ONE TIME PIN </th> -->
-                  <th scope="col"> TRANSMODE </th>
-                  <!-- <th scope="col"> PASSENGERS </th> -->
-                  <!-- <th scope="col"> CABS AVAILABLE </th> -->
-                  <!-- <th scope="col"> AUTOS AVAILABLE </th> -->
-                  <!-- <th scope="col"> ASSIGN </th> -->
-                  <!-- <th scope="col"> REASSIGN </th> -->
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-
-                  if(isset($_POST['bookingid'])){
-                    echo $_POST['bookingid'];
-                    $bookingid=$_POST['bookingid'];
-                  }else{
-                    echo "not defined";
-                    $bookingid="";
-                  }
-                  $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."'";
-
-                  if($bookingid !== ""){
-                    $selquery=$selquery." and where banda.bookingId='".$_POST['bookingid']."'";
-                  }
-                  // $s="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."'";
-
-                  $rs=$db->selectData($selquery);
-                  $i=1;
-                  echo $selquery;
-                  if($rs){
-
-                  while($row=mysqli_fetch_array($rs))
-                  {
-                  ?>
-                    <tr class="data shadow-lg">
-                    <!-- <td><?php echo $row['bandaId']; ?></td> -->
-                    <td><?php echo $row['bookingId']; ?></td>
-                    <!-- <td><?php echo $row['Astation']; ?></td> -->
-                    <td><?php echo $row['destination']; ?></td>
-                    <td><?php echo $row['ticketFare']; ?></td>
-                    <!-- <td><?php echo $row['randCode']; ?></td> -->
-                    <td><?php echo $row['transMode']; ?></td>
-                    <!-- <td><?php echo $row['custCount']; ?></td> -->
-                    <!-- <td><?php echo $row['numCab']; ?></td> -->
-                    <!-- <td><?php echo $row['numAuto']; ?></td> -->
-                    <!-- <td><a href="assignTransport.php?id=<?php echo $row['bandaId']; ?>">Assign</a></td> -->
-                    <!-- <td><a href="reassignTransport.php?id=<?php echo $row['bandaId']; ?>">Reassign</a></td> -->
-                    <!-- <td><a href="deleteBooking.php?id=<?php echo $row['bandaId']; ?>">Move to history</a></td> -->
-                    </tr>
-                  <?php $i++;} 
-                  }
-                  else{
-                    echo "<script>alert('No records to display!');</script>";
-                  }
-                  ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
       <div class="sec">
         <div class="sec-container">
           <div class="card text-dark bg-transparent mb-3" style="width: 550px;">
@@ -195,70 +124,43 @@
           </div>
         </div>
         <div class="sec-container">
-          <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content;">
+          <div class="card text-dark bg-transparent mb-3 shadow-lg">
             <div class="card-header"> Available mode of transports.</div>
-            <div class="card-body">
+            <div class="card-body" style="width: inherit;">
               <table class="table table-borderless shadow-lg">
-                <thead>
+                <thead style="text-align: center;">
                   <tr style="font-family: 'Dancing Script', cursive; font-size: 24px;">
-                    <!-- <th scope="col"> BACODE </th> -->
-                    <!-- <th scope="col"> BOOKING ID </th> -->
-                    <!-- <th scope="col"> ASTATION </th> -->
-                    <!-- <th scope="col"> DESTINATION </th> -->
-                    <!-- <th scope="col"> TICKET RATE </th> -->
-                    <!-- <th scope="col"> ONE TIME PIN </th> -->
-                    <!-- <th scope="col"> TRANSMODE </th> -->
-                    <!-- <th scope="col"> PASSENGERS </th> -->
-                    <th scope="col"> CABS </th>
-                    <th scope="col"> AUTOS </th>
-                    <!-- <th scope="col"> ASSIGN </th> -->
-                    <!-- <th scope="col"> REASSIGN </th> -->
+                    <th scope="col"> Cabs </th>
+                    <th scope="col"> Autos </th>
+                    <th scope="col"> Bi-Cycles </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                   <?php
 
                     if(isset($_POST['bookingid'])){
-                      echo $_POST['bookingid'];
                       $bookingid=$_POST['bookingid'];
-                    }else{
-                      echo "not defined";
+                    }else{                      
                       $bookingid="";
                     }
                     $selquery="select * from station where stationStaff='".$_SESSION['staff']."'";
 
-                    if($bookingid !== ""){
-                      $selquery=$selquery." and where banda.bookingId='".$_POST['bookingid']."'";
-                    }
-
                     $rs=$db->selectData($selquery);
                     $i=1;
                     echo $selquery;
-                    if($rs){
 
                     while($row=mysqli_fetch_array($rs))
                     {
                     ?>
                       <tr class="data shadow-lg">
-                      <!-- <td><?php echo $row['bandaId']; ?></td> -->
-                      <!-- <td><?php echo $row['bookingId']; ?></td> -->
-                      <!-- <td><?php echo $row['Astation']; ?></td> -->
-                      <!-- <td><?php echo $row['destination']; ?></td> -->
-                      <!-- <td><?php echo $row['ticketFare']; ?></td> -->
-                      <!-- <td><?php echo $row['randCode']; ?></td> -->
-                      <!-- <td><?php echo $row['transMode']; ?></td> -->
-                      <!-- <td><?php echo $row['custCount']; ?></td> -->
                       <td><?php echo $row['numCab']; ?></td>
                       <td><?php echo $row['numAuto']; ?></td>
+                      <td><?php echo $row['numCycle']; ?></td>
                       <!-- <td><a href="assignTransport.php?id=<?php echo $row['bandaId']; ?>">Assign</a></td> -->
                       <!-- <td><a href="reassignTransport.php?id=<?php echo $row['bandaId']; ?>">Reassign</a></td> -->
                       <!-- <td><a href="deleteBooking.php?id=<?php echo $row['bandaId']; ?>">Move to history</a></td> -->
                       </tr>
                     <?php $i++;} 
-                    }
-                    else{
-                      echo "<script>alert('No records to display!');</script>";
-                    }
                     ?>
                 </tbody>
               </table>
@@ -266,9 +168,81 @@
           </div>
         </div>
       </div>
+      <div class="sec">
+        <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content;">
+          <div class="card-header"> Bookings</div>
+          <div class="card-body" style="height: fit-content; max-height: 80vh; overflow-y: auto;">
+            <table class="table table-borderless shadow-lg">
+              <thead>
+                <tr style="font-family: 'Dancing Script', cursive; font-size: 24px;">
+                  <!-- <th scope="col"> BACODE </th> -->
+                  <th scope="col"> BOOKING ID </th>
+                  <!-- <th scope="col"> ASTATION </th> -->
+                  <th scope="col"> DESTINATION </th>
+                  <th scope="col"> TICKET RATE </th>
+                  <!-- <th scope="col"> ONE TIME PIN </th> -->
+                  <th scope="col"> TRANSMODE </th>
+                  <!-- <th scope="col"> PASSENGERS </th> -->
+                  <!-- <th scope="col"> CABS AVAILABLE </th> -->
+                  <!-- <th scope="col"> AUTOS AVAILABLE </th> -->
+                  <!-- <th scope="col"> ASSIGN </th> -->
+                  <!-- <th scope="col"> REASSIGN </th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+
+                  if(isset($_POST['bookingid'])){
+                    // echo $_POST['bookingid'];
+                    $bookingid=$_POST['bookingid'];
+                  }else{
+                    // echo "not defined";
+                    $bookingid="";
+                  }
+                  $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."'";
+
+                  if($bookingid !== ""){
+                    $selquery=$selquery." and where banda.bookingId='".$_POST['bookingid']."'";
+                  }
+                  // $s="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."'";
+
+                  $rs=$db->selectData($selquery);
+                  $i=1;
+                  // echo $selquery;
+                  if($rs){
+
+                  while($row=mysqli_fetch_array($rs))
+                  {
+                  ?>
+                    <tr class="data shadow-lg">
+                    <!-- <td><?php echo $row['bandaId']; ?></td> -->
+                    <td><?php echo $row['bookingId']; ?></td>
+                    <!-- <td><?php echo $row['Astation']; ?></td> -->
+                    <td><?php echo $row['destination']; ?></td>
+                    <td><?php echo $row['ticketFare']; ?></td>
+                    <!-- <td><?php echo $row['randCode']; ?></td> -->
+                    <td><?php echo $row['transMode']; ?></td>
+                    <!-- <td><?php echo $row['custCount']; ?></td> -->
+                    <!-- <td><?php echo $row['numCab']; ?></td> -->
+                    <!-- <td><?php echo $row['numAuto']; ?></td> -->
+                    <!-- <td><a href="assignTransport.php?id=<?php echo $row['bandaId']; ?>">Assign</a></td> -->
+                    <!-- <td><a href="reassignTransport.php?id=<?php echo $row['bandaId']; ?>">Reassign</a></td> -->
+                    <!-- <td><a href="deleteBooking.php?id=<?php echo $row['bandaId']; ?>">Move to history</a></td> -->
+                    </tr>
+                  <?php $i++;} 
+                  }
+                  else{
+                    echo "<script>alert('No records to display!');</script>";
+                  }
+                  ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <footer>
+  <footer class="footer">
     <div class="footer-div">
       <div class="footer-div-img"><img src="icons8/icons8-mastercard-48"></div>
       <div class="footer-div-img"><img src="icons8/icons8-debit-card-48"></div>
@@ -284,7 +258,14 @@
     <hr>
     <div class="footer-div">
       <div class="footer-div-span-head">
-        <h2> Metro By Vehicles </h2>
+        <div class="footer-div-span-head-sub" style="display: flex;">
+          <div style="margin-right: 20px;">
+            <h2 style="color: #6cbcc4;"> Metro </h2>
+            <h2 style="color: #abdbe3;"> Vehicles </h2>
+          </div>
+          <img src="img/icons8-subway-100">
+        </div>
+   <!-- <img src="img/icons8-subway-100">      -->
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
@@ -292,16 +273,17 @@
         <h4> Explore </h4>
         <dt><a href="index.php"> Home </a></dt>
         <dt><a href="about.php"> About </a></dt>
-        <dt><a href="privacypolicy.php"> Privacy policy </a></dt>
+        <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="privacypolicy.php"> Privacy Policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
-      <div class="footer-div-span"> 
+      <div id="visit" class="footer-div-span"> 
         <h4> Visit </h4> 
         <dl> Jawaharlal Nehru Stadium Metro Station, </dl>
         <dl>  4th Floor, Kaloor, Kochi, </dl>
         <dl> Kerala - 682017 </dl>
       </div>
-      <div class="footer-div-span">
+      <div id="contact" class="footer-div-span">
         <h4> Contact </h4> 
           <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
           <dt> 0484-2846700 </dt>
@@ -309,14 +291,14 @@
           <dt> 1800 425 0355 </dt>
           <dd> Toll Free </dd>
       </div>
-      <div class="footer-div-span">
+      <div id="next" class="footer-div-span">
         <h4> What's NEXT </h4>
         <dt> Kochi Water Metro </dt>
         <dt> Coming Soon </dt>
       </div>
     </div>
     <div class="footer-div">
-      <h4> Follow Us </h4>
+        <h4> Follow Us </h4>
       <div class="footer-div-icons">
         <div class="footer-div icons-div d1">
           <a href="https://www.facebook.com">
@@ -352,7 +334,7 @@
     </div>
     <br>
     <hr>
-    <div id="footer" class="footer-div">
+    <div class="footer-div">
       <div class="footer-div-copy">
         <h6>&copy; 2021 Metro Vehicles ltd. All rights reserved</h6>
         <span class="floating-footer-pointer"><a href="#gototop"><img src="icons8/icons8-chevron-up-48"></a></span>

@@ -34,26 +34,26 @@
     <div class="closebtn-div">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
-    <a href="/customer/customerHome.php" >Home</a>
-    <a href="/customer/ticketRates.php">Ticket Rates</a>
-    <a class="active-page" href="/customer/ticketBooking.php">Booking</a>
-    <a href="/customer/bookingdetails.php">Booking details</a>
-    <a href="/customer/printTicket.php">E-Ticket</a>
-    <a href="/customer/cancel.php">Cancel ticket</a>
-    <a href="/customer/complaint.php">Complaint</a>
+    <a href="customerHome.php" >Home</a>
+    <a href="ticketRates.php">Ticket Rates</a>
+    <a class="active-page" href="ticketBooking.php">Booking</a>
+    <a href="bookingdetails.php">Booking details</a>
+    <a href="printTicket.php">E-Ticket</a>
+    <a href="cancel.php">Cancel ticket</a>
+    <a href="complaint.php">Complaint</a>
   </div>
   <div id="dropMenu" class="dropMenu bg-dark text-light">
     <div class="dropHeader-div">
       <a href=""></a>
-      <a href="/customer/ticketRates.php">Ticket Rates</a>
-      <a href="/customer/transportation.php">Transportation</a>
+      <a href="ticketRates.php">Ticket Rates</a>
+      <a href="transportation.php">Transportation</a>
       <a href="privacypolicy.php"> Privacy Policy </a>
-      <a href="/customer/printTicket.php">E-Ticket</a>
+      <a href="printTicket.php">E-Ticket</a>
     </div>
     <hr>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
+    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
     <span class="navbar-vert-line"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -70,10 +70,8 @@
   </nav> 
   <div class="section">
     <div class="container">
-    </div>
-    <div class="container">
       <div class="card text-dark bg-transparent mb-3 shadow-lg">
-        <form action="bandaction.php" method="post">
+        <form action="actionPages/bandaction.php" method="post">
         <div class="card-header">Booking</div>
         <div class="card-body" style="width: 550px;">
           <!-- <div class="input1">
@@ -206,21 +204,21 @@
         <dt><a href="privacypolicy.php"> Privacy Policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
-      <div class="footer-div-span"> 
+      <div id="visit" class="footer-div-span"> 
         <h4> Visit </h4> 
         <dl> Jawaharlal Nehru Stadium Metro Station, </dl>
         <dl>  4th Floor, Kaloor, Kochi, </dl>
         <dl> Kerala - 682017 </dl>
       </div>
-      <div class="footer-div-span">
+      <div id="contact" class="footer-div-span">
         <h4> Contact </h4> 
-          <dl><a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a>  </dl>
+          <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
           <dt> 0484-2846700 </dt>
           <dd> 9.30am -5.00pm </dd>
           <dt> 1800 425 0355 </dt>
           <dd> Toll Free </dd>
       </div>
-      <div class="footer-div-span">
+      <div id="next" class="footer-div-span">
         <h4> What's NEXT </h4>
         <dt> Kochi Water Metro </dt>
         <dt> Coming Soon </dt>

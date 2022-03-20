@@ -49,7 +49,7 @@
     </div>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
+    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -109,9 +109,9 @@
         </div>
       </div>
       <div class="sec">
-        <div class="card text-dark bg-transparent mb-3 shadow-lg">
+        <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content; max-height: 80vh; height: fit-content; overflow: auto; float: left;">
           <div class="card-header"> Ticket rates. </div>
-          <div class="card-body" style="width: fit-content;">
+          <div class="card-body">
             <table class="table table-borderless"  style="width: 700px;">
               <thead>
                 <tr style="font-family: 'Dancing Script', cursive; font-size: 24px;">
