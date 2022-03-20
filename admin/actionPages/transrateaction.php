@@ -1,5 +1,5 @@
 <?php
-	include('dbcon.php');
+	include('../dbcon.php');
 	$db=new dbcon;
 	
 	$pickloc=$_POST['pickloc'];
@@ -26,5 +26,5 @@
 	$sql="insert into ratecalc(pickLoc,avlStation,transMode,rate) values ('$pickloc','$avlstation','$transmode','$rate')";
 	$db->insertQuery($sql);
 
-	echo"<script>window.location='bookingPrice.php'</script>";
+	echo"<script>window.location='../bookingPrice.php'</script>";
 ?>

@@ -21,8 +21,9 @@
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
-    <title>Station Modification</title>
+    <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
+
+    <title>Booking Settings | MBV</title>
     
   </head>
   <body id="gototop">
@@ -38,7 +39,7 @@
     <div class="sidenav-div">
       <a href="adminhome.php" >Home</a>
       <a href="transport.php">Transport</a>
-      <a href="bookingPrice.php">booking price</a>
+      <a class="active-page" href="bookingPrice.php">booking price</a>
       <a href="addLocs.php">add locations</a>
       <a href="Vreg.php">User Information</a>
       <a href="addUser.php">Add User</a>
@@ -53,8 +54,7 @@
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
     <div class="header-right">
-      <!-- <a href="profile.php"><img src="icons8/icons8-user-48.png"></a> -->
-      <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="icons8/icons8-name-tag-48"></button>
+      <a href="adminhome.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 24px;"></a>
     </div>
   </nav>
   
@@ -63,7 +63,7 @@
         <div class="card text-dark bg-transparent mb-3 shadow-lg admin-card-class">
           <div class="card-header"> Add Station. </div>
           <div class="card-body" style="width: 550px;">
-            <form action="transrateaction.php" method="post">
+            <form action="actionPages/transrateaction.php" method="post">
             <div class="input1">
               <select class="form-select" name="pickloc" required>
               <option value="" selected disabled>Pickup Station</option>
@@ -152,7 +152,7 @@
                     <td><?php echo $row['avlStation']; ?></td>
                     <td><?php echo $row['transMode']; ?></td>
                     <td><?php echo $row['rate']; ?></td>
-                    <td><a href="deleteBookingPrice.php?id=<?php echo $row['ratecalcId'];?>">Delete</a></td>
+                    <td><a href="actionPages/deleteBookingPrice.php?id=<?php echo $row['ratecalcId'];?>">Delete</a></td>
                     </tr>
                   <?php $i++;} ?>
               </tbody>
@@ -161,7 +161,7 @@
         </div>
     </div>
   </div>
-  <footer>
+  <footer class="footer">
     <div class="footer-div">
       <div class="footer-div-img"><img src="icons8/icons8-mastercard-48"></div>
       <div class="footer-div-img"><img src="icons8/icons8-debit-card-48"></div>
@@ -177,7 +177,14 @@
     <hr>
     <div class="footer-div">
       <div class="footer-div-span-head">
-        <h2> Metro By Vehicles </h2>
+        <div class="footer-div-span-head-sub" style="display: flex;">
+          <div style="margin-right: 20px;">
+            <h2 style="color: #6cbcc4;"> Metro </h2>
+            <h2 style="color: #abdbe3;"> Vehicles </h2>
+          </div>
+          <img src="img/icons8-subway-100">
+        </div>
+   <!-- <img src="img/icons8-subway-100">      -->
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
@@ -185,7 +192,8 @@
         <h4> Explore </h4>
         <dt><a href="index.php"> Home </a></dt>
         <dt><a href="about.php"> About </a></dt>
-        <dt><a href="privacypolicy.php"> Privacy policy </a></dt>
+        <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="privacypolicy.php"> Privacy Policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
       <div class="footer-div-span"> 
@@ -196,7 +204,7 @@
       </div>
       <div class="footer-div-span">
         <h4> Contact </h4> 
-          <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
+          <dl><a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a>  </dl>
           <dt> 0484-2846700 </dt>
           <dd> 9.30am -5.00pm </dd>
           <dt> 1800 425 0355 </dt>
@@ -209,7 +217,7 @@
       </div>
     </div>
     <div class="footer-div">
-      <h4> Follow Us </h4>
+        <h4> Follow Us </h4>
       <div class="footer-div-icons">
         <div class="footer-div icons-div d1">
           <a href="https://www.facebook.com">
@@ -245,7 +253,7 @@
     </div>
     <br>
     <hr>
-    <div id="footer" class="footer-div">
+    <div class="footer-div">
       <div class="footer-div-copy">
         <h6>&copy; 2021 Metro Vehicles ltd. All rights reserved</h6>
         <span class="floating-footer-pointer"><a href="#gototop"><img src="icons8/icons8-chevron-up-48"></a></span>
@@ -254,25 +262,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

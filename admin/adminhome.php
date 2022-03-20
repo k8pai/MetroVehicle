@@ -5,10 +5,6 @@
   if(!isset($_SESSION['admin'])){
     header('location: login.php');
   }
-  // if(isset($_SESSION['admin'])){
-  //   header('location: adminhome.php');
-  //   exit();
-  // }
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,8 +23,9 @@
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/svg" href="C:\Users\thek8\Downloads\map-marked-alt-solid.svg">
-    <title>Home page</title>
+    <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
+
+    <title>Home page | MBV</title>
 
   </head>
     <body id="gototop">
@@ -43,7 +40,7 @@
       <a href=""></a>
     </div>
     <div class="sidenav-div">
-      <a href="adminhome.php" >Home</a>
+      <a class="active-page" href="adminhome.php" >Home</a>
       <a href="transport.php">Transport</a>
       <a href="bookingPrice.php">booking price</a>
       <a href="addLocs.php">add locations</a>
@@ -180,7 +177,7 @@
       </div>
     </div>        
   </div>        
-  <footer>
+  <footer class="footer">
     <div class="footer-div">
       <div class="footer-div-img"><img src="icons8/icons8-mastercard-48"></div>
       <div class="footer-div-img"><img src="icons8/icons8-debit-card-48"></div>
@@ -196,7 +193,14 @@
     <hr>
     <div class="footer-div">
       <div class="footer-div-span-head">
-        <h2> Metro By Vehicles </h2>
+        <div class="footer-div-span-head-sub" style="display: flex;">
+          <div style="margin-right: 20px;">
+            <h2 style="color: #6cbcc4;"> Metro </h2>
+            <h2 style="color: #abdbe3;"> Vehicles </h2>
+          </div>
+          <img src="img/icons8-subway-100">
+        </div>
+   <!-- <img src="img/icons8-subway-100">      -->
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
@@ -204,7 +208,8 @@
         <h4> Explore </h4>
         <dt><a href="index.php"> Home </a></dt>
         <dt><a href="about.php"> About </a></dt>
-        <dt><a href="privacypolicy.php"> Privacy policy </a></dt>
+        <dt><a href="future.php"> Future </a></dt>
+        <dt><a href="privacypolicy.php"> Privacy Policy </a></dt>
         <dt><a href="careers.php"> Careers </a></dt>
       </div>
       <div class="footer-div-span"> 
@@ -215,7 +220,7 @@
       </div>
       <div class="footer-div-span">
         <h4> Contact </h4> 
-          <dl> <a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a> </dl>
+          <dl><a href="mailto:Metrovehicles@gmail.com">Metrovehicles@gmail.com</a>  </dl>
           <dt> 0484-2846700 </dt>
           <dd> 9.30am -5.00pm </dd>
           <dt> 1800 425 0355 </dt>
@@ -228,7 +233,7 @@
       </div>
     </div>
     <div class="footer-div">
-      <h4> Follow Us </h4>
+        <h4> Follow Us </h4>
       <div class="footer-div-icons">
         <div class="footer-div icons-div d1">
           <a href="https://www.facebook.com">
@@ -264,7 +269,7 @@
     </div>
     <br>
     <hr>
-    <div id="footer" class="footer-div">
+    <div class="footer-div">
       <div class="footer-div-copy">
         <h6>&copy; 2021 Metro Vehicles ltd. All rights reserved</h6>
         <span class="floating-footer-pointer"><a href="#gototop"><img src="icons8/icons8-chevron-up-48"></a></span>

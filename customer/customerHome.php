@@ -18,6 +18,8 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
    
    <link rel="stylesheet" type="text/css" href="css/commonStyles.css?v=<?php echo time(); ?>">
+    
+   <script src="js/commonJs.js"></script>
 
    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
@@ -27,8 +29,6 @@
     <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
 
     <title>Home page | MBV</title>
-    
-    <script src="js/commonJs.js"></script>
   </head>
     <body id="gototop" onscroll="scrollfun()">
 

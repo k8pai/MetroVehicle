@@ -1,5 +1,5 @@
 <?php
-	include('dbcon.php');
+	include('../dbcon.php');
 	$db=new dbcon;
 	
 	
@@ -12,5 +12,5 @@
 	$sql="insert into transport(transMode,driving,rate) values ('$transport','$dr','$trate')";
 	$db->insertQuery($sql);
 
-	echo"<script>alert('Transport Added');window.location='transport.php'</script>";
+	echo"<script>alert('Transport Added');window.location='../transport.php'</script>";
 ?>
