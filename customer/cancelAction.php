@@ -11,7 +11,8 @@
 	$query=$db->selectData($selquery);
 	if($row=mysqli_fetch_array($query)){
 		$bookingStatus=$row['bookingStatus'];
-		if($bookingStatus!=='transport assigned' and $bookingStatus !== 'Cancelled'){
+		$paymentStatus=$row['paymentStatus'];
+		if($bookingStatus!=='transport assigned' and $bookingStatus !== 'Cancelled' and $paymentStatus!=='Successful'){
 			$bookingid=$row['bookingId'];
 			$delquery="delete from banda where bookingId='$bookingid' and transMode='$transmode'";
 			$db->insertQuery($delquery);
@@ -24,6 +25,11 @@
 		else if($bookingStatus == 'Cancelled')
 		{
 			echo"<script>alert('Your already cancelled this ticket!');window.location='cancel.php'</script>";
+		}
+		else if($paymentStatus == 'Successful'){
+			$updquery="update bookinghistory set paymentStatus='Refundable' where bookingId='$bookId'";
+			$db->insertQuery($updquery);
+			echo"<script>alert('Your already paid for this ticket.');window.location='cancel.php'</script>";
 		}
 		else{
 			echo"<script>alert('Your transport has already been assigned!');window.location='cancel.php'</script>";

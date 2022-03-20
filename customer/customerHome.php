@@ -26,7 +26,7 @@
     <!-- Favicon icon -->
     <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
 
-    <title>Home page</title>
+    <title>Home page | MBV</title>
     
     <script src="js/commonJs.js"></script>
   </head>
@@ -57,6 +57,7 @@
       <a href="transportation.php">Transportation</a>
       <a href="privacypolicy.php"> Privacy Policy </a>
     </div>
+    <hr>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
     <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>

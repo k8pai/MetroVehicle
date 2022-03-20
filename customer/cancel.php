@@ -23,7 +23,7 @@
     <!-- Favicon icon -->
     <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
     
-    <title>Ticket Cancellation</title>
+    <title>Ticket Cancellation | MBV</title>
     
     
     <script src="js/commonJs.js"></script>

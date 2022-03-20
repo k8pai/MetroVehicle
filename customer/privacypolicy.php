@@ -20,7 +20,7 @@
     <!-- Favicon icon -->
     <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
 
-    <title>Privacy Policy</title>
+    <title>Privacy Policy | MBV</title>
     
   </head>
     <body id="gototop">
@@ -49,9 +49,8 @@
       <a href="ticketRates.php">Ticket Rates</a>
       <a href="transportation.php">Transportation</a>
       <a href="privacypolicy.php"> Privacy Policy </a>
-      <!-- <a href="../logout.php" style="font-siz
-        e: 32px;"><img src="icons8/icons8-logout-48.png"></a> -->
     </div>
+    <hr>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
     <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>

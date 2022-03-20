@@ -1,5 +1,7 @@
 <?php 
   session_start();
+  include('dbcon.php');
+  $db=new dbcon;
   if(!isset($_SESSION['cust'])){
     header('location: login.php');
   }
@@ -21,7 +23,7 @@
     <!-- Favicon icon -->
     <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
 
-    <title>Booking Details</title>
+    <title>Booking Details | MBV</title>
     
     <script src="js/commonJs.js"></script>
   </head>
@@ -69,9 +71,9 @@
       </div>
     </div>
   </nav>
-  <div class="section">
-    <div class="container ">
-      <div class="card text-dark bg-transparent shadow-lg" style="width: fit-content; max-height: 80vh; height: fit-content;">
+  <div id="section" class="section-div">
+    <div class="section-container-div">
+      <div class="card text-dark bg-transparent shadow-lg" style="width: fit-content; min-height: 80vh; height: fit-content; overflow: auto; float: left; margin-left: 175px; margin-top: 210px;">
         <div class="card-header"> Available mode of transports.</div>
         <div class="card-body">
           <table class="table table-borderless" style="width: fit-content;">
@@ -90,9 +92,32 @@
             </thead>
             <tbody>
               <?php
-                include('dbcon.php');
-                $db=new dbcon();
-                $s="select * from bookinghistory where userName='".$_SESSION['cust']."'";
+
+                if(!isset($_POST['sortControl'])){
+                  $flag="all";
+                }
+                else{
+                  $flag=$_POST['sortControl'];
+                }
+
+                if($flag=="bookId"){
+                  $s="SELECT * FROM `bookinghistory` WHERE userName='".$_SESSION['cust']."' ORDER BY bookingId;";
+                }
+                else if($flag=="date"){
+                  $s="SELECT * FROM `bookinghistory` WHERE userName='".$_SESSION['cust']."' ORDER BY date;";
+                }
+                else if($flag=="bStation"){
+                  $s="SELECT * FROM `bookinghistory` WHERE userName='".$_SESSION['cust']."' ORDER BY fromStation;";
+                }
+                else if($flag=="destination"){
+                  $s="SELECT * FROM `bookinghistory` WHERE userName='".$_SESSION['cust']."' ORDER BY toStation;";
+                }
+                else{
+                  $s="SELECT * FROM `bookinghistory` WHERE userName='".$_SESSION['cust']."';";
+                }
+                
+
+                // $s="select * from bookinghistory where userName='".$_SESSION['cust']."'";
                 $rs=$db->selectData($s);
                 while($row=mysqli_fetch_array($rs))
                 {
@@ -111,6 +136,43 @@
                 <?php } ?>
             </tbody>
           </table>
+        </div>
+      </div>
+      <div class="add-card text-white bg-dark shadow-lg" style="float: right;">
+        <div class="card-body">
+          <h5 class="card-title">Sort Section</h5>
+          <hr>
+            <form action="" method="post">
+              <div class="input1">
+                <select class="form-select shadow-lg" id="sortControl" name="sortControl" style="margin: 20px;">
+                  <option value="" selected disabled>select an option</option>
+                  <option value="bookId">Booking Id</option>
+                  <option value="date">Date</option>
+                  <option value="bStation">Boarding Station</option>
+                  <option value="destination">Destination</option>
+                </select>
+              </div>
+              <div class="input1">
+                <input type="submit" class="form-control btn shadow-lg"  value=" submit " style="border: 1px solid white; color: white;">
+              </div>
+            </form>
+          <hr>
+          <h5 class="card-title">Filter Section</h5>
+          <hr>
+            <form action="" method="post">
+              <div class="input1">
+                <select class="form-select shadow-lg" id="sortControl" name="sortControl" style="margin: 20px;">
+                  <option value="" selected disabled>select an option</option>
+                  <option value="bookId">Booking Id</option>
+                  <option value="date">Date</option>
+                  <option value="bStation">Boarding Station</option>
+                  <option value="destination">Destination</option>
+                </select>
+              </div>
+              <div class="input1">
+                <input type="submit" class="form-control btn shadow-lg"  value=" submit " style="border: 1px solid white; color: white;">
+              </div>
+            </form>
         </div>
       </div>
     </div>

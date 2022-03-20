@@ -21,7 +21,7 @@
     <!-- Favicon icon -->
     <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
     
-    <title>Complaint Registration</title>
+    <title>Complaint Registration | MBV</title>
     
     <script src="js/commonJs.js"></script>
   </head>
@@ -49,14 +49,13 @@
       <a href="/customer/ticketRates.php">Ticket Rates</a>
       <a href="/customer/transportation.php">Transportation</a>
       <a href="privacypolicy.php"> Privacy Policy </a>
-
       <a href="/customer/printTicket.php">E-Ticket</a>
     </div>
     <hr>
   </div>
   <nav id="navbar" class="navbar text-white bg-dark">
     <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
-    <span style="height: 100%; width: 1px; border: 1px solid white; margin: 0px 20px;"></span>
+    <span class="nav-divider"></span>
     <span class="header" style="flex:1;"><h3>Metro By Vehicles</h3></span>
     <div class="header-right" style=" right: 20px;">
       <input type="checkbox" name="" id="drop-Menu" hidden>
@@ -86,17 +85,17 @@
             </div>
             <div class="input1">
               <select class="form-select shadow-lg" aria-label="Default select example" name="reason" required>
-                <option value="" selected>Reason for cancellation</option>
+                <option value="" selected disabled>Reason for Complaint</option>
                 <option value="Inefficient service">Inefficient service.</option>
                 <option value="Want a ride more than 5kms">Want a ride more than 5kms.</option>
                 <option value="Driver asking for more fare">Driver asking for more fare.</option>
                 <option value="Change of plans">Change of plans</option>
                 <option value="other">other</option>
               </select>
-            </div>
+            </div><!-- 
             <div class="input1">
               <textarea class="form-control shadow-lg" id="exampleFormControlTextarea1" rows="6" placeholder="Register your complaint here..." name="complaint" required></textarea>
-            </div>
+            </div> -->
             <div class="input1">
               <input type="submit" class="form-control btn shadow-lg"  value="Register complaint!">
             </div>

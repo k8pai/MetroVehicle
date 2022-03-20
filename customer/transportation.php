@@ -21,7 +21,7 @@
     <!-- Favicon icon -->
     <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
     
-    <title>Transportations</title>
+    <title>Transportations | MBV</title>
     
     <script src="js/commonJs.js"></script>
   </head>
@@ -49,7 +49,6 @@
       <a href="ticketRates.php">Ticket Rates</a>
       <a href="transportation.php">Transportation</a>
       <a href="privacypolicy.php"> Privacy Policy </a>
-      <!-- <a href="bookingdetails.php">Booking details</a> -->
       <a href="printTicket.php">E-Ticket</a>
       <a href="../logout.php" style="font-size: 32px;"><img src="icons8/icons8-logout-48.png"></a>
     </div>

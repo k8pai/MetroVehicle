@@ -146,7 +146,6 @@
                     $rs=$db->selectData($sel);
                     if($row=mysqli_fetch_array($rs)){
                       $s=$sel;
-                      // echo "<script>alert('No Account Found.');</script>";
                     }
                   }
                   $rs=$db->selectData($s);

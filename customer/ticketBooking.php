@@ -22,7 +22,7 @@
     <link type="image/png" sizes="96x96" rel="icon" href="img/icons8-subway-96.png">
 
     <script src="js/commonJs.js"></script>
-    <title>Ticket Booking</title>
+    <title>Ticket Booking | MBV</title>
   </head>
     <body id="gototop">
 
@@ -69,6 +69,8 @@
     </div>
   </nav> 
   <div class="section">
+    <div class="container">
+    </div>
     <div class="container">
       <div class="card text-dark bg-transparent mb-3 shadow-lg">
         <form action="bandaction.php" method="post">
@@ -127,20 +129,12 @@
             ?>
           </select>
           </div>
-          <!-- <script>
-            document.getElementById('Astation').addEventListener('change', function() {
-              var val = this.value;
-              console.log(val);
-            });
-          </script> -->
           <div class="input1">
           <select class="form-select shadow-lg" aria-label="Default select example" name="avlstation" required>
             <option value="" selected disabled>Destination</option>
             <?php
-            echo "";
 
             $s="select * from servavlloc";
-            echo $s;
             $rs=$db->selectData($s);
             while($row=mysqli_fetch_array($rs)) 
             {
@@ -158,8 +152,6 @@
                   var val = this.value;
                   console.log(val);
                 });</script>";
-            echo $s;
-            echo $val;
             ?>
           <div class="input1">
           <select class="form-select shadow-lg" aria-label="Default select example" name="numpass" required>
