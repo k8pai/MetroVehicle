@@ -1,11 +1,12 @@
 <?php 
-	include('dbcon.php');
-	$db=new DbCon();
+	session_start();
+	include('../dbcon.php');
+	$db=new dbcon();
 
 	$idCode=$_GET['id'];
 	$_SESSION['ticket']="false";
 
-	//echo "idCode = ".$idCode;
+	echo "idCode = ".$idCode;
 	$sql="select * from banda where bandaId='$idCode'";
 	$query=$db->selectData($sql);
 	while($row=mysqli_fetch_array($query))
@@ -21,12 +22,14 @@
 				$db->insertquery($sql);
 				$updquery="update bookinghistory set bookingStatus='transport assigned' where bookingId='".$row['bookingId']."'";
 				$db->insertQuery($updquery);
+				$updquery="update banda set rideNumber='' where bookingId='".$row['bookingId']."'";
+				$db->insertQuery($updquery);
 				$_SESSION['ticket']="true";
-				echo "<script>alert('Updated successfully'); window.location='ticketBooking.php';</script>";
+				echo "<script>alert('Updated successfully'); window.location='../ticketBooking.php';</script>";
 		  	}
 	  		else{
 	  			unset($_SESSION['ticket']);
-				echo "<script>alert('No cabs are available for Allocation.');window.location='ticketBooking.php';</script>";
+				echo "<script>alert('No cabs are available for Allocation.');window.location='../ticketBooking.php';</script>";
 			}
 		}
 		if ($row['transMode'] == "E-AutoRickshaw") {
@@ -39,11 +42,11 @@
 				$updquery="update bookinghistory set bookingStatus='transport assigned' where bookingId='".$row['bookingId']."'";
 				$db->insertQuery($updquery);
 				$_SESSION['ticket']="true";
-				echo "<script>alert('Updated successfully'); window.location='ticketBooking.php';</script>";
+				echo "<script>alert('Updated successfully'); window.location='../ticketBooking.php';</script>";
 		  	}
 	  		else{
 	  			unset($_SESSION['ticket']);
-				echo "<script>alert('No E-AutoRickshaws are available for Allocation.');window.location='ticketBooking.php';</script>";
+				echo "<script>alert('No E-AutoRickshaws are available for Allocation.');window.location='../ticketBooking.php';</script>";
 			}
 		}
 	}

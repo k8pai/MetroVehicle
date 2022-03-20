@@ -175,18 +175,11 @@
             <table class="table table-borderless shadow-lg">
               <thead>
                 <tr style="font-family: 'Dancing Script', cursive; font-size: 24px;">
-                  <!-- <th scope="col"> BACODE </th> -->
                   <th scope="col"> BOOKING ID </th>
-                  <!-- <th scope="col"> ASTATION </th> -->
                   <th scope="col"> DESTINATION </th>
-                  <th scope="col"> TICKET RATE </th>
-                  <!-- <th scope="col"> ONE TIME PIN </th> -->
+                  <!-- <th scope="col"> TICKET RATE </th> -->
                   <th scope="col"> TRANSMODE </th>
-                  <!-- <th scope="col"> PASSENGERS </th> -->
-                  <!-- <th scope="col"> CABS AVAILABLE </th> -->
-                  <!-- <th scope="col"> AUTOS AVAILABLE </th> -->
-                  <!-- <th scope="col"> ASSIGN </th> -->
-                  <!-- <th scope="col"> REASSIGN </th> -->
+
                 </tr>
               </thead>
               <tbody>
@@ -219,15 +212,31 @@
                     <td><?php echo $row['bookingId']; ?></td>
                     <!-- <td><?php echo $row['Astation']; ?></td> -->
                     <td><?php echo $row['destination']; ?></td>
-                    <td><?php echo $row['ticketFare']; ?></td>
+                    <!-- <td><?php echo $row['ticketFare']; ?></td> -->
                     <!-- <td><?php echo $row['randCode']; ?></td> -->
                     <td><?php echo $row['transMode']; ?></td>
                     <!-- <td><?php echo $row['custCount']; ?></td> -->
                     <!-- <td><?php echo $row['numCab']; ?></td> -->
                     <!-- <td><?php echo $row['numAuto']; ?></td> -->
-                    <!-- <td><a href="assignTransport.php?id=<?php echo $row['bandaId']; ?>">Assign</a></td> -->
-                    <!-- <td><a href="reassignTransport.php?id=<?php echo $row['bandaId']; ?>">Reassign</a></td> -->
-                    <!-- <td><a href="deleteBooking.php?id=<?php echo $row['bandaId']; ?>">Move to history</a></td> -->
+                    <!-- <td>
+                      <select class="form-select shadow-lg" id="filterControl" name="filterControl" style="margin: 20px;">
+                        <option value="" selected disabled>select an option</option>
+                        <?php
+
+                          $selquery1="SELECT * FROM driverdetails where transMode='".$row['transMode']."' and sName='".$row['Astation']."' and availbility='available'";
+                          $result1=$db->selectData($selquery1);
+                          while ($row1=mysqli_fetch_array($result1)) {
+                            
+                        ?>
+                          <option value="<?php echo $row['rideNumber']; ?>"><?php echo $row['driverName']; ?></option>
+                        <?php 
+                          }
+                        ?>
+                      </select>
+                    </td> -->
+                    <td><a href="actionPages/assignTransport.php?id=<?php echo $row['bandaId']; ?>">Assign</a></td>
+                    <td><a href="actionPages/reassignTransport.php?id=<?php echo $row['bandaId']; ?>">Reassign</a></td>
+                    <td><a href="actionPages/deleteBooking.php?id=<?php echo $row['bandaId']; ?>">Move to history</a></td>
                     </tr>
                   <?php $i++;} 
                   }

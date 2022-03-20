@@ -58,8 +58,116 @@
   </nav>
   <div class="content-containers">
     <div class="content">
+      <div class="card text-white bg-dark shadow-lg" style="width: 70%; margin: 5px; margin-left: 270px;">
+        <div class="card-body">
+          <hr>
+          <form action="" method="post">
+            <table width="100%;" style="text-align: center;">
+              <tr>
+                <!-- <td></td> -->
+                <td>
+                  <div style="text-align: center;">
+                    <div class="input1">
+                      <h3>Sorting Section</h3></td>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <div class="input1">
+                      <h3>Filter Section</h3>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex-class">
+                    <div class="input1">
+                      <select class="form-select shadow-lg" id="sortControl" name="sortControl" style="margin: 20px;">
+                        <option value="" selected disabled>select an option</option>
+                        <option value="driverName">Driver Name</option>
+                        <option value="sName">Station Name</option>
+                        <option value="availbility">Availability</option>
+                      </select>
+                    </div>
+                    <div class="input1">
+                      <input type="submit" class="form-control btn shadow-lg"  value=" submit " style="border: 1px solid white; color: white;">
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex-class">
+                    <div class="input1">
+                      <select class="form-select shadow-lg" id="filterControl" name="filterControl" style="margin: 20px;">
+                        <option value="" selected disabled>select an option</option>
+                        <?php 
+
+                          $selquery="SELECT * FROM station";
+                          $result=$db->selectData($selquery);
+                          while ($row=mysqli_fetch_array($result)) {
+                            
+                        ?>
+                          <option value="<?php echo $row['sName']; ?>"><?php echo $row['sName']; ?></option>
+                        <?php 
+                          }
+                        ?>
+                      </select>
+                    </div>
+                    <div class="input1">
+                      <input type="submit" class="form-control btn shadow-lg"  value=" submit " style="border: 1px solid white; color: white;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <div class="flex-class">
+                      <input type="text" class="form-control shadow-lg" placeholder=" Ride Number " aria-label="ride number" name="rideNumber">
+                    <!-- <div class="input1">
+                    </div> -->
+                  </div>
+                  <div class="flex-class">
+                    <div class="input1">
+                      <input type="submit" class="form-control btn shadow-lg"  value=" Search " style="border: 1px solid white; color: white;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <hr>
+        </div>
+      </div>
       <?php
-        $selquery="SELECT * FROM driverdetails";
+
+        if(!isset($_POST['sortControl'])){
+          $selquery="SELECT * FROM driverdetails";
+        }
+        else{
+          $flag=$_POST['sortControl'];
+          $selquery="SELECT * FROM driverdetails ORDER BY $flag";
+        }
+
+        if(!isset($_POST['filterControl'])){
+          $selquery="SELECT * FROM driverdetails";
+        }
+        else{
+          $filterflag=$_POST['filterControl'];
+          $selquery="SELECT * FROM driverdetails where sName='$filterflag'";
+        }
+
+        if(isset($_POST['rideNumber'])){
+          $sel="SELECT * FROM driverdetails where rideNumber='".$_POST['rideNumber']."'";
+          $result=$db->selectData($sel);
+          if($row=mysqli_fetch_array($result)){
+            $selquery=$sel;
+          }
+        }
+
+        echo $selquery;
+        // $selquery="SELECT * FROM driverdetails";
         $result=$db->selectData($selquery);
 
         while ($row=mysqli_fetch_array($result)) {
@@ -69,7 +177,6 @@
       <div class="card text-white bg-dark shadow-lg" style="width: 70%; margin: 5px; margin-left: 270px;">
         <div class="card-body">
           <hr>
-          <form action="" method="">
             <table width="100%;">
               <tr>
                 <td>
@@ -127,20 +234,6 @@
               <tr>
               </tr>
             </table>
-              
-            
-            
-            <!-- <div class="input1">
-              <select class="form-select shadow-lg" id="sortControl" name="sortControl" style="margin: 20px;">
-                <option value="" selected disabled>select an option</option>
-                <option value="bookId">Booking Id</option>
-                <option value="date">Date</option>
-                <option value="bStation">Boarding Station</option>
-                <option value="destination">Destination</option>
-              </select>
-            </div> -->
-            
-          </form>
           <hr>
         </div>
       </div>

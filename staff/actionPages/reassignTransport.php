@@ -1,5 +1,5 @@
 <?php 
-	include('dbcon.php');
+	include('../dbcon.php');
 	$db=new DbCon();
 
 	$idCode=$_GET['id'];
@@ -23,10 +23,10 @@
 				$sql="update station set numCab = numCab + 1 where sName='$stationName' AND numCab < 3";
 				$db->insertquery($sql);
 				$_SESSION['assigned']="true";
-				echo "<script>alert('Updated successfully'); window.location='ticketBooking.php';</script>";
+				echo "<script>alert('Updated successfully'); window.location='../ticketBooking.php';</script>";
 		  	}
 	  		else{
-				echo "<script>alert('Every Cabs are present at the station.');window.location='ticketBooking.php';</script>";
+				echo "<script>alert('Every Cabs are present at the station.');window.location='../../ticketBooking.php';</script>";
 			}
 		}
 		if ($row['transMode'] == "E-AutoRickshaw") {
@@ -39,16 +39,13 @@
 				$sql="update station set numAuto = numAuto + 1 where sName='$stationName' AND numAuto < 3";
 				$db->insertquery($sql);
 				$_SESSION['assigned']="true";
-				echo "<script>alert('Updated successfully'); window.location='ticketBooking.php';</script>";
+				echo "<script>alert('Updated successfully'); window.location='../ticketBooking.php';</script>";
 		  	}
 	  		else{
-				echo "<script>alert('Every E-AutoRickshaws are present at the station.');window.location='ticketBooking.php';</script>";
+				echo "<script>alert('Every E-AutoRickshaws are present at the station.');window.location='../ticketBooking.php';</script>";
 			}
 		}
 	}
-
-
-
 
 	// $sName=$_GET['id'];
 
