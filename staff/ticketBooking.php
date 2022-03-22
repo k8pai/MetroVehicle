@@ -5,6 +5,7 @@
   if(!isset($_SESSION['staff'])){
     header('location: login.php');
   }
+  date_default_timezone_set('Asia/Kolkata');
 ?>
 <!doctype html>
 <html lang="en">
@@ -169,6 +170,55 @@
         </div>
       </div>
       <div class="sec">
+        <div class="sec-container">
+          <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content;">
+            <div class="card-header"> Bookings</div>
+            <div class="card-body" style="height: fit-content;">
+              <form action="" method="post">
+                
+              <table width="100%;" style="text-align: center;">
+              <tr>
+                <td>
+                  <div class="flex-class">
+                    <div class="input1">
+                      <select class="form-select shadow-lg" id="sortControl" name="sortControl" style="margin: 20px;">
+                        <option value="" selected disabled>Sort By</option>
+                        <option value="date">Date</option>
+                        <option value="dest">destination</option>
+                        <!-- <option value="availbility">Availability</option> -->
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex-class">
+                    <div class="input1">
+                      <select class="form-select shadow-lg" id="filterControl" name="filterControl" style="margin: 20px;">
+                        <option value="" selected disabled>Filter By</option>
+                        <option value="bookDate">Today</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <!-- <td>
+                  <div class="flex-class">
+                    <input type="text" class="form-control shadow-lg" placeholder=" Ride Number " aria-label="ride number" name="rideNumber">
+                  </div>
+                </td> -->
+                <td>
+                  <div class="flex-class">
+                    <div class="input1">
+                      <input type="submit" class="form-control btn shadow-lg"  value=" Search " style="border: 1px solid white; color: white;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+              </form>
+            </div>
+          </div>
+        </div>
         <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content;">
           <div class="card-header"> Bookings</div>
           <div class="card-body" style="height: fit-content; max-height: 80vh; overflow-y: auto;">
@@ -177,14 +227,15 @@
                 <tr style="font-family: 'Dancing Script', cursive; font-size: 24px;">
                   <th scope="col"> BOOKING ID </th>
                   <th scope="col"> DESTINATION </th>
-                  <!-- <th scope="col"> TICKET RATE </th> -->
                   <th scope="col"> TRANSMODE </th>
+                  <th scope="col"> DATE </th>
 
                 </tr>
               </thead>
               <tbody>
                 <?php
 
+                
                   if(isset($_POST['bookingid'])){
                     // echo $_POST['bookingid'];
                     $bookingid=$_POST['bookingid'];
@@ -192,7 +243,36 @@
                     // echo "not defined";
                     $bookingid="";
                   }
+
                   $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."'";
+                  echo "j = ".date('j');
+                  echo "d = ".date('d');
+                  echo "m = ".date('m');
+                  echo "y = ".date('y');
+                  echo "Y = ".date('Y');
+                  echo "date = ".date('d-m-Y');
+                  echo "date time = ".date('d-m-Y, H:i:s');
+                  echo"";
+
+                  
+                  if(isset($_POST['sortControl'])){
+                    if($_POST['sortControl']=="date"){
+                      $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."' ORDER BY banda.bookDate desc";
+                    }
+                    else if ($_POST['sortControl']=="dest") {
+                      $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."' ORDER BY banda.destination";
+                    }
+                  }
+                  // if(isset($_POST['filterControl'])){
+                  //   $j=date('j');
+                  //   $m=date('m');
+                  //   $y=date('y');
+                  //   $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."' and (DATEPART(Y, banda.bookDate) = 2021 AND DATEPART(mm, banda.bookDate) = 03 AND DATEPART(dd, banda.bookDate) = 22)";
+                  // }
+                  
+
+
+                   echo $selquery;
 
                   if($bookingid !== ""){
                     $selquery=$selquery." and where banda.bookingId='".$_POST['bookingid']."'";
@@ -215,10 +295,10 @@
                     <!-- <td><?php echo $row['ticketFare']; ?></td> -->
                     <!-- <td><?php echo $row['randCode']; ?></td> -->
                     <td><?php echo $row['transMode']; ?></td>
-                    <!-- <td><?php echo $row['custCount']; ?></td> -->
+                    <td><?php echo $row['bookDate']; ?></td>
                     <!-- <td><?php echo $row['numCab']; ?></td> -->
                     <!-- <td><?php echo $row['numAuto']; ?></td> -->
-                    <!-- <td>
+                    <td>
                       <select class="form-select shadow-lg" id="filterControl" name="filterControl" style="margin: 20px;">
                         <option value="" selected disabled>select an option</option>
                         <?php
@@ -228,12 +308,12 @@
                           while ($row1=mysqli_fetch_array($result1)) {
                             
                         ?>
-                          <option value="<?php echo $row['rideNumber']; ?>"><?php echo $row['driverName']; ?></option>
+                          <option value="<?php echo $row1['rideNumber']; ?>"><?php echo $row1['driverName']; ?></option>
                         <?php 
                           }
                         ?>
                       </select>
-                    </td> -->
+                    </td>
                     <td><a href="actionPages/assignTransport.php?id=<?php echo $row['bandaId']; ?>">Assign</a></td>
                     <td><a href="actionPages/reassignTransport.php?id=<?php echo $row['bandaId']; ?>">Reassign</a></td>
                     <td><a href="actionPages/deleteBooking.php?id=<?php echo $row['bandaId']; ?>">Move to history</a></td>

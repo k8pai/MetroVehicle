@@ -58,28 +58,11 @@
   </nav>
   <div class="content-containers">
     <div class="content">
-      <div class="card text-white bg-dark shadow-lg" style="width: 70%; margin: 5px; margin-left: 270px;">
+      <div class="card text-white bg-dark shadow-lg" style="width: 70%; height: fit-content; margin: auto">
         <div class="card-body">
-          <hr>
+          <!-- <hr> -->
           <form action="" method="post">
             <table width="100%;" style="text-align: center;">
-              <tr>
-                <!-- <td></td> -->
-                <td>
-                  <div style="text-align: center;">
-                    <div class="input1">
-                      <h3>Sorting Section</h3></td>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div style="text-align: center;">
-                    <div class="input1">
-                      <h3>Filter Section</h3>
-                    </div>
-                  </div>
-                </td>
-              </tr>
               <tr>
                 <td>
                   <div class="flex-class">
@@ -90,9 +73,6 @@
                         <option value="sName">Station Name</option>
                         <option value="availbility">Availability</option>
                       </select>
-                    </div>
-                    <div class="input1">
-                      <input type="submit" class="form-control btn shadow-lg"  value=" submit " style="border: 1px solid white; color: white;">
                     </div>
                   </div>
                 </td>
@@ -114,20 +94,14 @@
                         ?>
                       </select>
                     </div>
-                    <div class="input1">
-                      <input type="submit" class="form-control btn shadow-lg"  value=" submit " style="border: 1px solid white; color: white;">
-                    </div>
                   </div>
                 </td>
-              </tr>
-              <tr>
-                <td></td>
                 <td>
                   <div class="flex-class">
-                      <input type="text" class="form-control shadow-lg" placeholder=" Ride Number " aria-label="ride number" name="rideNumber">
-                    <!-- <div class="input1">
-                    </div> -->
+                    <input type="text" class="form-control shadow-lg" placeholder=" Ride Number " aria-label="ride number" name="rideNumber">
                   </div>
+                </td>
+                <td>
                   <div class="flex-class">
                     <div class="input1">
                       <input type="submit" class="form-control btn shadow-lg"  value=" Search " style="border: 1px solid white; color: white;">
@@ -137,58 +111,102 @@
               </tr>
             </table>
           </form>
-          <hr>
+          <!-- <hr> -->
         </div>
       </div>
       <?php
 
-        if(!isset($_POST['sortControl'])){
+        if(!isset($_POST['sortControl']) and !isset($_POST['filterControl']) and !isset($_POST['rideNumber'])){
           $selquery="SELECT * FROM driverdetails";
         }
-        else{
+        else if(isset($_POST['sortControl']) and isset($_POST['filterControl']) and isset($_POST['rideNumber'])){
           $flag=$_POST['sortControl'];
-          $selquery="SELECT * FROM driverdetails ORDER BY $flag";
+          $filterflag=$_POST['filterControl'];
+          $rideNumber=$_POST['rideNumber'];
+          if($rideNumber!=""){
+            $selquery="SELECT * FROM driverdetails where sName='$filterflag' and rideNumber='$rideNumber' ORDER BY $flag";
+          }
+          else{
+            $selquery="SELECT * FROM driverdetails where sName='$filterflag' ORDER BY $flag";
+          }
         }
-
-        if(!isset($_POST['filterControl'])){
+        else if(isset($_POST['sortControl']) and isset($_POST['rideNumber'])){
+          $flag=$_POST['sortControl'];
+          $rideNumber=$_POST['rideNumber'];
+          if($rideNumber!=""){
+            $selquery="SELECT * FROM driverdetails where rideNumber='$rideNumber' ORDER BY $flag";
+          }
+          else{
+            $selquery="SELECT * FROM driverdetails ORDER BY $flag";
+          }
+        }
+        else if(isset($_POST['filterControl']) and isset($_POST['rideNumber'])){
+          $filterflag=$_POST['filterControl'];
+          $rideNumber=$_POST['rideNumber'];
+          if($rideNumber!=""){
+            $selquery="SELECT * FROM driverdetails where sName='$filterflag' and rideNumber='$rideNumber'";
+          }
+          else{
+            $selquery="SELECT * FROM driverdetails where sName='$filterflag'";
+          }
+        }
+        else if(isset($_POST['sortControl']) and isset($_POST['filterControl'])){
+          $flag=$_POST['sortControl'];
+          $filterflag=$_POST['filterControl'];
+          $selquery="SELECT * FROM driverdetails where sName='$filterflag' ORDER BY $flag";
+        }
+        else if(isset($_POST['rideNumber'])){
+          $rideNumber=$_POST['rideNumber'];
+          if($rideNumber!=""){
+            $selquery="SELECT * FROM driverdetails where rideNumber='$rideNumber'";
+          }
+          else{
           $selquery="SELECT * FROM driverdetails";
+          }
         }
-        else{
+        else if(isset($_POST['sortControl'])){
+          $flag=$_POST['sortControl'];
+          $selquery="SELECT * FROM driverdetails where ORDER BY $flag";
+        }
+        else if(isset($_POST['filterControl'])){
           $filterflag=$_POST['filterControl'];
           $selquery="SELECT * FROM driverdetails where sName='$filterflag'";
         }
-
-        if(isset($_POST['rideNumber'])){
-          $sel="SELECT * FROM driverdetails where rideNumber='".$_POST['rideNumber']."'";
-          $result=$db->selectData($sel);
-          if($row=mysqli_fetch_array($result)){
-            $selquery=$sel;
-          }
+        else{
+          $selquery="SELECT * FROM driverdetails";
         }
+
+        // if(isset($_POST['rideNumber'])){
+        //   $sel="SELECT * FROM driverdetails where rideNumber='".$_POST['rideNumber']."'";
+        //   $result=$db->selectData($sel);
+        //   if($row=mysqli_fetch_array($result)){
+        //     $selquery=$sel;
+        //   }
+        // }
 
         echo $selquery;
         // $selquery="SELECT * FROM driverdetails";
         $result=$db->selectData($selquery);
 
+        if(mysqli_num_rows($result)){
+
         while ($row=mysqli_fetch_array($result)) {
           // code...
 
       ?>
-      <div class="card text-white bg-dark shadow-lg" style="width: 70%; margin: 5px; margin-left: 270px;">
+      <div class="card text-white bg-dark shadow-lg" style="width: 70%; margin: auto;">
         <div class="card-body">
           <hr>
             <table width="100%;">
               <tr>
                 <td>
                   <div class="flex-class">
-                    <!-- <label><h5>Driver Name</h5></label> -->
                     <dt><h3><?php echo $row['driverName']; ?></h3></dt>
                   </div>
                   <hr>
                 </td>
                 <td>
                   <div class="flex-class" style="display: flex;">
-                    <!-- <label>Ride Name : </label> -->
                     <dt><h3><?php echo $row['rideName']; ?></h3></dt>
                   </div>
                   <hr>
@@ -237,7 +255,25 @@
           <hr>
         </div>
       </div>
+      <br>
     <?php }
+        }
+        else{
+          // echo "<script>alert('No Records found!');</script>";
+          ?>
+      <div class="card text-white bg-dark shadow-lg" style="width: 70%; height: fit-content; margin: auto">
+        <div class="card-body">
+          <table width="100%;" style="text-align: center;">
+            <tr>
+              <td>
+                <h3>No Results found!</h3>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+        <?php }
     ?>
     </div>
   </div>
@@ -264,7 +300,6 @@
           </div>
           <img src="img/icons8-subway-100">
         </div>
-   <!-- <img src="img/icons8-subway-100">      -->
         <dt> Beauty, Charm, and Adventure. </dt>
         <dt> Here for the Future. </dt>
       </div>
