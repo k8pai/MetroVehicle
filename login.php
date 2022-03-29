@@ -43,8 +43,9 @@
       <a href="#visit">Visit</a>
     </div>
   </div>
-  <nav class="navbar text-white bg-dark">
-    <label class="menu-btn" for="Menu-open" onclick="openNav()">
+  <nav class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label class="menu-btn" for="checkMenu" onclick="openNav()">
     <img src="1x/baseline_menu_white_24dp.png">
     </label>
     <span class="nav-divider"></span>

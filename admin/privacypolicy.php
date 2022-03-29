@@ -44,10 +44,9 @@
       <a href="../logout.php">logout</a>
     </div>
   </div>
-  <nav class="navbar sticky-top text-white bg-dark">
-    <label class="dropmenu-div" for="drop-Menu" onclick="openNav()">
-    <img src="1x/baseline_menu_white_24dp.png">
-    </label>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
     <span style="flex:1;"></span>

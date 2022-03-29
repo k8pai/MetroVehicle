@@ -3,7 +3,7 @@
   include('dbcon.php');
   $db=new dbcon;
   if(!isset($_SESSION['staff'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
 ?>
 <!doctype html>
@@ -45,11 +45,12 @@
       <a href="driverDetails.php">Drivers</a>
       <a href="mop.php">Payments</a>
       <a href="vcomp.php">Complaint</a>
-      <a href="../logout.php">logout</a>
+      <a href="logout.php">logout</a>
     </div>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -59,7 +60,12 @@
   </nav>
   <?php 
     $selquery="select * from reg where mail='".$_SESSION['staff']."'";
+    $selquery1="select * from login where uname='".$_SESSION['staff']."'";
     $result=$db->selectData($selquery);
+    $result1=$db->selectData($selquery1);
+    if($row1=mysqli_fetch_array($result1)){
+      $logId=$row1['loginId'];
+    }
     if($row=mysqli_fetch_array($result)){
       $rno=$row['regId'];
       $fname=$row['fname'];
@@ -67,6 +73,12 @@
       $phone=$row['ph'];
       $mail=$row['mail'];
     }
+      // echo $rno;
+      // echo $fname;
+      // echo $lname;
+      // echo $phone;
+      // echo $mail;
+      // echo $_SESSION['staff'];
   ?>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -78,8 +90,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="focreadonly()"></button>
         </div>
         <div class="modal-body">
-          <form name="modal-form" action="profileAction.php" method="post">
+          <form name="modal-form" action="actionPages/profileAction.php" method="post">
             <input type="hidden" class="form-control" id="rno" name="rno" value="<?php echo $rno; ?>" readonly>
+            <input type="hidden" class="form-control" id="loginId" name="loginId" value="<?php echo $logId; ?>" readonly>
             <table align="center">
             <tr>
               <td>

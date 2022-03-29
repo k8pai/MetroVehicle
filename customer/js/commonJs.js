@@ -4,62 +4,68 @@ var drop=0;
 function goBack() {
   window.history.back();
 }
-var lastScrollTop = 0;
 
-// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-window.addEventListener("scroll", function(){ 
-   var st = window.pageYOffset || document.documentElement.scrollTop;
-   if (st!=lastScrollTop){
-    document.getElementById("head-pointer").style.transition = "0.2s";
-    document.getElementById("head-pointer").style.display = "block";
-   }
-   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-}, false);
-
+var value=1;
 window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("mySidenav").style.width = "0px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-// document.getElementById("body-div").addEventListener("scroll", myFunction);
 
-// function myFunction() {
-//   document.getElementById("mySidenav").style.display = "none";
-// }
+  if(window.pageYOffset>value){
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("checkMenu").checked=false;
+    value=window.pageYOffset;
+    // console.log(value);
+  }
+  if(window.pageYOffset<value){
+    value=window.pageYOffset;
+    // console.log(value);
+
+  }
+  if(window.pageYOffset==0){
+    if(document.getElementById("checkMenu").checked==true){
+      document.getElementById("mySidenav").style.width = "275px";
+    }else{
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  }
+}
+
+function changeTrue(){
+  document.getElementById("checkMenu").checked=true;
+}
+
+function scrollAndOpen(){
+  window.scrollTo(0,0);
+  window.setTimeout(openNav, 400);
+  window.setTimeout(changeTrue, 500);
+}
+
 
 function dropMenu() {
-  if(drop==0)
-  {
-    if(menu==1)
-    {
-      openNav();
+
+  if(document.getElementById("drop-Menu").checked==false){
+    if(document.getElementById("checkMenu").checked==true){
+      document.getElementById("checkMenu").checked=false;
+      document.getElementById("mySidenav").style.width = "0px";
     }
+    document.getElementById("dropMenu").style.transition = "0.4s";
     document.getElementById("dropMenu").style.height = "fit-content";
-    drop++;
-  }
-  else if(drop==1)
-  {
+  }else{
     document.getElementById("dropMenu").style.height = "0px";
-    drop--;
   }
 }
 
 function openNav() {
-  if(menu==0)
-  {
-    if(drop==1)
-    {
-      dropMenu();
+  if(window.pageYOffset!=0){
+    window.scrollTo(0,0);
+  }
+  if(document.getElementById("checkMenu").checked==false){
+    if(document.getElementById("drop-Menu").checked==true){
+      document.getElementById("drop-Menu").checked=false;
+      document.getElementById("dropMenu").style.height = "0px";
     }
     document.getElementById("mySidenav").style.width = "275px";
-    menu++;
   }
-  else if(menu==1)
-  {
+  else{
     document.getElementById("mySidenav").style.width = "0px";
-    menu--;
   }
 }
 

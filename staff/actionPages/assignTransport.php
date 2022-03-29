@@ -3,7 +3,10 @@
 	include('../dbcon.php');
 	$db=new dbcon();
 
+	// $idCode=$_POST['idcode'];
+	// $driver=$_POST['DriveType'];
 	$idCode=$_GET['id'];
+
 	$_SESSION['ticket']="false";
 
 	echo "idCode = ".$idCode;
@@ -22,8 +25,8 @@
 				$db->insertquery($sql);
 				$updquery="update bookinghistory set bookingStatus='transport assigned' where bookingId='".$row['bookingId']."'";
 				$db->insertQuery($updquery);
-				$updquery="update banda set rideNumber='' where bookingId='".$row['bookingId']."'";
-				$db->insertQuery($updquery);
+				// $updquery="update banda set rideNumber='$driver' where bookingId='".$row['bookingId']."'";
+				// $db->insertQuery($updquery);
 				$_SESSION['ticket']="true";
 				echo "<script>alert('Updated successfully'); window.location='../ticketBooking.php';</script>";
 		  	}
@@ -41,6 +44,8 @@
 				$db->insertquery($sql);
 				$updquery="update bookinghistory set bookingStatus='transport assigned' where bookingId='".$row['bookingId']."'";
 				$db->insertQuery($updquery);
+				// $updquery="update banda set rideNumber='$driver' where bookingId='".$row['bookingId']."'";
+				// $db->insertQuery($updquery);
 				$_SESSION['ticket']="true";
 				echo "<script>alert('Updated successfully'); window.location='../ticketBooking.php';</script>";
 		  	}

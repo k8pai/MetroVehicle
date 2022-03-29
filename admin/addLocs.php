@@ -1,7 +1,7 @@
 <?php 
   session_start();
   if(!isset($_SESSION['admin'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
 ?>
 <!doctype html>
@@ -48,8 +48,9 @@
       <a href="../logout.php">logout</a>
     </div>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -61,7 +62,7 @@
     <div class="aln-horz">
       <div class="sec">
         <div class="card text-dark bg-transparent mb-3 shadow-lg">
-          <div class="card-header"> Add Station. </div>
+          <div class="card-header"> Add Common Poins. </div>
           <div class="card-body" style="width: 550px;">
             <form action="actionPages/addLocsaction.php" method="post">
             <div class="input1">

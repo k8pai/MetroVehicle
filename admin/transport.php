@@ -1,7 +1,7 @@
 <?php 
   session_start();
   if(!isset($_SESSION['admin'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
 ?>
 <!doctype html>
@@ -48,8 +48,9 @@
       <a href="../logout.php">logout</a>
     </div>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>

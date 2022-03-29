@@ -3,9 +3,8 @@
 	$db=new dbcon();
 	session_start();
 
-    $_SESSION['cust']=$_POST['mail'];
-
   	$regId=$_POST['rno'];
+  	$logId=$_POST['loginId'];
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
 	$phone=$_POST['phone'];
@@ -15,5 +14,8 @@
  	$db->insertquery($updquery);
  	$updquery="UPDATE `login` SET `uname`='$mail' WHERE `loginId`='$logId'";
  	$db->insertquery($updquery);
-	echo"<script>alert('updated succesfully');window.location='../customerHome.php';</script>";
+ 	$updquery="UPDATE `station` SET `stationStaff`='$mail' WHERE `loginId`='$logId'";
+ 	$db->insertquery($updquery);
+    $_SESSION['staff']=$_POST['mail'];
+	echo"<script>alert('updated succesfully');window.location='../staffhome.php';</script>";
 ?>

@@ -3,7 +3,7 @@
   include('dbcon.php');
   $db=new dbcon;
   if(!isset($_SESSION['cust'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
 ?>
 <!doctype html>
@@ -58,25 +58,31 @@
     </div>
     <hr>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
     <div class="header-right">
-      <input type="checkbox" name="" id="drop-Menu" hidden>
+      <input type="checkbox" name="drop-Menu" id="drop-Menu" hidden>
       <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">Stations and more 
       <img id="img-div" src="icons8/icons8-sort-down-24.png">
       </label>
       <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="icons8/icons8-name-tag-48"></button>
       <div class="dec-none">
-        <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+        <a href="logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
       </div>
     </div>
   </nav>
   <?php 
     $selquery="select * from reg where mail='".$_SESSION['cust']."'";
+    $selquery1="select * from login where uname='".$_SESSION['cust']."'";
     $result=$db->selectData($selquery);
+    $result1=$db->selectData($selquery1);
+    if($row1=mysqli_fetch_array($result1)){
+      $logId=$row1['loginId'];
+    }
     if($row=mysqli_fetch_array($result)){
       $rno=$row['regId'];
       $fname=$row['fname'];
@@ -97,6 +103,7 @@
         <div class="modal-body">
           <form name="modal-form" action="actionPages/profileAction.php" method="post">
             <input type="hidden" class="form-control" id="rno" name="rno" value="<?php echo $rno; ?>" readonly>
+            <input type="hidden" class="form-control" id="loginId" name="loginId" value="<?php echo $logId; ?>" readonly>
             <table align="center">
             <tr>
               <td>
@@ -111,7 +118,7 @@
               </td>
               <td>
               <div class="input1">
-                <input type="text" class="form-control" id="fname" name="fname" pattern="[a-z A-z]+" value="<?php echo $fname; ?>" style="width: 200%;" readonly required>
+                <input type="text" class="form-control" id="fname" name="fname" pattern="[a-z A-z]+" pattern="[a-z A-z]+" oninvalid="setCustomValidity('Usernames can only contain alphabets.')" onchange="try{setCustomValidity('')}catch(e){}" value="<?php echo $fname; ?>" style="width: 200%;" readonly required>
               </div>
               </td>
             </tr>
@@ -129,7 +136,7 @@
               </td>
               <td>
               <div class="input1" style="float: right;">
-                <input type="text" class="form-control" id="lname" name="lname" pattern="[a-z A-z]+" value="<?php echo $lname; ?>" style="width: 200%;" readonly required>
+                <input type="text" class="form-control" id="lname" name="lname" pattern="[a-z A-z]+" oninvalid="setCustomValidity('Usernames can only contain alphabets.')" onchange="try{setCustomValidity('')}catch(e){}" value="<?php echo $lname; ?>" style="width: 200%;" readonly required>
               </div>
               </td>
             </tr>
@@ -147,7 +154,7 @@
               </td>
               <td>
               <div class="input1" style="float: right;">
-                <input type="text" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" value="<?php echo $phone; ?>" style="width: 200%;" readonly required>
+                <input type="text" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" oninvalid="setCustomValidity('Phone numbers should contain only 10 digits')" onchange="try{setCustomValidity('')}catch(e){}" value="<?php echo $phone; ?>" style="width: 200%;" readonly required>
               </div>
               </td>
             </tr>
@@ -165,7 +172,7 @@
               </td>
               <td>
               <div class="input1" style="float: right;">
-                <input type="text" class="form-control" id="mail" name="mail" value="<?php echo $mail; ?>" style="width: 200%;" readonly required>
+                <input type="text" class="form-control" id="mail" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninvalid="setCustomValidity('Try the format : example@domain.com. (small letters)')" onchange="try{setCustomValidity('')}catch(e){}" value="<?php echo $mail; ?>" style="width: 200%;" readonly required>
               </div>
               </td>
             </tr>

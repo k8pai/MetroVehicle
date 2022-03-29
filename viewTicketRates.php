@@ -57,8 +57,9 @@
     </div>
   </div>
   <nav id="navbar" class="navbar sticky-top text-white bg-dark">
-    <label class="menu-btn" id="Menu-open" onclick="openNav()">
-    <a href="#gototop"><img src="1x/baseline_menu_white_24dp.png"></a>
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()">
+      <img src="1x/baseline_menu_white_24dp.png">
     </label>
     <span class="nav-divider"></span>
     <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
@@ -67,14 +68,6 @@
       <a href="index.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
     </div>
   </nav>
-  <!-- <nav id="navbar" class="navbar sticky-top text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="baseline_menu_white_24dp.png"></a>
-    <span class="nav-divider"></span>
-    <span class="header" style="flex:1;"><h3>Metro By Vehicles</h3></span>
-    <div class="header-right" style=" right: 20px;">
-      <a href="index.php"><img src="customer/icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
-    </div>
-  </nav> -->
   <div class="content-containers">
     <div class="aln-horz">
       <div class="sec">

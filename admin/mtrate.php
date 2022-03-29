@@ -1,7 +1,7 @@
-﻿<?php 
+﻿../<?php 
   session_start();
   if(!isset($_SESSION['admin'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
 ?>
 <!doctype html>
@@ -48,8 +48,9 @@
       <a href="logout.php">logout</a>
     </div>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -109,9 +110,9 @@
         </div>
       </div>
       <div class="sec">
-        <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content; max-height: 80vh; height: fit-content; overflow: auto; float: left;">
+        <div class="card text-dark bg-transparent mb-3 shadow-lg" style="float: left;">
           <div class="card-header"> Ticket rates. </div>
-          <div class="card-body">
+          <div class="card-body" style="width: fit-content; max-height: 80vh; height: fit-content; overflow: auto; ">
             <table class="table table-borderless"  style="width: 700px;">
               <thead>
                 <tr style="font-family: 'Dancing Script', cursive; font-size: 24px;">

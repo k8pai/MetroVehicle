@@ -3,7 +3,7 @@
   include('dbcon.php');
   $db=new DbCon();
   if(!isset($_SESSION['staff'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
   date_default_timezone_set('Asia/Kolkata');
 ?>
@@ -43,83 +43,77 @@
       <a href="staffhome.php">Home</a>
       <a href="vreg.php">User Details</a>
       <a href="ticketBooking.php">Booking</a>
+      <a href="driverDetails.php">Drivers</a>
       <a href="mop.php">Payments</a>
       <a href="vcomp.php">Complaint</a>
       <!-- <a href="../logout.php">logout</a> -->
     </div>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
-    <span class="nav-divider"></span>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>    <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
     <div class="header-right">
-      <button type="button" class="modal-btn bg-transparent" style="border: none; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="icons8/icons8-name-tag-48"></button>
+      <div class="dec-none">
+        <a href="logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+      </div>
     </div>
   </nav>
   <div class="content-containers">
     <div class="aln-horz">
       <div class="sec">
-        <div class="sec-container">
-          <div class="card text-dark bg-transparent mb-3" style="width: 550px;">
-            <div class="card-header">Add Transport.</div>
-            <div class="card-body">
+        <div class="sec-container"><div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content;">
+            <div class="card-header"> Bookings</div>
+            <div class="card-body" style="height: fit-content;">
               <form action="" method="post">
-                <div class="input1">
-                  <input type="text" class="form-control shadow-lg" placeholder=" Booking Id " aria-label="Bookin Id" name="bookingid">
-                </div>
-                <div class="input1">
-                  <select class="form-select" aria-label="Default select example" name="Bstation">
-                    <option selected disabled>Boarding Station</option>
-                    <?php
-                    $selstation="select * from station";
-                    $selquery=$db->selectData($selstation);
-                    while($row=mysqli_fetch_array($selquery)) 
-                    {
-                    ?>
-                    <option value="<?php echo $row['sCode']; ?>"><?php echo $row['sName']; ?></option>
-
-                    <?php 
-                    }
-                    ?>
-                  </select>
-                </div>
-                <div class="input1">
-                  <select class="form-select" aria-label="Default select example" name="Astation">
-                    <option selected disabled>Arrival Station</option>
-                    <?php
-                    while($row=mysqli_fetch_array($selquery)) 
-                    {
-                    ?>
-                    <option value="<?php echo $row['sCode']; ?>"><?php echo $row['sName']; ?></option>
-
-                    <?php 
-                    }
-                    ?>
-                  </select>
-                </div>
-                <div class="input1">
-                  <select class="form-select" aria-label="Default select example" name="Atime">
-                    <option selected disabled>Mode of Transport</option>
-                    <?php
-                    $seltransport="select * from transport";
-                    $selquery=$db->selectData($seltransport);
-                    while($row=mysqli_fetch_array($selquery)) 
-                    {
-                    ?>
-                    <option value="<?php echo $row['transMode']; ?>"><?php echo $row['transMode']; ?></option>
-
-                    <?php 
-                    }
-                    ?>
-                  </select>
-                </div>
-                <div class="input1">
-                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Destination" name="destination">
-                </div>
-                <div class="input1">
-                  <input type="submit" class="form-control btn shadow-lg" value=" Search ">
-                </div>
+                
+              <table width="100%;" style="text-align: center;">
+              <tr style="text-align: center;">
+                <td colspan="2">
+                  <div class="input1">
+                    <input type="text" class="form-control shadow-lg" placeholder=" Booking Id " aria-label="booking id" name="bookId">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex-class">
+                    <div class="input1">
+                      <select class="form-select shadow-lg" id="sortControl" name="sortControl" style="margin: 20px;">
+                        <option value="" selected disabled>Sort By</option>
+                        <option value="date">Date</option>
+                        <option value="dest">destination</option>
+                        <!-- <option value="availbility">Availability</option> -->
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <!-- <td>
+                  <div class="flex-class">
+                    <div class="input1">
+                      <select class="form-select shadow-lg" id="filterControl" name="filterControl" style="margin: 20px;">
+                        <option value="" selected disabled>Filter By</option>
+                        <option value="bookDate">Today</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+                </td> -->
+                <!-- <td>
+                  <div class="flex-class">
+                    <input type="text" class="form-control shadow-lg" placeholder=" Ride Number " aria-label="ride number" name="rideNumber">
+                  </div>
+                </td> -->
+                <td>
+                  <div class="flex-class">
+                    <div class="input1">
+                      <input type="submit" class="form-control btn shadow-lg"  value=" Search " style="border: 1px solid black; color: black;">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
               </form>
             </div>
           </div>
@@ -139,16 +133,11 @@
                 <tbody style="text-align: center;">
                   <?php
 
-                    if(isset($_POST['bookingid'])){
-                      $bookingid=$_POST['bookingid'];
-                    }else{                      
-                      $bookingid="";
-                    }
                     $selquery="select * from station where stationStaff='".$_SESSION['staff']."'";
 
                     $rs=$db->selectData($selquery);
                     $i=1;
-                    echo $selquery;
+                    // echo $selquery;
 
                     while($row=mysqli_fetch_array($rs))
                     {
@@ -170,58 +159,10 @@
         </div>
       </div>
       <div class="sec">
-        <div class="sec-container">
-          <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content;">
-            <div class="card-header"> Bookings</div>
-            <div class="card-body" style="height: fit-content;">
-              <form action="" method="post">
-                
-              <table width="100%;" style="text-align: center;">
-              <tr>
-                <td>
-                  <div class="flex-class">
-                    <div class="input1">
-                      <select class="form-select shadow-lg" id="sortControl" name="sortControl" style="margin: 20px;">
-                        <option value="" selected disabled>Sort By</option>
-                        <option value="date">Date</option>
-                        <option value="dest">destination</option>
-                        <!-- <option value="availbility">Availability</option> -->
-                      </select>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="flex-class">
-                    <div class="input1">
-                      <select class="form-select shadow-lg" id="filterControl" name="filterControl" style="margin: 20px;">
-                        <option value="" selected disabled>Filter By</option>
-                        <option value="bookDate">Today</option>
-                        
-                      </select>
-                    </div>
-                  </div>
-                </td>
-                <!-- <td>
-                  <div class="flex-class">
-                    <input type="text" class="form-control shadow-lg" placeholder=" Ride Number " aria-label="ride number" name="rideNumber">
-                  </div>
-                </td> -->
-                <td>
-                  <div class="flex-class">
-                    <div class="input1">
-                      <input type="submit" class="form-control btn shadow-lg"  value=" Search " style="border: 1px solid white; color: white;">
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </table>
-              </form>
-            </div>
-          </div>
-        </div>
         <div class="card text-dark bg-transparent mb-3 shadow-lg" style="width: fit-content;">
           <div class="card-header"> Bookings</div>
           <div class="card-body" style="height: fit-content; max-height: 80vh; overflow-y: auto;">
+            <form action="actionPages/assignTransport.php" method="post">
             <table class="table table-borderless shadow-lg">
               <thead>
                 <tr style="font-family: 'Dancing Script', cursive; font-size: 24px;">
@@ -234,33 +175,36 @@
               </thead>
               <tbody>
                 <?php
-
-                
-                  if(isset($_POST['bookingid'])){
+                  if(isset($_POST['bookId'])){
                     // echo $_POST['bookingid'];
-                    $bookingid=$_POST['bookingid'];
+                    $bookingid=$_POST['bookId'];
                   }else{
                     // echo "not defined";
                     $bookingid="";
                   }
 
                   $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."'";
-                  echo "j = ".date('j');
-                  echo "d = ".date('d');
-                  echo "m = ".date('m');
-                  echo "y = ".date('y');
-                  echo "Y = ".date('Y');
-                  echo "date = ".date('d-m-Y');
-                  echo "date time = ".date('d-m-Y, H:i:s');
-                  echo"";
 
-                  
-                  if(isset($_POST['sortControl'])){
+                  if(isset($_POST['bookId'])){
+                    $sel="select * from banda where bookingId='".$_POST['bookId']."'";
+                    $rs=$db->selectData($sel);
+                    if($row=mysqli_fetch_array($rs)){
+                      $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."' and banda.bookingId='$bookingid'";
+                    }
+                  }
+                  if(isset($_POST['sortControl']) && $bookingid==""){
                     if($_POST['sortControl']=="date"){
                       $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."' ORDER BY banda.bookDate desc";
                     }
                     else if ($_POST['sortControl']=="dest") {
                       $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."' ORDER BY banda.destination";
+                    }
+                  }else if(isset($_POST['sortControl']) && $bookingid!=""){
+                    if($_POST['sortControl']=="date"){
+                      $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."' and banda.bookingId='$bookingid' ORDER BY banda.bookDate desc";
+                    }
+                    else if ($_POST['sortControl']=="dest") {
+                      $selquery="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."' and banda.bookingId='$bookingid' ORDER BY banda.destination";
                     }
                   }
                   // if(isset($_POST['filterControl'])){
@@ -274,9 +218,9 @@
 
                    echo $selquery;
 
-                  if($bookingid !== ""){
-                    $selquery=$selquery." and where banda.bookingId='".$_POST['bookingid']."'";
-                  }
+                  // if($bookingid !== ""){
+                  //   $selquery=$selquery." and where banda.bookingId='".$_POST['bookId']."'";
+                  // }
                   // $s="select * from banda inner join station on banda.Astation=station.sName where station.stationStaff='".$_SESSION['staff']."'";
 
                   $rs=$db->selectData($selquery);
@@ -290,6 +234,8 @@
                     <tr class="data shadow-lg">
                     <!-- <td><?php echo $row['bandaId']; ?></td> -->
                     <td><?php echo $row['bookingId']; ?></td>
+
+                    <td hidden><input class="form-control" type="text" name="idcode" id="idcode" value="<?php echo $row['bookingId']; ?>"></td>
                     <!-- <td><?php echo $row['Astation']; ?></td> -->
                     <td><?php echo $row['destination']; ?></td>
                     <!-- <td><?php echo $row['ticketFare']; ?></td> -->
@@ -298,8 +244,8 @@
                     <td><?php echo $row['bookDate']; ?></td>
                     <!-- <td><?php echo $row['numCab']; ?></td> -->
                     <!-- <td><?php echo $row['numAuto']; ?></td> -->
-                    <td>
-                      <select class="form-select shadow-lg" id="filterControl" name="filterControl" style="margin: 20px;">
+                    <!-- <td>
+                      <select class="form-select shadow-lg" id="DriveType" name="DriveType" style="margin: 20px;">
                         <option value="" selected disabled>select an option</option>
                         <?php
 
@@ -313,10 +259,15 @@
                           }
                         ?>
                       </select>
-                    </td>
-                    <td><a href="actionPages/assignTransport.php?id=<?php echo $row['bandaId']; ?>">Assign</a></td>
+                    </td> -->
+                    <!-- <td>
+                    <div>
+                      <input class="form-control" type="submit" name="" value="assign">
+                    </div>
+                    </td> -->
+                    <td><a class="link-" href="actionPages/assignTransport.php?id=<?php echo $row['bandaId']; ?>">Assign</a></td>
                     <td><a href="actionPages/reassignTransport.php?id=<?php echo $row['bandaId']; ?>">Reassign</a></td>
-                    <td><a href="actionPages/deleteBooking.php?id=<?php echo $row['bandaId']; ?>">Move to history</a></td>
+                    <td><a href="actionPages/deleteBooking.php?id=<?php echo $row['bandaId']; ?>">delete</a></td>
                     </tr>
                   <?php $i++;} 
                   }
@@ -326,6 +277,7 @@
                   ?>
               </tbody>
             </table>
+          </form>
           </div>
         </div>
       </div>

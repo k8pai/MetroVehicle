@@ -1,7 +1,7 @@
 <?php 
   session_start();
   if(!isset($_SESSION['admin'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
 ?>
 <!doctype html>
@@ -48,8 +48,9 @@
       <a href="../logout.php">logout</a>
     </div>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -57,7 +58,6 @@
       <a href="adminhome.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 24px;"></a>
     </div>
   </nav>
-
   <div class="content-containers">
     <div class="container-div">
         <div class="card text-dark bg-transparent mb-3 shadow-lg">
@@ -146,9 +146,16 @@
                     $rs=$db->selectData($sel);
                     if($row=mysqli_fetch_array($rs)){
                       $s=$sel;
+                    }else{
+                    ?>
+                    <tr class="data shadow-lg" style="text-align: center;">
+                    <td colspan="8"><h3>No Records Found</h3></td>
+                    </tr>
+                    <?php
                     }
                   }
                   $rs=$db->selectData($s);
+
                   while($row=mysqli_fetch_array($rs))
                   {
                   ?>
@@ -156,10 +163,11 @@
                     <td><?php echo $row['regId']; ?></td>
                     <td><?php echo $row['fname']; ?></td>
                     <td><?php echo $row['lname']; ?></td>
-                    <td><?php echo $row['utype']; ?></td>
+                    <!-- <td><?php echo $row['utype']; ?></td> -->
                     <td><?php echo $row['gen']; ?></td>
                     <td><?php echo $row['ph']; ?></td>
                     <td><?php echo $row['mail']; ?></td>
+                    <td><a href="actionPages/deleteUser.php?id=<?php echo $row['mail']; ?>">Delete</a></td>
                     </tr>
                   <?php } ?>
               </tbody>

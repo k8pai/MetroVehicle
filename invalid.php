@@ -37,12 +37,12 @@
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <div style="position: absolute; right: 30px; top: 20px; cursor: pointer;">
-      <a onclick="goBack()"><img src="baseline_close_white_24dp.png"></a>
+      <a onclick="goBack()"><img src="1x/baseline_close_white_24dp.png"></a>
     </div>
     <div style="position:  absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);">
       <p>Hold tight!</p>
-      <p>We are on our way....</p>
-      <!-- <p>Mail us Here  <a href="mailto:thek8pai@gmail.com"><img src="baseline_mail_outline_white_24dp.png"></a></p> -->
+      <!-- <p>We are on our way....</p> -->
+      <p>Mail us Here  <a href="mailto:thek8pai@gmail.com"><img src="1x/baseline_mail_outline_white_24dp.png"></a></p>
          
         
     </div>

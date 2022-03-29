@@ -63,11 +63,10 @@
           <form class="form-cards" action="regaction.php" method="post">
             <h1> Register Here! </h1><br><br>
               <div class="input1">
-                <input type="text" class="form-control" placeholder="First name" aria-label="First name" id="fname" name="fname" pattern="[a-z A-z]+"
-                required autofocus>
+                <input type="text" class="form-control" placeholder="First name" aria-label="First name" id="fname" name="fname" pattern="[a-z A-z]+" oninvalid="setCustomValidity('Usernames can only contain alphabets.')" onchange="try{setCustomValidity('')}catch(e){}" required autofocus>
               </div>
               <div class="input1">
-                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" id="lname" name="lname" pattern="[a-z A-z]+" required>
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" id="lname" name="lname" pattern="[a-z A-z]+" oninvalid="setCustomValidity('Usernames can only contain alphabets.')" onchange="try{setCustomValidity('')}catch(e){}" required>
               </div>
               <div class="input1">
                 <div class="form-check" name="flagval">
@@ -85,14 +84,14 @@
                 </div>
               </div>
               <div class="input1">
-                <input type="text" class="form-control" placeholder="Phone Number" aria-label="Last name" name="ph" id="ph" pattern="[0-9]{10}" required>
+                <input type="text" class="form-control" placeholder="Phone Number" aria-label="Last name" name="ph" id="ph" pattern="[0-9]{10}" oninvalid="setCustomValidity('Phone numbers should contain only 10 digits')" onchange="try{setCustomValidity('')}catch(e){}" required>
               </div>
               <div class="input1">
-                <input type="text" class="form-control" placeholder="Email" aria-label="Last name" name="mail" id="mail" required>
+                <input type="text" class="form-control" placeholder="Email" aria-label="Last name" name="mail" id="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninvalid="setCustomValidity('Try the format : example@domain.com. (small letters)')" onchange="try{setCustomValidity('')}catch(e){}" required>
               </div>
               <div class="input1">
                 <!-- <i class="far fa-eye" id="togglePassword" style=" cursor: pointer;"></i> -->
-                <input type="password" class="form-control" placeholder="Password" aria-label="Last name" name="pass" id="pass" required> 
+                <input type="password" class="form-control" placeholder="Password" aria-label="Last name" name="pass" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" oninvalid="setCustomValidity('Must contain at least one  number and one uppercase and lowercase letter, and at least 5 or more characters.')" onchange="try{setCustomValidity('')}catch(e){}" required> 
               </div>
                 <br><br><br>
               <div class="input1">

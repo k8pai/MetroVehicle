@@ -26,7 +26,7 @@
 				echo "<script>alert('Updated successfully'); window.location='../ticketBooking.php';</script>";
 		  	}
 	  		else{
-				echo "<script>alert('Every Cabs are present at the station.');window.location='../../ticketBooking.php';</script>";
+				echo "<script>alert('Every Cabs are present at the station.');window.location='../ticketBooking.php';</script>";
 			}
 		}
 		if ($row['transMode'] == "E-AutoRickshaw") {

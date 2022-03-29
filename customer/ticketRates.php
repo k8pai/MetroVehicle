@@ -3,7 +3,7 @@
   include('dbcon.php');
   $db=new dbcon();
   if(!isset($_SESSION['cust'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
   $srcName="null";
   $destName="null";
@@ -57,7 +57,7 @@
     <a href="printTicket.php">E-Ticket</a>
     <a href="cancel.php">Cancel ticket</a>
     <a href="complaint.php">Complaint</a>
-    <a href="../logout.php">logout</a>
+    <!-- <a href="../logout.php">logout</a> -->
   </div>
   <div id="dropMenu" class="dropMenu bg-dark text-light">
     <div class="dropHeader-div">
@@ -69,8 +69,9 @@
     </div>
     <hr>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -81,7 +82,7 @@
       </label>
       <a href="customerHome.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
       <div class="dec-none">
-        <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+        <a href="logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
       </div>
     </div>
   </nav>    

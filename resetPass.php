@@ -63,7 +63,7 @@
             <div class="input1">
               <!-- <form action="checkMail.php" method="post"> -->
                 <!-- <div class="input1"> -->
-                  <input type="text" class="form-control" placeholder="Registered Email" aria-label="First name" id="mail" name="mail" required autofocus><!-- 
+                  <input type="text" class="form-control" placeholder="Registered Email" aria-label="First name" id="mail" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" oninvalid="setCustomValidity('Try the format : example@domain.com. (small letters)')" onchange="try{setCustomValidity('')}catch(e){}" required autofocus><!-- 
                   <span style="margin: 5px;"></span>
                   <input type="submit" class="btn btn-outline-dark" name="btn" id="btn" value="check"> -->
                 <!-- </div> -->
@@ -71,11 +71,11 @@
             </div>
             <br>
             <div class="input1">
-              <input type="password" class="form-control" placeholder="New Password" aria-label="First name" id="pass" name="pass" required autofocus>
+              <input type="password" class="form-control" placeholder="New Password" aria-label="First name" id="pass" name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" oninvalid="setCustomValidity('Must contain at least one  number and one uppercase and lowercase letter, and at least 5 or more characters.')" onchange="try{setCustomValidity('')}catch(e){}" required autofocus>
             </div>
             <br>
             <div class="input1">
-              <input type="password" class="form-control" placeholder="Re-enter New Password" aria-label="First name" id="repass" name="repass" required autofocus>
+              <input type="password" class="form-control" placeholder="Re-enter New Password" aria-label="First name" id="repass" name="repass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" oninvalid="setCustomValidity('Must contain at least one  number and one uppercase and lowercase letter, and at least 5 or more characters.')" onchange="try{setCustomValidity('')}catch(e){}" required autofocus>
             </div>
             <div class="input1">
               <input type="submit" class="btn btn-outline-dark" name="btn" id="btn" value="Confirm">

@@ -29,18 +29,21 @@
 
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <div id="dropMenu" class="dropMenu bg-dark text-white">
-    <div class="dropHeader-div">
+  <div id="mySidenav" class="sidenav bg-dark text-light" style="height: 130vh;">
+    <div class="closebtn-div">
+      <a href=""></a>
+    </div>
+    <div class="sidenav-div">
       <a href="viewticketRates.php">View Ticket Rates</a>
       <a href="#next">What's Next</a>
       <a href="#contact">Contact Us</a>
       <a href="#visit">Visit</a>
     </div>
-    <hr>
   </div>
   <nav id="navbar" class="navbar sticky-top text-white bg-dark">
-    <label class="dropmenu-div" for="drop-Menu" onclick="dropMenu()">
-    <a href="#gototop"><img src="1x/baseline_menu_white_24dp.png"></a>
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label class="menu-btn" for="checkMenu" id="Menu-open" onclick="openNav()">
+    <img src="1x/baseline_menu_white_24dp.png">
     </label>
     <span class="nav-divider"></span>
     <a href="index.php" class="header"><h3>Metro By Vehicles</h3></a>
@@ -54,7 +57,7 @@
   </nav>
     
   <div class="content" id="content">
-    <div class="content-containers">
+    <div class="content-containers" style="margin-left: 270px;">
       <div class="aln-vert">
       <div class="content-containers-div">
         <div class="img-box">

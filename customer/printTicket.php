@@ -5,6 +5,8 @@
   date_default_timezone_set('Asia/Kolkata');
 
   $expire="";
+  $ticketStatus="valid";
+  $bookingId=$_SESSION['bookingId'];
   if(isset($_SESSION['expire']))
   {
     $expire=$_SESSION['expire'];
@@ -24,20 +26,20 @@
   }
 
   if(date('H:i:sa') > $expire){
+    $ticketStatus="expired";
     unset($_SESSION['start']);
     unset($_SESSION['expire']);
     unset($_SESSION['pickLoc']);
     unset($_SESSION['transMode']);
+    $selquery="update banda set ticketStatus='$ticketStatus' where bookingId='$bookingId'";
+    $db->insertQuery($selquery);
+
   }
 
   if(!isset($_SESSION['pickLoc'])){
     echo "<script>alert('you have not booked your ticket!');window.location='ticketBooking.php';</script>";
   }
-
-  if(!isset($_SESSION['payment'])){
-    echo "<script>alert('Your payment is pending.');</script>;";
-  }
-
+  
   $selquery="select * from bookinghistory where bookingId='".$_SESSION['bookingId']."'";
   $query=$db->selectData($selquery);
   if($row=mysqli_fetch_array($query))
@@ -47,6 +49,10 @@
     }
     $_SESSION['bookingStatus']=$row['bookingStatus'];
     $_SESSION['paymentStatus']=$row['paymentStatus'];
+  }
+  
+  if(!isset($_SESSION['payment'])){
+    echo "<script>alert('Your payment is pending.');</script>;";
   }
 
   if(!isset($_SESSION['expire'])){
@@ -90,26 +96,27 @@
     <div class="closebtn-div">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
-    <a href="/customer/customerHome.php" >Home</a>
-    <a href="/customer/ticketRates.php">Ticket Rates</a>
-    <a href="/customer/ticketBooking.php">Booking</a>
-    <a href="/customer/bookingdetails.php">Booking details</a>
-    <a href="/customer/printTicket.php">E-Ticket</a>
-    <a href="/customer/cancel.php">Cancel ticket</a>
-    <a href="/customer/complaint.php">Complaint</a>
+    <a href="customerHome.php" >Home</a>
+    <a href="ticketRates.php">Ticket Rates</a>
+    <a href="ticketBooking.php">Booking</a>
+    <a href="bookingdetails.php">Booking details</a>
+    <a href="printTicket.php">E-Ticket</a>
+    <a href="cancel.php">Cancel ticket</a>
+    <a href="complaint.php">Complaint</a>
   </div>
   <div id="dropMenu" class="dropMenu bg-dark text-light">
     <div class="dropHeader-div">
       <a href=""></a>
-      <a href="/customer/ticketRates.php">Ticket Rates</a>
-      <a href="/customer/transportation.php">Transportation</a>
+      <a href="ticketRates.php">Ticket Rates</a>
+      <a href="transportation.php">Transportation</a>
       <a href="privacypolicy.php"> Privacy Policy </a>
-      <a href="/customer/printTicket.php">E-Ticket</a>
+      <a href="printTicket.php">E-Ticket</a>
     </div>
     <hr>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -120,7 +127,7 @@
       </label>
       <a href="customerHome.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
       <div class="dec-none">
-        <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+        <a href="logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
       </div>
     </div>
   </nav>

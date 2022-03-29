@@ -1,7 +1,8 @@
 ﻿<?php 
   session_start();
   if(!isset($_SESSION['admin'])){
-    header('location: login.php');
+    header('location: ../
+../login.php');
   }
 ?>
 <!doctype html>
@@ -48,8 +49,9 @@
       <a href="logout.php">logout</a>
     </div>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -69,6 +71,9 @@
             </div>
             <div class="input1">
               <input type="text" class="form-control shadow-lg" placeholder=" Station Name " aria-label="Station name" name="sname" required>
+            </div>
+            <div class="input1">
+              <input type="text" class="form-control shadow-lg" placeholder=" Staff Id " aria-label="Station Staff" name="sStaff" required>
             </div>
             <div class="input1">
               <input type="submit" class="form-control btn shadow-lg"  value=" Add Station " style=" transition: 0.4s; margin: 20px; border-radius: 7px; border: 1px solid;">

@@ -4,6 +4,8 @@
 	$db=new dbcon;
 	date_default_timezone_set('Asia/Kolkata');
 
+
+	$ticketStatus="valid";
 	$b=$_POST['Bstation'];
 	$c=$_POST['Astation'];
 	$transMode=$_POST['mot'];
@@ -12,7 +14,7 @@
 	$randcode=mt_rand(10000,99999);
 	$bookId="cbkid".mt_rand(1234444,1239999);
 	$dateVar=date('j/m/y, H:i');
-	$dateStamp=date('d-m-Y, H:i:s');
+	$dateStamp=date('Y-m-d, H:i:s');
 	$userName=$_SESSION['cust'];
 
 	echo $userName;
@@ -50,7 +52,7 @@
 	if($row2=mysqli_fetch_array($query2)){
 		if($_SESSION['transMode']="Cab"){
 			if($_SESSION['numCab']>0){
-				$sql="insert into banda(bookingId,Bstation,Astation,destination,transMode,ticketFare,randCode,paymentStatus,custCount,bookDate) values ('$bookId','$b','$c','$dest','$transMode','$ticketFare','$randcode','Pending','$custcount','$dateStamp')";
+				$sql="insert into banda(bookingId,Bstation,Astation,destination,transMode,ticketFare,randCode,paymentStatus,custCount,bookDate,ticketStatus) values ('$bookId','$b','$c','$dest','$transMode','$ticketFare','$randcode','Pending','$custcount','$dateStamp','$ticketStatus')";
 				$db->insertQuery($sql);
 				$sql="insert into bookinghistory(userName,fromStation,toStation,transportMode,ticketFare,bookingStatus,paymentStatus,passengerCount,date,bookingId) values ('$userName','$c','$dest','$transMode','$ticketFare','booked','pending','$custcount','$dateVar','$bookId')";
 				$db->insertQuery($sql);
@@ -68,7 +70,7 @@
 		}
 		else if($_SESSION['transMode']="E-AutoRickshaw"){
 			if($_SESSION['numAuto']>0){
-				$sql="insert into banda(bookingId,Bstation,Astation,destination,transMode,ticketFare,randCode,paymentStatus,custCount,bookDate) values ('$bookId','$b','$c','$dest','$transMode','$ticketFare','$randcode','Pending','$custcount','$dateStamp')";
+				$sql="insert into banda(bookingId,Bstation,Astation,destination,transMode,ticketFare,randCode,paymentStatus,custCount,bookDate,ticketStatus) values ('$bookId','$b','$c','$dest','$transMode','$ticketFare','$randcode','Pending','$custcount','$dateStamp','$ticketStatus')";
 				$db->insertQuery($sql);
 				$sql="insert into bookinghistory(userName,fromStation,toStation,transportMode,ticketFare,bookingStatus,paymentStatus,passengerCount,date,bookingId) values ('$userName','$c','$dest','$transMode','$ticketFare','booked','pending','$custcount','$dateVar','$bookId')";
 				$db->insertQuery($sql);
@@ -86,7 +88,7 @@
 		}
 		else if($_SESSION['transMode']="Bi-Cycle"){
 			if($_SESSION['numCycle']>0){
-				$sql="insert into banda(bookingId,Bstation,Astation,destination,transMode,ticketFare,randCode,paymentStatus,custCount,bookDate) values ('$bookId','$b','$c','$dest','$transMode','$ticketFare','$randcode','Pending','$custcount','$dateStamp')";
+				$sql="insert into banda(bookingId,Bstation,Astation,destination,transMode,ticketFare,randCode,paymentStatus,custCount,bookDate,ticketStatus) values ('$bookId','$b','$c','$dest','$transMode','$ticketFare','$randcode','Pending','$custcount','$dateStamp','$ticketStatus')";
 				$db->insertQuery($sql);
 				$sql="insert into bookinghistory(userName,fromStation,toStation,transportMode,ticketFare,bookingStatus,paymentStatus,passengerCount,date,bookingId) values ('$userName','$c','$dest','$transMode','$ticketFare','booked','pending','$custcount','$dateVar','$bookId')";
 				$db->insertQuery($sql);

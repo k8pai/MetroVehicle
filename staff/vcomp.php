@@ -3,7 +3,7 @@
   include('dbcon.php');
   $db=new dbcon;
   if(!isset($_SESSION['staff'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
 ?>
 <!doctype html>
@@ -42,19 +42,21 @@
       <a href="staffhome.php">Home</a>
       <a href="vreg.php">User Details</a>
       <a href="ticketBooking.php">Booking</a>
+      <a href="driverDetails.php">Drivers</a>
       <a href="mop.php">Payments</a>
       <a href="vcomp.php">Complaint</a>
       <!-- <a href="../logout.php">logout</a> -->
     </div>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
     <div class="header-right">
       <div class="dec-none">
-        <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+        <a href="logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
       </div>
     </div>
   </nav>

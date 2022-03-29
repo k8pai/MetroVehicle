@@ -3,7 +3,7 @@
   include('dbcon.php');
   $db=new dbcon;
   if(!isset($_SESSION['cust'])){
-    header('location: login.php');
+    header('location: ../login.php');
   }
 ?>
 <!doctype html>
@@ -55,8 +55,9 @@
     </div>
     <hr>
   </div>
-  <nav id="navbar" class="navbar text-white bg-dark">
-    <a class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></a>
+  <nav id="navbar" class="navbar sticky-top text-white bg-dark">
+    <input type="checkbox" name="checkMenu" id="checkMenu" hidden>
+    <label for="checkMenu" class="menu-btn" id="Menu-open" onclick="openNav()"><img src="1x/baseline_menu_white_24dp.png"></label>
     <span class="nav-divider"></span>
     <span class="header"><h3>Metro By Vehicles</h3></span>
     <span class="flex-class"></span>
@@ -67,13 +68,13 @@
       </label>
       <a href="customerHome.php"><img src="icons8/icons8-homepage-64.png" style="font-size: 48px;"></a>
       <div class="dec-none">
-        <a href="../logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
+        <a href="logout.php">Log out<img src="icons8/icons8-logout-48.png" style="font-size: 32px;"></a>
       </div>
     </div>
   </nav>
   <div id="section" class="section-div">
     <div class="section-container-div">
-      <div class="card text-dark bg-transparent shadow-lg" style="width: fit-content; min-height: 80vh; height: fit-content; overflow: auto; float: left; margin-left: 275px; margin-top: 210px;">
+      <div class="card text-dark bg-transparent shadow-lg" style="width: fit-content; max-height: 80vh; height: fit-content; overflow: auto; float: left; margin-left: 275px; margin-top: 210px;">
         <div class="card-header"> Available mode of transports.</div>
         <div class="card-body">
           <table class="table table-borderless" style="width: fit-content;">
@@ -157,7 +158,7 @@
               </div>
             </form>
           <hr>
-          <h5 class="card-title">Filter Section</h5>
+          <!-- <h5 class="card-title">Filter Section</h5>
           <hr>
             <form action="" method="post">
               <div class="input1">
@@ -172,7 +173,7 @@
               <div class="input1">
                 <input type="submit" class="form-control btn shadow-lg"  value=" submit " style="border: 1px solid white; color: white;">
               </div>
-            </form>
+            </form> -->
         </div>
       </div>
     </div>

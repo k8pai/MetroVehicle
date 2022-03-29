@@ -4,6 +4,7 @@
 	
 	$scode=$_POST['scode'];
 	$sname=$_POST['sname'];
+	$sstaff=$_POST['sStaff'];
 	
 	$selquery="select * from station";
 	$query=$db->selectData($selquery);
@@ -18,7 +19,7 @@
 			exit();
 		}
 	}
-	$sql="insert into station(sCode,sName) values ('$scode','$sname')";
+	$sql="insert into station(sCode,sName,stationStaff,numCab,numAuto,numCycle) values ('$scode','$sname','$sstaff','3','3','10')";
 	$db->insertQuery($sql);
 
 	echo "<script>alert('Station Added');window.location='../station.php'</script>";
